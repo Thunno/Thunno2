@@ -116,7 +116,7 @@ def run(flags, code, inputs):
 
     if 'V' in flags:
         new_flags = ''.join(f for f in flags if f != 'V')
-        for line in inputs:
+        for line in inputs.splitlines():
             try:
                 x = eval(line)
                 if isinstance(x, tuple):
