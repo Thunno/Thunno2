@@ -32,7 +32,7 @@ setup(
     packages=find_packages(),
     entry_points={
         'console_scripts': [
-            'thunno2 = run:from_cmdline'
+            'thunno2 = thunno2.run:from_cmdline'
         ]
     }
 )
