@@ -127,7 +127,7 @@ def run(flags, code, inputs):
                 new_inputs = [line]
             commands.ctx.og_input_list = new_inputs.copy()
             commands.ctx.other_il = new_inputs.copy()
-            print(line, '--> ')
+            print(line, '--> ', end='')
             interpreter.run(code, n=0, iteration_index=0)
             process_output_flags(new_flags)
         return None

@@ -1,13 +1,14 @@
 Metadata-Version: 2.1
 Name: thunno2
-Version: 2.0.3
+Version: 2.0.6
 Summary: A golfing language
 Home-page: https://github.com/Thunno/Thunno2
-Download-URL: https://github.com/Thunno/Thunno2/archive/refs/tags/v2.0.3.tar.gz
 Author: Rujul Nayak
 Author-email: rujulnayak@outlook.com
 License: MIT
+Download-URL: https://github.com/Thunno/Thunno2/archive/refs/tags/v2.0.6.tar.gz
 Keywords: golfing,code-golf,language
+Platform: UNKNOWN
 Classifier: Development Status :: 3 - Alpha
 Classifier: Intended Audience :: Developers
 Classifier: Topic :: Software Development :: Build Tools
@@ -21,3 +22,4 @@ Classifier: Programming Language :: Python :: 3.10
 Description-Content-Type: text/x-rst
 
 Thunno is a golfing language written in Python. Learn more at https://github.com/Thunno/Thunno2
+
