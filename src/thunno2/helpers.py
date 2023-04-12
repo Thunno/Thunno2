@@ -2426,3 +2426,11 @@ def listify(x):
     if isinstance(x, (list, str)):
         return list(copy.deepcopy(x))
     return one_range(x)
+
+
+def optimal_dictionary_compression(s):
+    words = s.split(' ')
+    ret = []
+    for word in words:
+        for l in integer_partitions(len(word))[::-1]:
+            pass  # idk what to do here, i'll work on it tmrw
