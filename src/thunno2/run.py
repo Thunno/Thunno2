@@ -1,5 +1,5 @@
-from thunno2 import lexer, version
-import flags, sys
+from thunno2 import lexer, version, flags
+import sys
 
 
 def from_terminal():
