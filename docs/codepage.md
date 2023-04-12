@@ -1,3 +1,7 @@
+# Thunno 2 Codepage
+
+Note: this is the same as the [Jelly codepage](https://github.com/DennisMitchell/jellylanguage/wiki/Code-page). Just like with Jelly, `¶` and the linefeed character are interchangeable.
+
 |   |\_0|\_1|\_2|\_3|\_4|\_5|\_6|\_7|\_8|\_9|\_A|\_B|\_C|\_D|\_E|\_F|
 |---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
 |**0\_**|`¡`|`¢`|`£`|`¤`|`¥`|`¦`|`©`|`¬`|`®`|`µ`|`½`|`¿`|`€`|`Æ`|`Ç`|`Ð`|
