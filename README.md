@@ -1,2 +1,3 @@
-# Thunno2
- 
+# Thunno 2
+
+A concise golfing language
