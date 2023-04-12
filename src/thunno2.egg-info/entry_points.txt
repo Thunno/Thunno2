@@ -1,0 +1,3 @@
+[console_scripts]
+thunno2 = run:from_cmdline
+
