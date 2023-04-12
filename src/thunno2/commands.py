@@ -23,8 +23,8 @@ class Stack(list):
                     yield x
                 else:
                     yield default
-    
-    
+
+
 class Context:
     def __init__(self):
         self.stack = Stack()
@@ -32,7 +32,7 @@ class Context:
         self.other_il = []
         self.implicit_print = True
         self.warnings = False
-        
+
 
 ctx = Context()
 
