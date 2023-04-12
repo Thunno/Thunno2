@@ -2,6 +2,8 @@
 
 |Flag|Description|
 |-|-|
+|`w`|Enable warnings|
+|`V`|Verify all test cases|
 |`W`|Take input as one multi-line string|
 |`E`|Don't evaluate the inputs|
 |`Z`|Preset top of stack to `0`|
@@ -20,5 +22,7 @@
 |`s`|Sum stack at the end|
 |`L`|Push length of top of stack at the end|
 |`l`|Push length of stack at the end|
+|`h`|Push first item of top of stack at the end|
+|`t`|Push last item of top of stack at the end|
 |`O`|Force implicit output at the end|
 |`o`|Disable implicit output at the end|
