@@ -32111,6 +32111,7 @@ def dictionary_compress_word(word):
     base_180_num = helpers.number_to_base_digits(index, 180)
     return ''.join(map(dictionary_codepage.__getitem__, base_180_num)).rjust(2, '¡')
 
+
 def dictionary_decompress_string(s):
     base_180_num = [*map(dictionary_codepage.index, s)]
     index = helpers.from_list_of_digits_2(base_180_num, 180)
