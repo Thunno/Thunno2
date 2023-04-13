@@ -108,6 +108,17 @@ def process_output_flags(flags):
         if 't' == flag:
             commands.ctx.stack.push(commands.commands['t']()[0])
 
+        if 'B' == flag:
+            x = (commands.ctx.stack + commands.ctx.other_il + [0])[0]
+            if isinstance(x, list):
+                r = ''
+                for i in x:
+                    try:
+                        r += chr(int(i))
+                    except:
+                        pass
+                commands.ctx.stack.push(r)
+
     if (commands.ctx.implicit_print or ('O' in flags)) and not ('o' in flags):
         print(next(commands.ctx.stack.rmv(1)))
 
