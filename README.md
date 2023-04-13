@@ -4,6 +4,8 @@ A concise golfing language
 
 ## Installation
 
+You'll need Python 3.6+ to run Thunno 2. If you don't have this already, you can download it from [here](https://www.python.org/downloads/).
+
 You can install Thunno 2 via [PyPI](//pypi.org).
 
 Run the following command in your terminal:
