@@ -6,7 +6,7 @@ import random
 import re
 import string
 
-from thunno2 import codepage, dictionary
+from thunno2 import codepage
 
 
 def safe_max_len(*lsts):
@@ -2426,37 +2426,3 @@ def listify(x):
     if isinstance(x, (list, str)):
         return list(copy.deepcopy(x))
     return one_range(x)
-
-
-def backslashify(s):
-    r = ''
-    for c in s:
-        if c in dictionary.dictionary_codepage + '\\':
-            r += '\\' + c
-        else:
-            r += c
-    return r
-
-
-def optimal_dictionary_compression(s):
-    words = re.findall('([a-z]+)([^a-z]+)', s.lower())
-    ret = ''
-    for word, other_stuff in words:
-        if not (words + other_stuff):
-            continue
-        compressions = []
-        for l in integer_partitions(len(word))[::-1]:
-            x = []
-            for i in l:
-                x.append(word[:i])
-                word = word[i:]
-            compressions.append(
-                ''.join(
-                    dictionary.dictionary_compress_word(w)
-                    if dictionary.dictionary_compress_word(w) != -1
-                    else w
-                    for w in x
-                ) + backslashify(other_stuff)
-            )
-        ret += min(compressions, key=len)
-    return ret
