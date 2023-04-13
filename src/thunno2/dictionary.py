@@ -32096,7 +32096,7 @@ zulus""".splitlines()
 
 from thunno2 import codepage
 from thunno2 import helpers
-import string
+import string, re
 
 ignore_chars = string.ascii_letters + string.digits + r'''.,!?:\"'%() ‘’'''
 dictionary_codepage = ''.join(char for char in codepage.CODEPAGE if char not in ignore_chars)
@@ -32111,7 +32111,43 @@ def dictionary_compress_word(word):
     base_180_num = helpers.number_to_base_digits(index, 180)
     return ''.join(map(dictionary_codepage.__getitem__, base_180_num)).rjust(2, '¡')
 
+
 def dictionary_decompress_string(s):
     base_180_num = [*map(dictionary_codepage.index, s)]
     index = helpers.from_list_of_digits_2(base_180_num, 180)
     return words[index]
+
+
+def backslashify(s):
+    r = ''
+    for c in s:
+        if c in dictionary_codepage + '\\':
+            r += '\\' + c
+        else:
+            r += c
+    return r
+
+
+def optimal_dictionary_compression(s):
+    words = re.findall('([a-z]+)([^a-z]+)', str(s).lower())
+    ret = ''
+    for word, other_stuff in words:
+        if not (word + other_stuff):
+            continue
+        compressions = []
+        for l in helpers.integer_partitions(len(word))[::-1]:
+            new_word = word
+            x = []
+            for i in l:
+                x.append(new_word[:i])
+                new_word = new_word[i:]
+            compressions.append(
+                ''.join(
+                    dictionary_compress_word(w)
+                    if dictionary_compress_word(w) != -1
+                    else w
+                    for w in x
+                ) + backslashify(other_stuff)
+            )
+        ret += min(compressions, key=len)
+    return ret

@@ -1,3 +1,4 @@
+from thunno2.dictionary import *
 from thunno2.helpers import *
 import sys
 
@@ -1423,8 +1424,19 @@ commands = {
 }
 
 
+string_digraphs = {
+    'D': Overload(1, {
+        Any: optimal_dictionary_compression
+    }, 1, ('optimal_dictionary_compression',)),
+}
+
+
 def get_a_function(command):
+    if not command:
+        return Void
     if len(command) == 1:
         return commands.get(command, Void)
+    if command[0] == 'ø':
+        return string_digraphs.get(command[1], Void)
     # Add digraph support here
     return Void

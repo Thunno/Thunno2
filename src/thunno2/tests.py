@@ -135,7 +135,7 @@ def call(cmd, *stk):
     ctx.stack = Stack(stk)
     ctx.warnings = True
     tested_commands.append(cmd)
-    return commands[cmd]()
+    return get_a_function(cmd)()
 
 
 def assert_eq(a, *b):
@@ -1905,6 +1905,10 @@ assert_eq(call('ẓ', '', 10), '')
 
 assert_eq(call('ẓ', 2, [123, 456, 789]), [123])
 assert_eq(call('ẓ', ['abc', 'def', 'ghi', 'jkl', 'mno'], 3), ['abc', 'def'])
+
+# øD
+
+assert_eq(call('øD', 'Hello, World!'), 'Ƙ¥, «ʋ!')
 
 # After all the tests
 
