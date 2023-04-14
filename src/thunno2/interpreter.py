@@ -201,6 +201,13 @@ def run(code, *, n, iteration_index):
                     lst.append(c)
                 i += 1
             ctx.stack.push(''.join(lst))
+        elif desc == 'one word dictionary compression':
+            ctx.stack.push(dictionary.dictionary_decompress_string(info).title())
+        elif desc == 'two words dictionary compression':
+            ctx.stack.push(
+                dictionary.dictionary_decompress_string(info[:2]).title()
+                + dictionary.dictionary_decompress_string(info[2:]).title()
+            )
         elif desc == 'compressed number' or desc == 'small compressed number':
             base255_number = decompress(info, '»')
             ctx.stack.push(base255_number)

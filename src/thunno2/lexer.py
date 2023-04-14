@@ -1,6 +1,7 @@
 from thunno2.commands import commands, DIGRAPHS, get_a_function, Void
 from thunno2.constants import CONSTANTS
 from thunno2.codepage import codepage_index
+from thunno2.dictionary import dictionary_codepage
 
 
 """Splits Thunno 2 code into tokens to make it easier for the interpreter"""
@@ -193,11 +194,32 @@ def tokenise(code, expected_end=''):
         elif char == '`':
             index += 2
             x = code[index - 1: index + 1]
-            ret.append(('`' + x, 'two characters', x))
+            if (len(x) != 2) or (x[0] not in dictionary_codepage) or (x[1] not in dictionary_codepage):
+                ret.append(('`' + x, 'two characters', x))
+            else:
+                ret.append(('`' + x, 'one word dictionary compression', x))
         elif char == 'ʋ':
             index += 3
             x = code[index - 2: index + 1]
-            ret.append(('ʋ' + x, 'three characters', x))
+            try:
+                nxt = code[index + 1]
+            except:
+                nxt = ''
+            if (len(x) != 3) or (
+                (
+                    x[0] not in dictionary_codepage
+                ) or (
+                    x[1] not in dictionary_codepage
+                ) or (
+                    x[2] not in dictionary_codepage
+                ) or (
+                    nxt not in dictionary_codepage
+                )
+            ):
+                ret.append(('ʋ' + x, 'three characters', x))
+            else:
+                index += 1
+                ret.append(('ʋ' + x + nxt, 'two words dictionary compression', x + nxt))
         elif char == '[':
             s = char
             index += 1
