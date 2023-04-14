@@ -868,6 +868,8 @@ assert_eq(call('*', ['abc', 'defghi', ''], 4), ['abca', 'defghi', '    '])
 
 assert_eq(call('*', '\\d+', '123abcd7890'), ['123', '7890'])
 
+assert_eq(call('*', [], []), [])
+
 # %
 
 assert_eq(call('%', 3, 10), 1)
