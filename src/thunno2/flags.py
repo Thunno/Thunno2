@@ -1,4 +1,5 @@
 from thunno2 import interpreter, commands, helpers
+import re
 
 
 def process_input_flags(flags, inputs):
@@ -68,7 +69,7 @@ def process_input_flags(flags, inputs):
     return inputs
 
 
-def process_output_flags(flags):
+def process_output_flags(flags, do_print=True):
 
     for flag in flags:
 
@@ -119,6 +120,11 @@ def process_output_flags(flags):
                         pass
                 commands.ctx.stack.push(r)
 
+    if do_print:
+        do_printing(flags)
+
+
+def do_printing(flags):
     if (commands.ctx.implicit_print or ('O' in flags)) and not ('o' in flags):
         print(next(commands.ctx.stack.rmv(1)))
 
@@ -141,6 +147,39 @@ def run(flags, code, inputs):
             print(line, '--> ', end='')
             interpreter.run(code, n=0, iteration_index=0)
             process_output_flags(new_flags)
+        return None
+
+    elif 'C' in flags:
+        new_flags = ''.join(f for f in flags if f != 'C')
+        for l in inputs.splitlines():
+            m = re.match(r"(.+) ?(?:=>|-+>) ?(.+)", l)
+            try:
+                line, output = m[1], m[2]
+                try:
+                    x = eval(line)
+                    if isinstance(x, tuple):
+                        new_inputs = process_input_flags(new_flags, '\n'.join(map(repr, x)))
+                    else:
+                        new_inputs = [x]
+                except:
+                    new_inputs = [line]
+                try:
+                    expected = process_input_flags('', output)
+                except:
+                    expected = output.strip()
+                commands.ctx.og_input_list = new_inputs.copy()
+                commands.ctx.other_il = new_inputs.copy()
+                print(line, '--> ', end='')
+                interpreter.run(code, n=0, iteration_index=0)
+                process_output_flags(new_flags, False)
+                actual_output = next(commands.ctx.stack.rmv(0))
+                print(actual_output, end=' ')
+                if actual_output == expected:
+                    print('PASS ✅')
+                else:
+                    print(f'FAIL ❌ (Expected {expected})')
+            except:
+                pass
         return None
 
     inputs = process_input_flags(flags, inputs)
