@@ -256,7 +256,8 @@ def recursively_distribute(x, y, dct, main=1):
         yield r
     else:
         if not (x + y):
-            pass
+            if main:
+                yield []
         elif not x:
             yield from y
         elif not y:
