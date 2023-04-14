@@ -164,22 +164,23 @@ def run(flags, code, inputs):
                 except:
                     new_inputs = [line]
                 try:
-                    expected = process_input_flags('', output)
+                    expected = process_input_flags('', output)[0]
                 except:
                     expected = output.strip()
-                commands.ctx.og_input_list = new_inputs.copy()
-                commands.ctx.other_il = new_inputs.copy()
-                print(line, '--> ', end='')
-                interpreter.run(code, n=0, iteration_index=0)
-                process_output_flags(new_flags, False)
-                actual_output = next(commands.ctx.stack.rmv(0))
-                print(actual_output, end=' ')
-                if actual_output == expected:
-                    print('PASS ✅')
-                else:
-                    print(f'FAIL ❌ (Expected {expected})')
-            except:
-                pass
+            except Exception as e:
+                print(f'FAIL ❌ (Got error {e})')
+                continue
+            commands.ctx.og_input_list = new_inputs.copy()
+            commands.ctx.other_il = new_inputs.copy()
+            print(line, '--> ', end='')
+            interpreter.run(code, n=0, iteration_index=0)
+            process_output_flags(new_flags, False)
+            actual_output = next(commands.ctx.stack.rmv(1))
+            print(actual_output, end='\t')
+            if actual_output == expected:
+                print('PASS ✅')
+            else:
+                print(f'FAIL ❌ (Expected {expected})')
         return None
 
     inputs = process_input_flags(flags, inputs)
