@@ -4,6 +4,7 @@
 |-|-|
 |`w`|Enable warnings|
 |`V`|Verify all test cases|
+|`C`|Confirm all test cases|
 |`W`|Take input as one multi-line string|
 |`E`|Don't evaluate the inputs|
 |`Z`|Preset top of stack to `0`|
