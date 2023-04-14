@@ -255,7 +255,9 @@ def recursively_distribute(x, y, dct, main=1):
                         print('Got', (type(x), type(i)), file=sys.stderr)
         yield r
     else:
-        if not x:
+        if not (x + y):
+            pass
+        elif not x:
             yield from y
         elif not y:
             yield from x
