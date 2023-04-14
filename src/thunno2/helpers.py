@@ -709,7 +709,7 @@ def product(lst):
                 except:
                     pass
     if not l:
-        return 0
+        return 1
     return math.prod(l)
 
 
