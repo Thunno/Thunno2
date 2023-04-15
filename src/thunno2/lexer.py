@@ -3,7 +3,6 @@ from thunno2.constants import CONSTANTS
 from thunno2.codepage import codepage_index
 from thunno2.dictionary import dictionary_codepage
 
-
 """Splits Thunno 2 code into tokens to make it easier for the interpreter"""
 
 """Creative Commons Legal Code
@@ -206,15 +205,15 @@ def tokenise(code, expected_end=''):
             except:
                 nxt = ''
             if (len(x) != 3) or (
-                (
-                    x[0] not in dictionary_codepage
-                ) or (
-                    x[1] not in dictionary_codepage
-                ) or (
-                    x[2] not in dictionary_codepage
-                ) or (
-                    nxt not in dictionary_codepage
-                )
+                    (
+                            x[0] not in dictionary_codepage
+                    ) or (
+                            x[1] not in dictionary_codepage
+                    ) or (
+                            x[2] not in dictionary_codepage
+                    ) or (
+                            nxt not in dictionary_codepage
+                    )
             ):
                 ret.append(('ʋ' + x, 'three characters', x))
             else:
@@ -408,7 +407,11 @@ def tokenise(code, expected_end=''):
             try:
                 if code[index] in CONSTANTS:
                     x = code[index]
-                    ret.append((char + x, 'constant', CONSTANTS[x]))
+                    c = CONSTANTS[x]
+                    if type(c) == type(lambda: 0):
+                        ret.append((char + x, 'callable constant', c))
+                    else:
+                        ret.append((char + x, 'constant', c))
             except:
                 pass
         elif char == 'ṇ':
