@@ -819,8 +819,8 @@ commands = {
         (Number[0], Number[0]): subtract,
         (str, Number[0]): slice_start,
         (Number[0], str): slice_end,
-        (str, str): strip
-    }, 2, ('subtract', 'minus', 'strip')),
+        (str, str): replace_with_nothing
+    }, 2, ('subtract', 'minus')),
 
     '×': Overload(2, {
         (Number[0], Number[0]): multiply,
@@ -861,8 +861,8 @@ commands = {
         (Number[0], Number[0]): swapped_subtract,
         (str, Number[0]): slice_end2,
         (Number[0], str): slice_start2,
-        (str, str): strip2
-    }, 2, ('swapped_subtract', 'swapped_minus', 'swapped_strip')),
+        (str, str): replace_with_nothing2
+    }, 2, ('swapped_subtract', 'swapped_minus')),
 
     '\\': Overload(2, {
         (Number[0], Number[0]): swapped_divide,

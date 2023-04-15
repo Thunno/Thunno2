@@ -937,7 +937,7 @@ Push `0.5` to the stack
 * `num a`, `num b`: push `b - a`
 * `num a`, `str b`: push `b[:-a]`
 * `str a`, `num b`: push `b[a:]`
-* `str a`, `str b`: push `b.strip(a)`
+* `str a`, `str b`: push `b.replace(a, '')`
 
 ***
 
@@ -991,7 +991,7 @@ Push `0.5` to the stack
 * `num a`, `num b`: push `a - b`
 * `num a`, `str b`: push `b[a:]`
 * `str a`, `num b`: push `b[:-a]`
-* `str a`, `str b`: push `a.strip(b)`
+* `str a`, `str b`: push `a.replace(b, '')`
 
 ***
 

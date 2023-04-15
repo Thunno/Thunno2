@@ -833,7 +833,7 @@ assert_eq(call('-', [3, 4, 5], 'abcde'), ['ab', 'a', ''])
 assert_eq(call('-', 'abcde', 2), 'cde')
 assert_eq(call('-', 'abcde', [3, 4, 5]), ['de', 'e', ''])
 
-assert_eq(call('-', ['ab', 'bc'], 'abcbabc'), ['cbabc', 'abcba'])
+assert_eq(call('-', ['ab', 'bc'], 'abcbabc'), ['cbc', 'aba'])
 
 # ×
 
@@ -900,7 +900,7 @@ assert_eq(call('_', [3, 4, 5], 'abcde'), ['de', 'e', ''])
 assert_eq(call('_', 'abcde', 2), 'abc')
 assert_eq(call('_', 'abcde', [3, 4, 5]), ['ab', 'a', ''])
 
-assert_eq(call('_', ['ab', 'bc'], 'abcbabc'), ['', ''])
+assert_eq(call('_', ['ab', 'bc'], 'abcbabc'), ['ab', 'bc'])
 
 # \
 
