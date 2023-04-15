@@ -25,3 +25,9 @@ This will start the interpreter. After that, type in your code, input and flags 
 ## Documentation
 
 See the [`docs` folder](https://github.com/Thunno/Thunno2/blob/main/docs) for the documentation.
+
+## License
+
+© Rujul Nayak 2023
+
+The code in this repository is licences under the Creative Commons Zero v1.0 Universal License. See [`LICENSE.txt`](https://github.com/Thunno/Thunno2/blob/main/LICENSE.txt) for the full license.
