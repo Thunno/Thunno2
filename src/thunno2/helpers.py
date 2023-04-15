@@ -823,7 +823,7 @@ def slice_end(n, s):
 
 
 def strip(a, b):
-    return b.strip(a)
+    return b.strip([a])
 
 
 def multiply(x, y):
@@ -2550,3 +2550,11 @@ def listify(x):
     if isinstance(x, (list, str)):
         return list(copy.deepcopy(x))
     return one_range(x)
+
+
+def replace_with_nothing(x, y):
+    return y.replace(x, '')
+
+
+def replace_with_nothing2(x, y):
+    return x.replace(y, '')
