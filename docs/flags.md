@@ -3,6 +3,7 @@
 |Flag|Description|
 |-|-|
 |`w`|Enable warnings|
+|`v`|Enable verbose mode (tokens)|
 |`V`|Verify all test cases|
 |`C`|Confirm all test cases|
 |`W`|Take input as one multi-line string|
