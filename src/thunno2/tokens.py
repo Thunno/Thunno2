@@ -10,8 +10,8 @@ import sys
 
 
 def get_command(token):
-    for cmd, ovld in commands.items():
-        if token.lower() in ovld.keywords:
+    for tokens, cmd in full_list:
+        if token.lower() in tokens:
             return cmd
     print(f"Couldn't find a command for token {token!r}", file=sys.stderr)
     sys.exit(0)
@@ -28,13 +28,87 @@ def transpile(code):
 
 
 def test():
-    l = [token for cmd, ovld in commands.items() for token in ovld.keywords]
-    for t in l:
-        assert len(t) >= 2, f"Token {t!r} too short"
-        assert l.count(t) == 1, f"Token {t!r} not unique"
+    tokens_list = [x for x, y in full_list]
+    for t, _ in full_list:
+        assert tokens_list.count(t) == 1, f"Token {t!r} not unique (used {tokens_list.count(t)} times)"
         assert t == t.lower(), f"Token {t!r} not lowercase"
         assert t.replace('_', '').isalnum(), f"Token {t!r} invalid"
     print('[TOKENS]: Passed')
 
 
-test()
+other_tokens = {
+    '"': ('string_literal',),
+    '\'': ('one_character',),
+    '`': ('two_characters',),
+    'ʋ': ('three_characters',),
+    '“': ('lowercase_string_compression',),
+    '”': ('title_case_string_compression',),
+    '‘': ('lowercase_dictionary_compression',),
+    '’': ('title_case_dictionary_compression',),
+    '»': ('integer_compression',),
+    '«': ('small_integer_compression',),
+    '¿': ('integer_list_compression',),
+    '[': ('open_list_literal',),
+    ']': ('close_list_literal',),
+    '#': ('comment',),
+    ' ': ('nop',),
+    '¡': ('get_veriable',),
+    '!': ('set_variable',),
+    'ı': ('map',),
+    '€': ('single_function_map',),
+    'æ': ('filter',),
+    'œ': ('single_function_filter',),
+    'Þ': ('sort_by',),
+    'þ': ('single_function_sort_by',),
+    'Ñ': ('group_by',),
+    'ñ': ('single_function_group_by',),
+    'ȷ': ('outer_product',),
+    '¥': ('fixed_point',),
+    '{': ('open_for_loop',),
+    '}': ('close_for_loop',),
+    '(': ('open_while_loop',),
+    ')': ('close_while_loop',),
+    '⁽': ('open_forever_loop',),
+    '⁾': ('close_forever_loop',),
+    '?': ('if_statement',),
+    ':': ('else_statement',),
+    ';': ('close_statement',),
+    'Ç': ('two_function_map',),
+    'ç': ('pair_apply',),
+    'n': ('context_variable',),
+    'ṅ': ('iteration_index',),
+    'x': ('get_x',),
+    'y': ('get_y',),
+    'X': ('set_x',),
+    'Y': ('set_y',),
+    'Ẋ': ('set_x_without_popping',),
+    'Ẏ': ('set_y_without_popping',),
+    'ẋ': ('increment_x',),
+    'ẏ': ('increment_y',),
+    'Ȥ': ('get_global_array',),
+    'ȥ': ('add_to_global_array',),
+    'K': ('stack',),
+    'ṇ': ('codepage_compression',),
+    'q': ('quit',),
+    '$': ('next_input',),
+    '¤': ('input_list',),
+    '°': ('first_input',),
+    '¹': ('second_input',),
+    '⁶': ('third_input',),
+    '⁷': ('third_last_input',),
+    '⁸': ('second_last_input',),
+    '⁹': ('last_input',),
+    '£': ('print',),
+    '¢': ('print_without_newline',),
+    'ß': ('print_without_popping',),
+    'Ƙ': ('first_n_integers',),
+    'Ʋ': ('cumulative_reduce_by',),
+    'Ɓ': ('execute_without_popping',),
+}
+
+
+full_list = [
+    (token, cmd) for cmd, ovld in commands.items() for token in ovld.keywords
+] + [
+    (val, key) for key, vals in other_tokens.items() for val in vals
+]

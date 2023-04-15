@@ -1,2 +1,2 @@
 import test_run
-from thunno2 import tests, tokens
+from thunno2 import tests
