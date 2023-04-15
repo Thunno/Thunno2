@@ -378,6 +378,8 @@ def run(code, *, n, iteration_index):
             ctx.stack.push(list(ctx.stack).copy())
         elif desc == 'constant':
             ctx.stack.push(info)
+        elif desc == 'callable constant':
+            ctx.stack.push(info())
         elif desc == 'codepage compression':
             ctx.stack.push(info)
         elif desc == 'quit':
