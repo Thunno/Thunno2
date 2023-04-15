@@ -388,9 +388,9 @@ def tokenise(code, expected_end=''):
             ret.append((char, 'set x', 0))
         elif char == 'Y':
             ret.append((char, 'set y', 0))
-        elif char == 'ẋ':
+        elif char == 'Ẋ':
             ret.append((char, 'set x without popping', 0))
-        elif char == 'ẏ':
+        elif char == 'Ẏ':
             ret.append((char, 'set y without popping', 0))
         elif char == 'ẋ':
             ret.append((char, 'increment x', 0))

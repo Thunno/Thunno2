@@ -1,4 +1,4 @@
-from thunno2 import lexer, version, flags
+from thunno2 import lexer, version, flags, tokens
 import sys
 
 
@@ -28,7 +28,14 @@ def from_terminal():
     while inp:
         inputs += inp + '\n'
         inp = input()
-    _, tokenised = lexer.tokenise(code)
+    if 'v' in flags_list:
+        transpiled = tokens.transpile(code)
+        print('\nTranspiled:')
+        print(transpiled)
+        print()
+        _, tokenised = lexer.tokenise(transpiled)
+    else:
+        _, tokenised = lexer.tokenise(code)
     print('\nOutput:')
     flags.run(flags_list, tokenised, inputs)
 
@@ -43,7 +50,12 @@ def from_cmdline():
     sys.stderr.write('Thunno, v' + version.THUNNO_VERSION + '\n')
     try:
         with open(filename) as f:
-            _, tokenised = lexer.tokenise(f.read())
+            if 'v' in ''.join(flags_list):
+                transpiled = tokens.transpile(f.read())
+                print('Transpiled:', transpiled, file=sys.stderr)
+                _, tokenised = lexer.tokenise(transpiled)
+            else:
+                _, tokenised = lexer.tokenise(f.read())
             flags.run(''.join(flags_list), tokenised, sys.stdin.read())
     except Exception as E:
         sys.stderr.write('An error occurred: ' + repr(E))
