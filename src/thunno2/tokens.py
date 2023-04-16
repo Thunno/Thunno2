@@ -5,7 +5,7 @@ Each command in Thunno 2 has been assigned at least one token.
 Using those tokens we can retrieve the original command.
 """
 
-from thunno2.interpreter import commands
+from thunno2.interpreter import commands, string_digraphs
 import sys
 
 
@@ -22,6 +22,10 @@ def transpile(code):
     for word in code.split():
         if word[:1] == '\\':
             r += word[1:]
+        elif word.isdigit():
+            r += word
+        elif word == '':
+            r += ' '
         else:
             r += get_command(word)
     return r
@@ -108,7 +112,7 @@ other_tokens = {
 
 
 full_list = [
-    (token, cmd) for cmd, ovld in commands.items() for token in ovld.keywords
+    (token, cmd) for cmd, ovld in (commands | string_digraphs).items() for token in ovld.keywords
 ] + [
     (val, key) for key, vals in other_tokens.items() for val in vals
 ]
