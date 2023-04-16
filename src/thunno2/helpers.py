@@ -2558,3 +2558,9 @@ def replace_with_nothing(x, y):
 
 def replace_with_nothing2(x, y):
     return x.replace(y, '')
+
+
+def factorial(n):
+    if n < 1:
+        return 1
+    return math.factorial(int(n))
