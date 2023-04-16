@@ -530,7 +530,7 @@ commands = {
     }, 0, ('uniquify',)),
 
     'V': Overload(1, {
-        Number: indices_where_truthy_num,
+        Number: round,
         str: rot_13,
         list: indices_where_truthy
     }, 0, ('where_truthy', 'rot13')),

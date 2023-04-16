@@ -391,9 +391,9 @@ Push `10` to the stack.
 
 ***
 
-# `V` (Truthy indices / ROT-13)
+# `V` (Truthy indices / Round / ROT-13)
 
-* `num a`: indices where digit is `1-9`
+* `num a`: round `a`
 * `str a`: encode `a` using ROT-13
 * `lst a`: indices where the element is truthy
 

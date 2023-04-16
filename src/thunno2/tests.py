@@ -373,9 +373,9 @@ assert_eq(call('U', []), [])
 
 # V
 
-assert_eq(call('V', 102), [0, 2])
-assert_eq(call('V', -1.23), [1, 3, 4])
-assert_eq(call('V', 0.0), [])
+assert_eq(call('V', 123.456), 123)
+assert_eq(call('V', -1.23), -1)
+assert_eq(call('V', 456.789), 457)
 
 assert_eq(call('V', 'Abc, Def?'), 'Nop, Qrs?')
 assert_eq(call('V', '...'), '...')
@@ -586,13 +586,13 @@ assert_eq(call('v', 123, 'abc', [1, 2, 1, 2, 1]), [1, 2, 1, 2, 1])
 
 # w
 
-assert_eq(call('w', 1.234), 1)
-assert_eq(call('w', [-2.345, -1, 0.123, 1.234, 2]), [-2, -1, 0, 1, 2])
+assert_eq(call('w', 5), 120)
+assert_eq(call('w', [-1, 0, 1, 2, 3]), [1, 1, 1, 2, 6])
 
 assert_eq(call('w', 'a\t b\r\n c'), 'abc')
 assert_eq(call('w', ['a b \n c', 'd\t e\nf']), ['abc', 'def'])
 
-assert_eq(call('w', [-123.456, 'a b \n c \t d']), [-123, 'abcd'])
+assert_eq(call('w', [10, 'a b \n c \t d']), [3628800, 'abcd'])
 
 # z
 
