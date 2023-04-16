@@ -131,35 +131,44 @@ express Statement of Purpose.
 """
 
 vars_dict = {
-    'x': 1,   # x defaults to 1
-    'y': 2,   # y defaults to 2
-    'ga': []  # global array defaults to []
+    "x": 1,  # x defaults to 1
+    "y": 2,  # y defaults to 2
+    "ga": [],  # global array defaults to []
 }
 
-'''RUN FUNCTION'''
+"""RUN FUNCTION"""
 
 
 def run(code, *, n, iteration_index):
     # while ctx.index < len(code):
     for chars, desc, info in code:
-        if desc == 'command' or desc == 'digraph':
+        if desc == "command" or desc == "digraph":
             if info != Void:
                 values = info()
                 for value in values:
                     ctx.stack.push(value)
         elif desc in (
-            'number', 'string', 'one character', 'two characters', 'three characters', 'list'
+            "number",
+            "string",
+            "one character",
+            "two characters",
+            "three characters",
+            "list",
         ):
             ctx.stack.push(info)
-        elif desc == 'lowercase alphabetic compression':
-            base255_number = decompress(info, '“')
-            decompressed_string = to_custom_base_string(' ' + string.ascii_lowercase, base255_number)
+        elif desc == "lowercase alphabetic compression":
+            base255_number = decompress(info, "“")
+            decompressed_string = to_custom_base_string(
+                " " + string.ascii_lowercase, base255_number
+            )
             ctx.stack.push(decompressed_string)
-        elif desc == 'title case alphabetic compression':
-            base255_number = decompress(info, '”')
-            decompressed_string = to_custom_base_string(' ' + string.ascii_lowercase, base255_number)
+        elif desc == "title case alphabetic compression":
+            base255_number = decompress(info, "”")
+            decompressed_string = to_custom_base_string(
+                " " + string.ascii_lowercase, base255_number
+            )
             ctx.stack.push(decompressed_string.title())
-        elif desc == 'lowercase dictionary compression':
+        elif desc == "lowercase dictionary compression":
             lst = []
             i = 0
             while i < len(info):
@@ -170,17 +179,17 @@ def run(code, *, n, iteration_index):
                         lst.append(dictionary.dictionary_decompress_string(c + info[i]))
                     except:
                         pass
-                elif c == '\\':
+                elif c == "\\":
                     try:
                         i += 1
                         lst.append(info[i])
                     except:
-                        lst.append('\\')
+                        lst.append("\\")
                 else:
                     lst.append(c)
                 i += 1
-            ctx.stack.push(''.join(lst))
-        elif desc == 'title case dictionary compression':
+            ctx.stack.push("".join(lst))
+        elif desc == "title case dictionary compression":
             lst = []
             i = 0
             while i < len(info):
@@ -188,32 +197,36 @@ def run(code, *, n, iteration_index):
                 if c in dictionary.dictionary_codepage:
                     try:
                         i += 1
-                        lst.append(dictionary.dictionary_decompress_string(c + info[i]).title())
+                        lst.append(
+                            dictionary.dictionary_decompress_string(c + info[i]).title()
+                        )
                     except:
                         pass
-                elif c == '\\':
+                elif c == "\\":
                     try:
                         i += 1
                         lst.append(info[i])
                     except:
-                        lst.append('\\')
+                        lst.append("\\")
                 else:
                     lst.append(c)
                 i += 1
-            ctx.stack.push(''.join(lst))
-        elif desc == 'one word dictionary compression':
+            ctx.stack.push("".join(lst))
+        elif desc == "one word dictionary compression":
             ctx.stack.push(dictionary.dictionary_decompress_string(info).title())
-        elif desc == 'two words dictionary compression':
+        elif desc == "two words dictionary compression":
             ctx.stack.push(
                 dictionary.dictionary_decompress_string(info[:2]).title()
                 + dictionary.dictionary_decompress_string(info[2:]).title()
             )
-        elif desc == 'compressed number' or desc == 'small compressed number':
-            base255_number = decompress(info, '»')
+        elif desc == "compressed number" or desc == "small compressed number":
+            base255_number = decompress(info, "»")
             ctx.stack.push(base255_number)
-        elif desc == 'compressed list':
-            base255_number = decompress(info, '¿')
-            decompressed_string = to_custom_base_string('][0123456789-.,', base255_number)
+        elif desc == "compressed list":
+            base255_number = decompress(info, "¿")
+            decompressed_string = to_custom_base_string(
+                "][0123456789-.,", base255_number
+            )
             try:
                 e = eval(decompressed_string)
                 if isinstance(e, tuple):
@@ -222,12 +235,12 @@ def run(code, *, n, iteration_index):
                     ctx.stack.push(e)
             except:
                 ctx.stack.push(decompressed_string)
-        elif desc == 'variable get':
+        elif desc == "variable get":
             ctx.stack.push(vars_dict.get(info, 0))
-        elif desc == 'variable set':
+        elif desc == "variable set":
             a = next(ctx.stack.rmv(1))
             vars_dict[info] = a
-        elif desc == 'single function map':
+        elif desc == "single function map":
             a = next(ctx.stack.rmv(1))
             func = info
             if func != Void:
@@ -240,7 +253,7 @@ def run(code, *, n, iteration_index):
                     for j in func():
                         r.append(j)
                 ctx.stack.push(r)
-        elif desc == 'outer product':
+        elif desc == "outer product":
             a, b = ctx.stack.rmv(2)
             func = info
             if func != Void:
@@ -252,18 +265,24 @@ def run(code, *, n, iteration_index):
                         for j in b:
                             r.append([])
                             for i in a:
-                                ctx.stack = Stack([i, j] + copy.deepcopy(list(old_stack).copy()))
+                                ctx.stack = Stack(
+                                    [i, j] + copy.deepcopy(list(old_stack).copy())
+                                )
                                 for k in func():
                                     r[-1].append(k)
                     else:
                         for i in a:
-                            ctx.stack = Stack([i, b] + copy.deepcopy(list(old_stack).copy()))
+                            ctx.stack = Stack(
+                                [i, b] + copy.deepcopy(list(old_stack).copy())
+                            )
                             for k in func():
                                 r.append(k)
                 else:
                     if isinstance(b, list):
                         for i in b:
-                            ctx.stack = Stack([a, i] + copy.deepcopy(list(old_stack).copy()))
+                            ctx.stack = Stack(
+                                [a, i] + copy.deepcopy(list(old_stack).copy())
+                            )
                             for k in func():
                                 r.append(k)
                     else:
@@ -273,7 +292,7 @@ def run(code, *, n, iteration_index):
                         if k:
                             r = k[-1]
                 ctx.stack.push(r)
-        elif desc == 'single function filter':
+        elif desc == "single function filter":
             a = next(ctx.stack.rmv(1))
             func = info
             if func != Void:
@@ -289,7 +308,7 @@ def run(code, *, n, iteration_index):
                     if f[-1]:
                         r.append(i)
                 ctx.stack.push(r)
-        elif desc == 'single function sort by':
+        elif desc == "single function sort by":
             a = next(ctx.stack.rmv(1))
             func = info
             if func != Void:
@@ -309,7 +328,7 @@ def run(code, *, n, iteration_index):
                     ctx.stack.push([p for p, q in sorted_list])
                 except:
                     ctx.stack.push(x)
-        elif desc == 'single function group by':
+        elif desc == "single function group by":
             a = next(ctx.stack.rmv(1))
             func = info
             if func != Void:
@@ -336,99 +355,99 @@ def run(code, *, n, iteration_index):
                     ctx.stack.push([q for p, q in d])
                 except:
                     ctx.stack.push(x)
-        elif desc == 'context variable':
+        elif desc == "context variable":
             ctx.stack.push(n)
-        elif desc == 'iteration index':
+        elif desc == "iteration index":
             ctx.stack.push(iteration_index)
-        elif desc == 'get x':
-            ctx.stack.push(vars_dict.get('x', 1))
-        elif desc == 'get y':
-            ctx.stack.push(vars_dict.get('y', 2))
-        elif desc == 'set x':
+        elif desc == "get x":
+            ctx.stack.push(vars_dict.get("x", 1))
+        elif desc == "get y":
+            ctx.stack.push(vars_dict.get("y", 2))
+        elif desc == "set x":
             a = next(ctx.stack.rmv(1))
-            vars_dict['x'] = a
-        elif desc == 'set y':
+            vars_dict["x"] = a
+        elif desc == "set y":
             a = next(ctx.stack.rmv(1))
-            vars_dict['y'] = a
-        elif desc == 'set x without popping':
+            vars_dict["y"] = a
+        elif desc == "set x without popping":
             a = (ctx.stack.copy() + ctx.other_il + [0])[0]
-            vars_dict['x'] = a
-        elif desc == 'set y without popping':
+            vars_dict["x"] = a
+        elif desc == "set y without popping":
             a = (ctx.stack.copy() + ctx.other_il + [0])[0]
-            vars_dict['y'] = a
-        elif desc == 'increment x':
+            vars_dict["y"] = a
+        elif desc == "increment x":
             try:
-                vars_dict['x'] = vars_dict.get('x', 1) + 1
+                vars_dict["x"] = vars_dict.get("x", 1) + 1
             except:
                 pass
-        elif desc == 'increment y':
+        elif desc == "increment y":
             try:
-                vars_dict['y'] = vars_dict.get('y', 2) + 1
+                vars_dict["y"] = vars_dict.get("y", 2) + 1
             except:
                 pass
-        elif desc == 'get global array':
-            ctx.stack.push(vars_dict.get('ga', []))
-        elif desc == 'add to global array':
+        elif desc == "get global array":
+            ctx.stack.push(vars_dict.get("ga", []))
+        elif desc == "add to global array":
             a = next(ctx.stack.rmv(1))
-            ga = vars_dict.get('ga', [])
+            ga = vars_dict.get("ga", [])
             if not isinstance(ga, list):
-                vars_dict['ga'] = [ga, a]
-            vars_dict['ga'] = ga + [a]
-        elif desc == 'stack':
+                vars_dict["ga"] = [ga, a]
+            vars_dict["ga"] = ga + [a]
+        elif desc == "stack":
             ctx.stack.push(list(ctx.stack).copy())
-        elif desc == 'constant':
+        elif desc == "constant":
             ctx.stack.push(info)
-        elif desc == 'callable constant':
+        elif desc == "callable constant":
             ctx.stack.push(info())
-        elif desc == 'codepage compression':
+        elif desc == "codepage compression":
             ctx.stack.push(info)
-        elif desc == 'quit':
+        elif desc == "quit":
             raise TerminateProgramException()  # This will hopefully get caught and ignored
-        elif desc == 'next input':
+        elif desc == "next input":
             if ctx.other_il:
                 ctx.stack.push(ctx.other_il[0])
                 ctx.other_il = ctx.other_il[1:] + [ctx.other_il[0]]
-        elif desc == 'input list':
+        elif desc == "input list":
             ctx.stack.push(ctx.og_input_list)
-        elif desc == 'first input':
+        elif desc == "first input":
             try:
                 ctx.stack.push(ctx.og_input_list[0])
             except:
                 ctx.stack.push(ctx.og_input_list)
-        elif desc == 'second input':
+        elif desc == "second input":
             try:
                 ctx.stack.push(ctx.og_input_list[1])
             except:
                 ctx.stack.push(ctx.og_input_list)
-        elif desc == 'third input':
+        elif desc == "third input":
             try:
                 ctx.stack.push(ctx.og_input_list[2])
             except:
                 ctx.stack.push(ctx.og_input_list)
-        elif desc == 'third last input':
+        elif desc == "third last input":
             try:
                 ctx.stack.push(ctx.og_input_list[-3])
             except:
                 ctx.stack.push(ctx.og_input_list)
-        elif desc == 'second last input':
+        elif desc == "second last input":
             try:
                 ctx.stack.push(ctx.og_input_list[-2])
             except:
                 ctx.stack.push(ctx.og_input_list)
-        elif desc == 'last input':
+        elif desc == "last input":
             try:
                 ctx.stack.push(ctx.og_input_list[-1])
             except:
                 ctx.stack.push(ctx.og_input_list)
-        elif desc == 'print':
+        elif desc == "print":
             print(next(ctx.stack.rmv(1)))
             ctx.implicit_print = False
-        elif desc == 'print without newline':
-            print(next(ctx.stack.rmv(1)), end='')
+        elif desc == "print without newline":
+            print(next(ctx.stack.rmv(1)), end="")
             ctx.implicit_print = False
-        elif desc == 'print without popping':
+        elif desc == "print without popping":
             print((ctx.stack.copy() + ctx.other_il + [0])[0])
-        elif desc == 'map':
+        elif desc == "map":
             a = next(ctx.stack.rmv(1))
             x = listify(a)
             r = []
@@ -438,7 +457,7 @@ def run(code, *, n, iteration_index):
                 run(info, n=j, iteration_index=i)
                 r.append(next(ctx.stack.rmv(1)))
             ctx.stack.push(r)
-        elif desc == 'filter':
+        elif desc == "filter":
             a = next(ctx.stack.rmv(1))
             x = listify(a)
             r = []
@@ -450,7 +469,7 @@ def run(code, *, n, iteration_index):
                 if z:
                     r.append(j)
             ctx.stack.push(r)
-        elif desc == 'sort by':
+        elif desc == "sort by":
             a = next(ctx.stack.rmv(1))
             x = listify(a)
             r = []
@@ -465,7 +484,7 @@ def run(code, *, n, iteration_index):
                 ctx.stack.push([p for p, q in sorted_list])
             except:
                 ctx.stack.push(x)
-        elif desc == 'group by':
+        elif desc == "group by":
             a = next(ctx.stack.rmv(1))
             x = listify(a)
             r = []
@@ -487,7 +506,7 @@ def run(code, *, n, iteration_index):
                 ctx.stack.push([q for p, q in d])
             except:
                 ctx.stack.push(x)
-        elif desc == 'fixed point':
+        elif desc == "fixed point":
             r = [Void]
             old_stack = Stack(copy.deepcopy(list(ctx.stack).copy()))
             i = 0
@@ -501,7 +520,7 @@ def run(code, *, n, iteration_index):
                     break
                 i += 1
             ctx.stack.push(r[1:])
-        elif desc == 'first n integers':
+        elif desc == "first n integers":
             a = next(ctx.stack.rmv(1))
             try:
                 x = int(a)
@@ -513,13 +532,13 @@ def run(code, *, n, iteration_index):
             while len(r) < x:
                 ctx.stack = Stack(copy.deepcopy(old_stack))
                 ctx.stack.push(i)
-                run(info, n=i, iteration_index=i-1)
+                run(info, n=i, iteration_index=i - 1)
                 k = next(ctx.stack.rmv(1))
                 if k:
                     r.append(i)
                 i += 1
             ctx.stack.push(r)
-        elif desc == 'cumulative reduce by':
+        elif desc == "cumulative reduce by":
             a = next(ctx.stack.rmv(1))
             x = listify(a)
             old_stack = Stack(copy.deepcopy(list(ctx.stack).copy()))
@@ -534,14 +553,14 @@ def run(code, *, n, iteration_index):
                 ctx.stack.push(r)
             else:
                 ctx.stack.push([])
-        elif desc == 'for loop':
+        elif desc == "for loop":
             a = next(ctx.stack.rmv(1))
             x = listify(a)
             for i, j in enumerate(x):
                 if not isinstance(a, (int, float)):
                     ctx.stack.push(j)
                 run(info, n=j, iteration_index=i)
-        elif desc == 'while loop':
+        elif desc == "while loop":
             cond, body = info
             i = 0
             while True:
@@ -553,19 +572,19 @@ def run(code, *, n, iteration_index):
                     break
                 run(body, n=0, iteration_index=i)
                 i += 1
-        elif desc == 'if statement':
+        elif desc == "if statement":
             if_true, if_false = info
             a = next(ctx.stack.rmv(1))
             if a:
                 run(if_true, n=0, iteration_index=1)
             else:
                 run(if_false, n=0, iteration_index=0)
-        elif desc == 'execute without popping':
+        elif desc == "execute without popping":
             if info != Void:
                 values = info(pop=False)
                 for value in values:
                     ctx.stack.push(value)
-        elif desc == 'pair apply':
+        elif desc == "pair apply":
             a = next(ctx.stack.rmv(1))
             old_stack = Stack(copy.deepcopy(list(ctx.stack).copy()))
             r = []
@@ -580,7 +599,7 @@ def run(code, *, n, iteration_index):
             if k:
                 r.append(k[-1])
             ctx.stack.push(r)
-        elif desc == 'two function map':
+        elif desc == "two function map":
             a = next(ctx.stack.rmv(1))
             old_stack = Stack(copy.deepcopy(list(ctx.stack).copy()))
             r = []
@@ -597,8 +616,8 @@ def run(code, *, n, iteration_index):
             ctx.stack.push(r)
         else:
             if ctx.warnings:
-                print('TRACEBACK: [UNRECOGNISED TOKEN]', file=sys.stderr)
-                print(f'Got {chars!r} (tokenised to {desc!r})')
+                print("TRACEBACK: [UNRECOGNISED TOKEN]", file=sys.stderr)
+                print(f"Got {chars!r} (tokenised to {desc!r})")
     return 0
 
 

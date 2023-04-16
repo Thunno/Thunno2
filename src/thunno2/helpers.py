@@ -175,17 +175,17 @@ def number_to_base(base, num):
     if base <= 0:
         return str(num)
     if base == 1:
-        return num * '0'
+        return num * "0"
     return number_to_base_digits(num, base)
 
 
 def ntbs(b, n):
     r = number_to_base_digits(n, b)
     if b <= 64:
-        digits = string.digits + string.ascii_uppercase + string.ascii_lowercase + '+/'
+        digits = string.digits + string.ascii_uppercase + string.ascii_lowercase + "+/"
     else:
         digits = codepage.CODEPAGE * math.ceil(b / 256)
-    return ''.join(map(digits.__getitem__, r))
+    return "".join(map(digits.__getitem__, r))
 
 
 def to_custom_base_string(base, num):
@@ -194,7 +194,7 @@ def to_custom_base_string(base, num):
         return str(num)
     if len(base) == 1:
         return num * base
-    return ''.join(map(base.__getitem__, number_to_base_digits(num, len(base))))
+    return "".join(map(base.__getitem__, number_to_base_digits(num, len(base))))
 
 
 def length_to_base(base, s):
@@ -202,7 +202,7 @@ def length_to_base(base, s):
     if base <= 0:
         return str(len(s))
     if base == 1:
-        return len(s) * '0'
+        return len(s) * "0"
     return number_to_base_digits(len(s), base)
 
 
@@ -211,8 +211,8 @@ def length_custom_base_string(str2, str1):
     if len(str2) == 0:
         return str(num)
     if len(str2) == 1:
-        return num * '0'
-    return ''.join(map(str2.__getitem__, number_to_base_digits(len(str1), len(str2))))
+        return num * "0"
+    return "".join(map(str2.__getitem__, number_to_base_digits(len(str1), len(str2))))
 
 
 def pass_(*args):
@@ -241,7 +241,7 @@ def ord2(s):
 
 
 def digits(num):
-    return [int(d) for d in str(num) if d in '0123456789']
+    return [int(d) for d in str(num) if d in "0123456789"]
 
 
 def is_even(num):
@@ -265,7 +265,7 @@ def substrings(s):
 
 
 def max2(num):
-    return max(int(d) for d in str(num) if d in '0123456789')
+    return max(int(d) for d in str(num) if d in "0123456789")
 
 
 def max3(x):
@@ -314,34 +314,34 @@ def interleave_lst(lst1, lst2):
         for i, j in zip(lst2, lst1):
             r.append(i)
             r.append(j)
-        r.extend(lst1[len(lst2):])
+        r.extend(lst1[len(lst2) :])
         return r
     else:
         r = []
         for i, j in zip(lst2, lst1):
             r.append(i)
             r.append(j)
-        r.extend(lst2[len(lst1):])
+        r.extend(lst2[len(lst1) :])
         return r
 
 
 def interleave_str(s1, s2):
     if len(s1) == len(s2):
-        r = ''
+        r = ""
         for i, j in zip(s2, s1):
             r += i + j
         return r
     elif len(s1) > len(s2):
-        r = ''
+        r = ""
         for i, j in zip(s2, s1):
             r += i + j
-        r += s1[len(s2):]
+        r += s1[len(s2) :]
         return r
     else:
-        r = ''
+        r = ""
         for i, j in zip(s2, s1):
             r += i + j
-        r += s2[len(s1):]
+        r += s2[len(s1) :]
         return r
 
 
@@ -354,7 +354,7 @@ def binary_range(num1, num2):
 def empty_join(iterable):
     if not isinstance(iterable, list):
         return str(iterable)
-    return ''.join(map(empty_join, iterable))
+    return "".join(map(empty_join, iterable))
 
 
 def safe_len(x):
@@ -371,7 +371,7 @@ def lowered_range(num):
 
 
 def min2(num):
-    return min(int(d) for d in str(num) if d in '0123456789')
+    return min(int(d) for d in str(num) if d in "0123456789")
 
 
 def min3(x):
@@ -389,7 +389,7 @@ def safe_int(x):
 
 
 def two_power(n):
-    return 2 ** n
+    return 2**n
 
 
 def is_prime(n):
@@ -398,11 +398,11 @@ def is_prime(n):
 
 
 def slice1(num, lst):
-    return lst[::int(num)]
+    return lst[:: int(num)]
 
 
 def slice2(lst, num):
-    return lst[::int(num)]
+    return lst[:: int(num)]
 
 
 def not_equal(x, y):
@@ -416,7 +416,7 @@ def one_range(num):
 
 
 def digit_sum(num):
-    return sum(int(d) for d in str(num) if d in '0123456789')
+    return sum(int(d) for d in str(num) if d in "0123456789")
 
 
 def it_sum(lst):
@@ -426,7 +426,7 @@ def it_sum(lst):
         return sum(lst)
     if all(isinstance(item, list) for item in lst):
         return sum(lst[1:], lst[0])
-    return ''.join(map(str, lst))
+    return "".join(map(str, lst))
 
 
 def uniquify_lst(lst):
@@ -438,7 +438,7 @@ def uniquify_lst(lst):
 
 
 def uniquify_str(s):
-    r = ''
+    r = ""
     for c in s:
         if c not in r:
             r += c
@@ -454,15 +454,15 @@ def indices_where_truthy(l):
 
 
 def indices_where_truthy_num(n):
-    return [i for i, x in enumerate(str(n)) if x in '123456789']
+    return [i for i, x in enumerate(str(n)) if x in "123456789"]
 
 
 def rot_13(s):
-    r = ''
+    r = ""
     for c in s:
-        if ord('A') <= ord(c.upper()) <= ord('M'):
+        if ord("A") <= ord(c.upper()) <= ord("M"):
             r += chr(ord(c) + 13)
-        elif ord('N') <= ord(c.upper()) <= ord('Z'):
+        elif ord("N") <= ord(c.upper()) <= ord("Z"):
             r += chr(ord(c) - 13)
         else:
             r += c
@@ -506,14 +506,18 @@ def convert_from_base(base, num):
     elif base == 1:
         return len(str(num))
     if base <= 64:
-        digits = string.digits + string.ascii_uppercase + string.ascii_lowercase + '+/'
+        digits = string.digits + string.ascii_uppercase + string.ascii_lowercase + "+/"
     else:
         digits = codepage.CODEPAGE * math.ceil(base / 256)
-    return from_list_of_digits_2(list(map((lambda c: safe_index(digits, c, 0)), str(num))), base)
+    return from_list_of_digits_2(
+        list(map((lambda c: safe_index(digits, c, 0)), str(num))), base
+    )
 
 
 def convert_from_custom_base(base, num):
-    return from_list_of_digits_2(list(map((lambda c: safe_index(base, c, 0)), str(num))), len(base))
+    return from_list_of_digits_2(
+        list(map((lambda c: safe_index(base, c, 0)), str(num))), len(base)
+    )
 
 
 def nCr(r, n):
@@ -539,11 +543,11 @@ def duplicate(x):
 
 
 def ten_power(n):
-    return 10 ** n
+    return 10**n
 
 
 def comma_split(s):
-    return s.split(',')
+    return s.split(",")
 
 
 def prime_factors(n):
@@ -576,7 +580,7 @@ def gcd(l):
 
 
 def digits_gcd(n):
-    return gcd([int(i) for i in str(n) if i in '0123456789'])
+    return gcd([int(i) for i in str(n) if i in "0123456789"])
 
 
 def ords_gcd(s):
@@ -593,9 +597,9 @@ def num_head_extract(n):
     r = ()
     for i in head_extract(str(n)):
         try:
-            r += eval(i),
+            r += (eval(i),)
         except:
-            r += i,
+            r += (i,)
     return r
 
 
@@ -630,11 +634,11 @@ def decrement(num):
 
 
 def str_increment(s):
-    return ''.join(chr(ord(c) + 1) for c in s)
+    return "".join(chr(ord(c) + 1) for c in s)
 
 
 def str_decrement(s):
-    return ''.join(chr(ord(c) - 1) for c in s)
+    return "".join(chr(ord(c) - 1) for c in s)
 
 
 def join(joiner, iterable):
@@ -662,7 +666,7 @@ def mean(lst):
 
 
 def num_mean(n):
-    return mean([int(i) for i in str(n) if i in '0123456789'])
+    return mean([int(i) for i in str(n) if i in "0123456789"])
 
 
 def ord_mean(s):
@@ -670,7 +674,7 @@ def ord_mean(s):
 
 
 def str_rmv(x, y):
-    return str(y).replace(str(x), '')
+    return str(y).replace(str(x), "")
 
 
 def num_rmv(x, y):
@@ -692,7 +696,7 @@ def swapped_list_rmv(x, y):
 
 
 def digit_product(num):
-    return math.prod([int(i) for i in str(num) if i in '0123456789'])
+    return math.prod([int(i) for i in str(num) if i in "0123456789"])
 
 
 def product(lst):
@@ -724,7 +728,7 @@ def swapped_append(x, y):
 def _digits(x):
     if isinstance(x, (str, list)):
         return list(x)
-    return [int(i) for i in str(x) if i in '0123456789']
+    return [int(i) for i in str(x) if i in "0123456789"]
 
 
 def append2(x, y):
@@ -765,14 +769,14 @@ def num_tail_extract(n):
     r = ()
     for i in tail_extract(str(n)):
         try:
-            r += eval(i),
+            r += (eval(i),)
         except:
-            r += i,
+            r += (i,)
     return r
 
 
 def remove_whitespace(s):
-    return ''.join(s.split())
+    return "".join(s.split())
 
 
 def uninterleave(l):
@@ -835,7 +839,7 @@ def multiply(x, y):
 
 
 def string_cartesian_product(a, b):
-    return [''.join(l) for l in itertools.product(b, a)]
+    return ["".join(l) for l in itertools.product(b, a)]
 
 
 def divide(x, y):
@@ -851,7 +855,7 @@ def split2(a, b):
     k = 0
     r = []
     while k < len(b):
-        r.append(b[k:k + x + (y > 0)])
+        r.append(b[k : k + x + (y > 0)])
         k += x + (y > 0)
         if y > 0:
             y -= 1
@@ -867,12 +871,12 @@ def split3(a, b):
 
 
 def exponentiate(x, y):
-    return y ** x
+    return y**x
 
 
 def append_first1(a, b):
     if not a:
-        return ' ' * b
+        return " " * b
     while len(a) < b:
         a += a[0]
     return a
@@ -891,7 +895,7 @@ def modulo(x, y):
 
 
 def str_format(a, b):
-    return str(b).replace('%', str(a))
+    return str(b).replace("%", str(a))
 
 
 def swapped_format(a, b):
@@ -973,7 +977,7 @@ def last_split3(a, b):
 
 
 def str_format2(a, b):
-    return str(a).replace('%', str(b))
+    return str(a).replace("%", str(b))
 
 
 def swapped_modulo(x, y):
@@ -981,12 +985,12 @@ def swapped_modulo(x, y):
 
 
 def swapped_exponentiate(x, y):
-    return x ** y
+    return x**y
 
 
 def prepend_last1(a, b):
     if not a:
-        return ' ' * b
+        return " " * b
     while len(a) < b:
         a = a[-1] + a
     return a
@@ -1109,7 +1113,7 @@ def recursive_flatten(x):
             if isinstance(a, list):
                 r += a
             else:
-                r += a,
+                r += (a,)
         return r
     return x
 
@@ -1134,7 +1138,7 @@ def longest_common_substring(x, y):
     try:
         return max([i for i in a if i in b], key=len)
     except:
-        return ''
+        return ""
 
 
 def num_head(x):
@@ -1192,15 +1196,15 @@ def vectorised_ind1(x, y):
 
 
 def ljust1(x, n, y):
-    return str(y).ljust(abs(int(n)) or 1, (str(x) + ' ')[0])
+    return str(y).ljust(abs(int(n)) or 1, (str(x) + " ")[0])
 
 
 def ljust2(n, x, y):
-    return str(y).ljust(abs(int(n)) or 1, (str(x) + ' ')[0])
+    return str(y).ljust(abs(int(n)) or 1, (str(x) + " ")[0])
 
 
 def ljust3(x, y, z):
-    return str(z).ljust(len(y) or 1, (str(x) + ' ')[0])
+    return str(z).ljust(len(y) or 1, (str(x) + " ")[0])
 
 
 def mode(it):
@@ -1218,7 +1222,7 @@ def negate(x):
 
 
 def rle(s):
-    l = ''
+    l = ""
     r = []
     for c in s:
         if c == l:
@@ -1290,8 +1294,15 @@ def string_repr(s):
     r = repr(s)
     if r[0] == '"':
         return r
-    f = first_char_not_present(r, '\\\'"')
-    return '"' + recursive_replace(f, '\\\\', r[1:-1]).replace("\\'", "'").replace('"', '\\"').replace(f, '\\\\') + '"'
+    f = first_char_not_present(r, "\\'\"")
+    return (
+        '"'
+        + recursive_replace(f, "\\\\", r[1:-1])
+        .replace("\\'", "'")
+        .replace('"', '\\"')
+        .replace(f, "\\\\")
+        + '"'
+    )
 
 
 def list_repr(l):
@@ -1303,7 +1314,7 @@ def list_repr(l):
             x.append(string_repr(i))
         else:
             x.append(str(i))
-    return '[' + ', '.join(x) + ']'
+    return "[" + ", ".join(x) + "]"
 
 
 def sort(l):
@@ -1311,11 +1322,11 @@ def sort(l):
 
 
 def digits_sort(n):
-    return eval(''.join(str_sort(map(str, digits(n)))))
+    return eval("".join(str_sort(map(str, digits(n)))))
 
 
 def str_sort(s):
-    return ''.join(sort(s))
+    return "".join(sort(s))
 
 
 def chunk1(x, y):
@@ -1347,7 +1358,7 @@ def assign(c, b, a):
     else:
         a = list(a)
         a[b % len(a)] = c
-        return ''.join(map(str, a))
+        return "".join(map(str, a))
 
 
 def swapped_assign(c, a, b):
@@ -1373,7 +1384,7 @@ def vectorised_assign(c, b, a):
 
 def to_binary(n):
     if n < 0:
-        return '-' + to_binary(abs(n))
+        return "-" + to_binary(abs(n))
     return bin(int(n))[2:]
 
 
@@ -1447,7 +1458,7 @@ def group_consecutive(l):
             r[-1].append(i)
         last = i
     if isinstance(l, str):
-        return [*map(''.join, r)]
+        return [*map("".join, r)]
     return r
 
 
@@ -1477,7 +1488,7 @@ def lcm(l):
 
 
 def digits_lcm(n):
-    return lcm([int(i) for i in str(n) if i in '0123456789'])
+    return lcm([int(i) for i in str(n) if i in "0123456789"])
 
 
 def ords_lcm(s):
@@ -1501,7 +1512,7 @@ def median(lst):
         return []
     if len(l) % 2:
         return sorted(l)[len(l) // 2]
-    s = sorted(l)[len(l) // 2 - 1: len(l) // 2 + 1]
+    s = sorted(l)[len(l) // 2 - 1 : len(l) // 2 + 1]
     return mean(s)
 
 
@@ -1555,15 +1566,15 @@ def set_difference(x, y):
 
 
 def rjust1(x, n, y):
-    return str(y).rjust(abs(int(n)) or 1, (str(x) + ' ')[0])
+    return str(y).rjust(abs(int(n)) or 1, (str(x) + " ")[0])
 
 
 def rjust2(n, x, y):
-    return str(y).rjust(abs(int(n)) or 1, (str(x) + ' ')[0])
+    return str(y).rjust(abs(int(n)) or 1, (str(x) + " ")[0])
 
 
 def rjust3(x, y, z):
-    return str(z).rjust(len(y) or 1, (str(x) + ' ')[0])
+    return str(z).rjust(len(y) or 1, (str(x) + " ")[0])
 
 
 def prefixes(l):
@@ -1601,7 +1612,7 @@ def tail_remove(x):
 
 def chunk3(n, l):
     x, y = len(l), abs(int(n))
-    return list(filter(bool, [l[i:i + y] for i in range(0, (x // y + 1) * y, y)]))
+    return list(filter(bool, [l[i : i + y] for i in range(0, (x // y + 1) * y, y)]))
 
 
 def chunk4(l, n):
@@ -1633,7 +1644,7 @@ def num_length_range_0(n):
 
 
 def character_multiply1(s, n):
-    return ''.join(c * n for c in s)
+    return "".join(c * n for c in s)
 
 
 def character_multiply2(n, s):
@@ -1654,7 +1665,7 @@ def exactly_not_equal(x, y):
 
 def to_hex(n):
     if n < 0:
-        return '-' + to_hex(abs(n))
+        return "-" + to_hex(abs(n))
     return hex(int(n))[2:]
 
 
@@ -1667,7 +1678,7 @@ def reciprocal(n):
 
 
 def remove_non_alphabets(s):
-    return ''.join(c for c in s if c.isalpha())
+    return "".join(c for c in s if c.isalpha())
 
 
 def num_bifurcate(n):
@@ -1786,7 +1797,7 @@ def combinations_with_replacement4(x, y):
 
 
 def square(n):
-    return n ** 2
+    return n**2
 
 
 def chunk_wrap_2(s):
@@ -1794,7 +1805,7 @@ def chunk_wrap_2(s):
 
 
 def cube(n):
-    return n ** 3
+    return n**3
 
 
 def chunk_wrap_3(s):
@@ -1802,7 +1813,7 @@ def chunk_wrap_3(s):
 
 
 def fourth(n):
-    return n ** 4
+    return n**4
 
 
 def chunk_wrap_4(s):
@@ -1810,7 +1821,7 @@ def chunk_wrap_4(s):
 
 
 def fifth(n):
-    return n ** 5
+    return n**5
 
 
 def chunk_wrap_5(s):
@@ -1972,9 +1983,8 @@ def num_to_alphabet(n):
 
 def alphabet_to_num(s):
     return [
-        ord(c) - 64 if 'A' <= c <= 'Z' else (
-            ord(c) - 96 if 'a' <= c <= 'z' else 0
-        ) for c in s
+        ord(c) - 64 if "A" <= c <= "Z" else (ord(c) - 96 if "a" <= c <= "z" else 0)
+        for c in s
     ]
 
 
@@ -2050,13 +2060,13 @@ def integer_partitions(n):
 def newline_join(iterable):
     if not isinstance(iterable, list):
         return str(iterable)
-    return '\n'.join(map(empty_join, iterable))
+    return "\n".join(map(empty_join, iterable))
 
 
 def space_join(iterable):
     if not isinstance(iterable, list):
         return str(iterable)
-    return ' '.join(map(empty_join, iterable))
+    return " ".join(map(empty_join, iterable))
 
 
 def prepend(x, l):
@@ -2072,10 +2082,7 @@ def prepend2(x, y):
 
 
 def transpose_with_filler(f, l):
-    matrix = [
-        [*x] if isinstance(x, (list, str)) else digits(x)
-        for x in l
-    ]
+    matrix = [[*x] if isinstance(x, (list, str)) else digits(x) for x in l]
     transposed = itertools.zip_longest(*matrix, fillvalue=f)
     return list(map(list, transposed))
 
@@ -2220,16 +2227,16 @@ def sign(n):
 
 
 def sentence_case(s):
-    r = ''
+    r = ""
     b = True
     for c in s:
         if b:
             r += c.upper()
         else:
             r += c.lower()
-        if c in '?!.':
+        if c in "?!.":
             b = True
-        elif c == ' ' and b == True:
+        elif c == " " and b == True:
             pass
         else:
             b = False
@@ -2257,7 +2264,7 @@ def num_all_equal(n):
 def symmetric_set_difference(x, y):
     r = uniquify_lst([i for i in y if i not in x] + [j for j in x if j not in y])
     if (type(x), type(y)) == (str, str):
-        return ''.join(r)
+        return "".join(r)
     return r
 
 
@@ -2311,7 +2318,7 @@ def corresponding_filter(x, y):
         if j:
             r.append(i)
     if isinstance(y, str):
-        return ''.join(r)
+        return "".join(r)
     return r
 
 
@@ -2340,12 +2347,25 @@ def num_sort_uniquify(n):
 
 
 def to_roman_numerals(num):
-    ret = ''
+    ret = ""
     if num < 0:
         num = -num
-        ret += '-'
-    symbols = {'M': 1000, 'CM': 900, 'D': 500, 'CD': 400, 'C': 100, 'XC': 90, 'L': 50, 'XL': 40, 'X': 10, 'IX': 9,
-               'V': 5, 'IV': 4, 'I': 1}
+        ret += "-"
+    symbols = {
+        "M": 1000,
+        "CM": 900,
+        "D": 500,
+        "CD": 400,
+        "C": 100,
+        "XC": 90,
+        "L": 50,
+        "XL": 40,
+        "X": 10,
+        "IX": 9,
+        "V": 5,
+        "IV": 4,
+        "I": 1,
+    }
     for s, n in symbols.items():
         while num >= n:
             ret += s
@@ -2358,31 +2378,31 @@ def from_roman_numerals(s):
     i = 0
     while i < len(s):
         c = s[i]
-        if c == 'M':
+        if c == "M":
             ret += 1000
-        elif c == 'D':
+        elif c == "D":
             ret += 500
-        elif c == 'L':
+        elif c == "L":
             ret += 50
-        elif c == 'V':
+        elif c == "V":
             ret += 5
-        elif c == 'C':
+        elif c == "C":
             i += 1
-            if s[i] == 'M':
+            if s[i] == "M":
                 ret += 900
             else:
                 ret += 100
                 i -= 1
-        elif c == 'X':
+        elif c == "X":
             i += 1
-            if s[i] == 'C':
+            if s[i] == "C":
                 ret += 90
             else:
                 ret += 10
                 i -= 1
-        elif c == 'I':
+        elif c == "I":
             i += 1
-            if s[i] == 'X':
+            if s[i] == "X":
                 ret += 9
             else:
                 ret += 1
@@ -2406,7 +2426,7 @@ def complement(n):
 
 
 def is_vowel(s):
-    return [int(c.lower() in 'aeiou') for c in s]
+    return [int(c.lower() in "aeiou") for c in s]
 
 
 def islower(s):
@@ -2458,7 +2478,7 @@ def shuffle(l):
 
 
 def str_shuffle(s):
-    return ''.join(shuffle(s))
+    return "".join(shuffle(s))
 
 
 def range_shuffle(n):
@@ -2466,7 +2486,7 @@ def range_shuffle(n):
 
 
 def spaces(n):
-    return int(n) * ' '
+    return int(n) * " "
 
 
 def suffixes(l):
@@ -2553,11 +2573,11 @@ def listify(x):
 
 
 def replace_with_nothing(x, y):
-    return y.replace(x, '')
+    return y.replace(x, "")
 
 
 def replace_with_nothing2(x, y):
-    return x.replace(y, '')
+    return x.replace(y, "")
 
 
 def factorial(n):
