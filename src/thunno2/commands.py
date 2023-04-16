@@ -662,9 +662,9 @@ commands = {
     }, 0, ('replace',)),
 
     'w': Overload(1, {
-        Number: round,
+        Number: factorial,
         str: remove_whitespace
-    }, 1, ('round', 'remove_whitespace')),
+    }, 1, ('factorial', 'remove_whitespace')),
 
     # x is defined in the run function
 

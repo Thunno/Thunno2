@@ -665,9 +665,9 @@ Push `-1` to the stack.
 
 ***
 
-# `w` (Round / Remove whitespace)
+# `w` (Factorial / Remove whitespace)
 
-* `num a`: round `a`
+* `num a`: factorial of `a`
 * `str a`: remove whitespace from `a`
 
 ***
