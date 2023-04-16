@@ -1911,6 +1911,8 @@ assert_eq(call('ẓ', ['abc', 'def', 'ghi', 'jkl', 'mno'], 3), ['abc', 'def'])
 # øD
 
 assert_eq(call('øD', 'Hello, World!'), 'Ƙ¥, «ʋ!')
+assert_eq(call('øD', 'thunnobest'), 'thunnoÇ&')
+assert_eq(call('øD', 'withree'), 'wiċŀ')
 
 # After all the tests
 
