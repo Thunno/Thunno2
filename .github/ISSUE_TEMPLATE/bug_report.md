@@ -7,7 +7,7 @@ code
 [Attempt This Online!][1]
 
   [1]: <link to ATO>
-  
+
 #### Expected output
 
 ```
