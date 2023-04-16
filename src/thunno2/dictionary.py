@@ -32129,18 +32129,13 @@ def backslashify(s):
 
 
 def optimal_dictionary_compression(s):
-    words = re.findall('([a-z]+)([^a-z]+)', str(s).lower())
+    ws = re.findall('([a-z]*)([^a-z]*)', str(s).lower())
     ret = ''
-    for word, other_stuff in words:
+    for word, other_stuff in ws:
         if not (word + other_stuff):
             continue
         compressions = []
-        for l in helpers.integer_partitions(len(word))[::-1]:
-            new_word = word
-            x = []
-            for i in l:
-                x.append(new_word[:i])
-                new_word = new_word[i:]
+        for x in helpers.all_slices(word):
             compressions.append(
                 ''.join(
                     dictionary_compress_word(w)

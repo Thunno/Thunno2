@@ -2564,3 +2564,13 @@ def factorial(n):
     if n < 1:
         return 1
     return math.factorial(int(n))
+
+
+def all_slices(s):
+    if not s:
+        return [[]]
+    r = []
+    for i in one_range(len(s)):
+        for x in all_slices(s[i:]):
+            r.append([s[:i]] + x)
+    return r
