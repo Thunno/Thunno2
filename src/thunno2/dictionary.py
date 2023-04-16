@@ -32098,8 +32098,10 @@ from thunno2 import codepage
 from thunno2 import helpers
 import string, re
 
-ignore_chars = string.ascii_letters + string.digits + r'''.,!?:\"'%() ‘’'''
-dictionary_codepage = ''.join(char for char in codepage.CODEPAGE if char not in ignore_chars)
+ignore_chars = string.ascii_letters + string.digits + r""".,!?:\"'%() ‘’"""
+dictionary_codepage = "".join(
+    char for char in codepage.CODEPAGE if char not in ignore_chars
+)
 
 assert len(dictionary_codepage) == 180
 
@@ -32109,7 +32111,7 @@ def dictionary_compress_word(word):
         return -1
     index = words.index(word)
     base_180_num = helpers.number_to_base_digits(index, 180)
-    return ''.join(map(dictionary_codepage.__getitem__, base_180_num)).rjust(2, '¡')
+    return "".join(map(dictionary_codepage.__getitem__, base_180_num)).rjust(2, "¡")
 
 
 def dictionary_decompress_string(s):
@@ -32119,30 +32121,31 @@ def dictionary_decompress_string(s):
 
 
 def backslashify(s):
-    r = ''
+    r = ""
     for c in s:
-        if c in dictionary_codepage + '\\':
-            r += '\\' + c
+        if c in dictionary_codepage + "\\":
+            r += "\\" + c
         else:
             r += c
     return r
 
 
 def optimal_dictionary_compression(s):
-    ws = re.findall('([a-z]*)([^a-z]*)', str(s).lower())
-    ret = ''
+    ws = re.findall("([a-z]*)([^a-z]*)", str(s).lower())
+    ret = ""
     for word, other_stuff in ws:
         if not (word + other_stuff):
             continue
         compressions = []
         for x in helpers.all_slices(word):
             compressions.append(
-                ''.join(
+                "".join(
                     dictionary_compress_word(w)
                     if dictionary_compress_word(w) != -1
                     else w
                     for w in x
-                ) + backslashify(other_stuff)
+                )
+                + backslashify(other_stuff)
             )
         ret += min(compressions, key=len)
     return ret

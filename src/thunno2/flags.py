@@ -3,16 +3,15 @@ import re
 
 
 def process_input_flags(flags, inputs):
-
-    if 'w' in flags:
+    if "w" in flags:
         commands.ctx.warnings = True
 
-    if 'W' in flags:
+    if "W" in flags:
         inputs = [inputs]
     else:
         inputs = inputs.splitlines()
 
-    if 'E' not in flags:
+    if "E" not in flags:
         new_input = []
         for inp in inputs:
             try:
@@ -32,14 +31,14 @@ def process_input_flags(flags, inputs):
         inputs = new_input[:]
 
     for flag in flags:
-        if flag == 'Z':
+        if flag == "Z":
             commands.ctx.stack.push(0)
-        elif flag == 'T':
+        elif flag == "T":
             commands.ctx.stack.push(10)
-        elif flag == 'H':
+        elif flag == "H":
             commands.ctx.stack.push(100)
 
-    if 'B' in flags:
+    if "B" in flags:
         new_input = []
         for inp in inputs:
             if isinstance(inp, str):
@@ -48,20 +47,20 @@ def process_input_flags(flags, inputs):
                 new_input.append(inp)
         inputs = new_input[:]
 
-    if '+' in flags:
+    if "+" in flags:
         new_input = []
         for inp in inputs:
             if isinstance(inp, (int, float)):
-                new_input.append(inp + flags.count('+'))
+                new_input.append(inp + flags.count("+"))
             else:
                 new_input.append(inp)
         inputs = new_input[:]
 
-    if '-' in flags:
+    if "-" in flags:
         new_input = []
         for inp in inputs:
             if isinstance(inp, (int, float)):
-                new_input.append(inp - flags.count('-'))
+                new_input.append(inp - flags.count("-"))
             else:
                 new_input.append(inp)
         inputs = new_input[:]
@@ -70,49 +69,49 @@ def process_input_flags(flags, inputs):
 
 
 def process_output_flags(flags, do_print=True):
-
     for flag in flags:
-
-        if 'J' == flag:
+        if "J" == flag:
             commands.ctx.stack.push(helpers.empty_join(next(commands.ctx.stack.rmv(1))))
 
-        if 'j' == flag:
+        if "j" == flag:
             commands.ctx.stack.push(helpers.empty_join(list(commands.ctx.stack)))
 
-        if 'N' == flag:
-            commands.ctx.stack.push(helpers.newline_join(next(commands.ctx.stack.rmv(1))))
+        if "N" == flag:
+            commands.ctx.stack.push(
+                helpers.newline_join(next(commands.ctx.stack.rmv(1)))
+            )
 
-        if 'n' == flag:
+        if "n" == flag:
             commands.ctx.stack.push(helpers.newline_join(list(commands.ctx.stack)))
 
-        if 'Ṡ' == flag:
+        if "Ṡ" == flag:
             commands.ctx.stack.push(helpers.space_join(next(commands.ctx.stack.rmv(1))))
 
-        if 'ṡ' == flag:
+        if "ṡ" == flag:
             commands.ctx.stack.push(helpers.space_join(list(commands.ctx.stack)))
 
-        if 'S' == flag:
-            commands.ctx.stack.push(commands.commands['S']()[0])
+        if "S" == flag:
+            commands.ctx.stack.push(commands.commands["S"]()[0])
 
-        if 's' == flag:
+        if "s" == flag:
             commands.ctx.stack.push(helpers.it_sum(commands.ctx.stack))
 
-        if 'L' == flag:
-            commands.ctx.stack.push(commands.commands['l']()[0])
+        if "L" == flag:
+            commands.ctx.stack.push(commands.commands["l"]()[0])
 
-        if 'l' == flag:
+        if "l" == flag:
             commands.ctx.stack.push(len(commands.ctx.stack))
 
-        if 'h' == flag:
-            commands.ctx.stack.push(commands.commands['h']()[0])
+        if "h" == flag:
+            commands.ctx.stack.push(commands.commands["h"]()[0])
 
-        if 't' == flag:
-            commands.ctx.stack.push(commands.commands['t']()[0])
+        if "t" == flag:
+            commands.ctx.stack.push(commands.commands["t"]()[0])
 
-        if 'B' == flag:
+        if "B" == flag:
             x = (commands.ctx.stack + commands.ctx.other_il + [0])[0]
             if isinstance(x, list):
-                r = ''
+                r = ""
                 for i in x:
                     try:
                         r += chr(int(i))
@@ -125,32 +124,31 @@ def process_output_flags(flags, do_print=True):
 
 
 def do_printing(flags):
-    if (commands.ctx.implicit_print or ('O' in flags)) and not ('o' in flags):
+    if (commands.ctx.implicit_print or ("O" in flags)) and not ("o" in flags):
         print(next(commands.ctx.stack.rmv(1)))
 
 
 def run(flags, code, inputs):
-
-    if 'V' in flags:
-        new_flags = ''.join(f for f in flags if f != 'V')
+    if "V" in flags:
+        new_flags = "".join(f for f in flags if f != "V")
         for line in inputs.splitlines():
             try:
                 x = eval(line)
                 if isinstance(x, tuple):
-                    new_inputs = process_input_flags(new_flags, '\n'.join(map(repr, x)))
+                    new_inputs = process_input_flags(new_flags, "\n".join(map(repr, x)))
                 else:
                     new_inputs = [x]
             except:
                 new_inputs = [line]
             commands.ctx.og_input_list = new_inputs.copy()
             commands.ctx.other_il = new_inputs.copy()
-            print(line, '--> ', end='')
+            print(line, "--> ", end="")
             interpreter.run(code, n=0, iteration_index=0)
             process_output_flags(new_flags)
         return None
 
-    elif 'C' in flags:
-        new_flags = ''.join(f for f in flags if f != 'C')
+    elif "C" in flags:
+        new_flags = "".join(f for f in flags if f != "C")
         for l in inputs.splitlines():
             m = re.match(r"(.+) ?(?:=>|-+>) ?(.+)", l)
             try:
@@ -158,29 +156,31 @@ def run(flags, code, inputs):
                 try:
                     x = eval(line)
                     if isinstance(x, tuple):
-                        new_inputs = process_input_flags(new_flags, '\n'.join(map(repr, x)))
+                        new_inputs = process_input_flags(
+                            new_flags, "\n".join(map(repr, x))
+                        )
                     else:
                         new_inputs = [x]
                 except:
                     new_inputs = [line]
                 try:
-                    expected = process_input_flags('', output)[0]
+                    expected = process_input_flags("", output)[0]
                 except:
                     expected = output.strip()
             except Exception as e:
-                print(f'FAIL ❌ (Got error {e})')
+                print(f"FAIL ❌ (Got error {e})")
                 continue
             commands.ctx.og_input_list = new_inputs.copy()
             commands.ctx.other_il = new_inputs.copy()
-            print(line, '--> ', end='')
+            print(line, "--> ", end="")
             interpreter.run(code, n=0, iteration_index=0)
             process_output_flags(new_flags, False)
             actual_output = next(commands.ctx.stack.rmv(1))
-            print(actual_output, end='\t')
+            print(actual_output, end="\t")
             if actual_output == expected:
-                print('PASS ✅')
+                print("PASS ✅")
             else:
-                print(f'FAIL ❌ (Expected {expected})')
+                print(f"FAIL ❌ (Expected {expected})")
         return None
 
     inputs = process_input_flags(flags, inputs)
