@@ -115,6 +115,10 @@ other_tokens = {
 
 full_list = [
     (token, cmd)
-    for cmd, ovld in (commands | string_digraphs).items()
+    for cmd, ovld in commands.items()
+    for token in ovld.keywords
+] + [
+    (token, "ø" + cmd)
+    for cmd, ovld in string_digraphs.items()
     for token in ovld.keywords
 ] + [(val, key) for key, vals in other_tokens.items() for val in vals]
