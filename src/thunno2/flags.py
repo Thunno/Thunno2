@@ -119,6 +119,18 @@ def process_output_flags(flags, do_print=True):
                         pass
                 commands.ctx.stack.push(r)
 
+        if "G" == flag:
+            commands.ctx.stack.push(commands.commands["G"]()[0])
+
+        if "M" == flag:
+            commands.ctx.stack.push(commands.commands["M"]()[0])
+
+        if "b" == flag:
+            commands.ctx.stack.push(commands.commands["ɓ"]()[0])
+
+        if "!" == flag:
+            commands.ctx.stack.push(commands.commands["¬"]()[0])
+
     if do_print:
         do_printing(flags)
 
