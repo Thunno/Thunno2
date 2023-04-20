@@ -1295,9 +1295,9 @@ Push `abcdefghijklmnopqrstuvwxyz` to the stack
 
 ***
 
-# `Ẹ` (Exactly not equal)
+# `Ẹ` (Dump onto stack)
 
-* `any a`, `any b`: push `b != a` (doesn't vectorise)
+* `any a`: push each item of `a` to the stack
 
 ***
 

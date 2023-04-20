@@ -1078,10 +1078,10 @@ commands = {
     ),
     "Ḍ": Overload(1, {Any: double}, 1, ("double",)),
     "Ẹ": Overload(
-        2,
-        {(Any[0], Any[0]): exactly_not_equal},
+        1,
+        {Number: num_dump, Iterable: dump},
         0,
-        ("exactly_not_equal", "exactly_inequal"),
+        ("dump",),
     ),
     "Ḥ": Overload(
         1, {Number: to_hex, str: ord_hex}, 1, ("hex", "hexadecimal", "to_hexadecimal")
