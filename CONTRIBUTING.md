@@ -8,7 +8,7 @@ We are looking to add new commands into Thunno 2, and it would be much appreciat
 
 To suggest a command:
 - ping me (`@TheThonnu`) in the [SE chatroom](https://chat.stackexchange.com/rooms/145278/thunno-2)
-- or, submit a [new issue](https://github.com/Thunno/Thunno2/issues/new) in the repository
+- or, submit a [new issue]([https://github.com/Thunno/Thunno2/issues/new](https://github.com/Thunno/Thunno2/issues/new?assignees=&labels=enhancement%2C+request+command&template=command-request.md&title=)) in the repository
 
 ### 2. Implementing new commands
 
