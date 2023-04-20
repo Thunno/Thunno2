@@ -1214,17 +1214,13 @@ assert_eq(call('Ḍ', [123, 'abc', 456, 'def']), [246, 'abcabc', 912, 'defdef'])
 
 # Ẹ
 
-assert_eq(call('Ẹ', 1, 2), 1)
-assert_eq(call('Ẹ', 2, 2), 0)
-assert_eq(call('Ẹ', [1, 2, 3], [1, 3, 5]), 1)
+assert_eq(call('Ẹ', 1234), 1, 2, 3, 4)
+assert_eq(call('Ẹ', -789.123), 7, 8, 9, 1, 2, 3)
 
-assert_eq(call('Ẹ', 'abc', 2), 1)
-assert_eq(call('Ẹ', ['abc', 'def', 'ghi'], 2), 1)
+assert_eq(call('Ẹ', 'abcde'), 'a', 'b', 'c', 'd', 'e')
+assert_eq(call('Ẹ', ''))
 
-assert_eq(call('Ẹ', 'abc', 'abc'), 0)
-assert_eq(call('Ẹ', 'abc', 'def'), 1)
-assert_eq(call('Ẹ', ['abc', 'def', 'ghi'], ['abc', 'xyz', 'ghi']), 1)
-assert_eq(call('Ẹ', ['abc', 'def'], ['abc', 'def']), 0)
+assert_eq(call('Ẹ', [1, 2, 3, 4, 5]), 1, 2, 3, 4, 5)
 
 # Ḥ
 

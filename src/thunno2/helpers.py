@@ -2594,3 +2594,11 @@ def all_slices(s):
         for x in all_slices(s[i:]):
             r.append([s[:i]] + x)
     return r
+
+
+def dump(x):
+    return tuple(x)
+
+
+def num_dump(n):
+    return dump(digits(n))
