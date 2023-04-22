@@ -1465,9 +1465,7 @@ list_digraphs = {
 }
 
 random_digraphs_1 = {
-    'F': Overload(1, {
-        Any: nth_fibonacci_number
-    }, 1, ('nth_fibonacci_number',))
+    "F": Overload(1, {Any: nth_fibonacci_number}, 1, ("nth_fibonacci_number",))
 }
 
 
@@ -1480,6 +1478,6 @@ def get_a_function(command):
         return string_digraphs.get(command[1], Void)
     if command[0] == "Ø":
         return list_digraphs.get(command[1], Void)
-    if command[0] == 'Æ':
+    if command[0] == "Æ":
         return random_digraphs_1.get(command[1], Void)
     return Void
