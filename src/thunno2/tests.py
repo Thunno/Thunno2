@@ -2719,6 +2719,10 @@ assert_eq(
 )
 assert_eq(call("ØC", []), "")
 
+# ÆF
+
+assert_eq(call('ÆF', 5), 8)
+
 # After all the tests
 
 untested_commands = sorted(
