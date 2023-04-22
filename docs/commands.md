@@ -1777,3 +1777,9 @@ Push the index of the next character of the codepage + 101
 * `any a`: center `a`
 
 ***
+
+# `ÆF` (nth Fibonacci number)
+
+* `any a`: `n`th Fibonacci number
+
+***
