@@ -1759,3 +1759,15 @@ Push the index of the next character of the codepage + 101
 * `any a`, `num b`: remove the last `b` elements of `a`
 
 ***
+
+# `øD` (Optimal dictionary compression)
+
+* `any a`: optimally dictionary compress `a`
+
+***
+
+# `ØC` (Center)
+
+* `any a`: center `a`
+
+***
