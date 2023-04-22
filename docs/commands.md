@@ -1760,6 +1760,12 @@ Push the index of the next character of the codepage + 101
 
 ***
 
+# `øB` (Brackets are balanced)
+
+* `any a`: are the brackets balanced in `a`?
+
+***
+
 # `øD` (Optimal dictionary compression)
 
 * `any a`: optimally dictionary compress `a`
