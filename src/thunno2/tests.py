@@ -1722,7 +1722,7 @@ assert_eq(call('ḅ', [-2, -1, 0, 1, 2]), [0, 0, 0, 1, 0])
 assert_eq(call('ḅ', 'abc'), 0)
 assert_eq(call('ḅ', ''), 0)
 
-assert_eq(call('ḅ', ['abc', 1, '',  123, 'def', 1.0]), [0, 1, 0, 0, 0, 1])
+assert_eq(call('ḅ', ['abc', 1, '', 123, 'def', 1.0]), [0, 1, 0, 0, 0, 1])
 
 # ḍ
 
@@ -1909,6 +1909,16 @@ assert_eq(call('ẓ', ['abc', 'def', 'ghi', 'jkl', 'mno'], 3), ['abc', 'def'])
 assert_eq(call('øD', 'Hello, World!'), 'Ƙ¥, «ʋ!')
 assert_eq(call('øD', 'thunnobest'), 'thunnoÇ&')
 assert_eq(call('øD', 'withree'), 'wiċŀ')
+assert_eq(call('øD', 123456), '123456')
+
+# ØC
+
+assert_eq(call('ØC', 123), 123)
+assert_eq(call('ØC', 'abc'), 'abc')
+
+assert_eq(call('ØC', [123, 4567, 8, 90]), '123 \n4567\n 8  \n 90 ')
+assert_eq(call('ØC', ['abc', 1234, 'xy', 56789, 'z']), ' abc \n 1234\n  xy \n56789\n  z  ')
+assert_eq(call('ØC', []), '')
 
 # After all the tests
 

@@ -2602,3 +2602,18 @@ def dump(x):
 
 def num_dump(n):
     return dump(digits(n))
+
+
+def convert_all_to_string(func):
+    def wrapper(*args, fn=func):
+        return fn(*map(str, args))
+
+    return wrapper
+
+
+def centre_list(x):
+    l = [*map(str, x)]
+    if not l:
+        return ""
+    max_len = safe_max_len(l)
+    return newline_join([*map(lambda s, m=max_len: s.center(m), l)])
