@@ -120,7 +120,8 @@ full_list = (
         (token, "ø" + cmd)
         for cmd, ovld in string_digraphs.items()
         for token in ovld.keywords
-    ] + [
+    ]
+    + [
         (token, "Ø" + cmd)
         for cmd, ovld in list_digraphs.items()
         for token in ovld.keywords

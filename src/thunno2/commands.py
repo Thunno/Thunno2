@@ -1453,10 +1453,9 @@ string_digraphs = {
 }
 
 list_digraphs = {
-    'C': Overload(1, {
-        ((int, float, str),): pass_,
-        list: centre_list
-    }, 0, ('center', 'centre'))
+    "C": Overload(
+        1, {((int, float, str),): pass_, list: centre_list}, 0, ("center", "centre")
+    )
 }
 
 
@@ -1467,6 +1466,6 @@ def get_a_function(command):
         return commands.get(command, Void)
     if command[0] == "ø":
         return string_digraphs.get(command[1], Void)
-    if command[0] == 'Ø':
+    if command[0] == "Ø":
         return list_digraphs.get(command[1], Void)
     return Void
