@@ -133,6 +133,13 @@ import string
 from thunno2 import codepage
 
 
+def convert_all_to_string(func):
+    def wrapper(*args, fn=func):
+        return fn(*map(str, args))
+
+    return wrapper
+
+
 def safe_max_len(*lsts):
     m = 0
     for lst in lsts:
@@ -2604,16 +2611,26 @@ def num_dump(n):
     return dump(digits(n))
 
 
-def convert_all_to_string(func):
-    def wrapper(*args, fn=func):
-        return fn(*map(str, args))
-
-    return wrapper
-
-
 def centre_list(x):
     l = [*map(str, x)]
     if not l:
         return ""
     max_len = safe_max_len(l)
     return newline_join([*map(lambda s, m=max_len: s.center(m), l)])
+
+
+@convert_all_to_string
+def brackets_are_balanced(s):
+    brackets = dict(chunk_wrap_2("()[]{}<>"))
+    l = []
+    for c in s:
+        if c in brackets.keys():
+            l.append(brackets[c])
+        elif c in brackets.values():
+            if not l:
+                return 0
+            if l[-1] == c:
+                l = tail_remove(l)
+            else:
+                return 0
+    return logical_not(len(l))
