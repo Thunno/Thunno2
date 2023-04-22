@@ -119,3 +119,7 @@ Explanation:
 ```
 
 Note that if you use explicit printing (`£`), the implicit output will be disabled.
+
+## 9. Overloading
+
+Thunno 2 uses type overloading, which means that some commands behave differently when passed different types. For example, the [`C` command](https://github.com/Thunno/Thunno2/blob/main/docs/commands.md#c-chr--ord) is `chr` when given a number and `ord` when given a string. All overloads are documented in [`commands.md`](https://github.com/Thunno/Thunno2/blob/main/docs/commands.md).
