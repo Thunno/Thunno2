@@ -1447,9 +1447,12 @@ commands = {
 }
 
 string_digraphs = {
-    'B': Overload(1, {
-        Any: brackets_are_balanced
-    }, 1, ('balanced_brackets', 'brackets_are_balanced')),
+    "B": Overload(
+        1,
+        {Any: brackets_are_balanced},
+        1,
+        ("balanced_brackets", "brackets_are_balanced"),
+    ),
     "D": Overload(
         1, {Any: optimal_dictionary_compression}, 1, ("optimal_dictionary_compression",)
     ),
