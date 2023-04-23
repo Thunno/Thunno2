@@ -1469,7 +1469,9 @@ random_digraphs_1 = {
 }
 
 random_digraphs_2 = {
-    'R': Overload(1, {Number: to_roman_numerals, str: from_roman_numerals}, 1, ('roman_numerals',))
+    "R": Overload(
+        1, {Number: to_roman_numerals, str: from_roman_numerals}, 1, ("roman_numerals",)
+    )
 }
 
 
@@ -1484,6 +1486,6 @@ def get_a_function(command):
         return list_digraphs.get(command[1], Void)
     if command[0] == "Æ":
         return random_digraphs_1.get(command[1], Void)
-    if command[0] == 'µ':
+    if command[0] == "µ":
         return random_digraphs_2.get(command[1], Void)
     return Void
