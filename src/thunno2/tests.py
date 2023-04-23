@@ -2725,6 +2725,17 @@ assert_eq(call("ÆF", 5), 5)
 assert_eq(call("ÆF", 1.23), 1)
 assert_eq(call("ÆF", [10, 11, 12, 13, 14]), [55, 89, 144, 233, 377])
 
+# µR
+
+assert_eq(call('µR', 12), 'XII')
+assert_eq(call('µR', -4.56), '-IV')
+assert_eq(call('µR', [123, 456, 789, 1234, 5678, 9012]),
+          ['CXXIII', 'CDLVI', 'DCCLXXXIX', 'MCCXXXIV', 'MMMMMDCLXXVIII', 'MMMMMMMMMXII'])
+
+assert_eq(call('µR', 'CMXCIX'), 999)
+assert_eq(call('µR', ''), 0)
+assert_eq(call('µR', 'abcdef'), 0)
+
 # After all the tests
 
 untested_commands = sorted(

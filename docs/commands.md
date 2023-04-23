@@ -1783,3 +1783,10 @@ Push the index of the next character of the codepage + 101
 * `any a`: `n`th Fibonacci number
 
 ***
+
+# `µR` (To Romand numerals / From Roman numerals)
+
+* `num a`: convert `a` to Roman numerals
+* `str a`: convert `a` from Roman numerals
+
+***
