@@ -2,12 +2,12 @@
 
 import re
 
-f = open("thunno2/helpers.py", "r", encoding="utf-8")
+f = open("src/thunno2/helpers.py", "r", encoding="utf-8")
 file = f.read()
 f.close()
 
 # Just in case this fails
-f = open("thunno2/helpers_backup.py", "w+", encoding="utf-8")
+f = open("src/thunno2/helpers_backup.py", "w+", encoding="utf-8")
 f.write(file)
 f.close()
 
@@ -24,7 +24,7 @@ file = file.split("\n")
 start_line = file.index(fns[0].split("\n")[0])
 last_line = file.index(fns[-1].split("\n")[-1])
 
-f = open("thunno2/helpers.py", "w", encoding="utf-8")
+f = open("src/thunno2/helpers.py", "w", encoding="utf-8")
 
 f.write(
     "\n".join(file[:start_line])

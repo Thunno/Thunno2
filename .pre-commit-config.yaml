@@ -13,7 +13,7 @@ repos:
     hooks:
       - id: sort-helpers
         name: Sort helper functions in helpers.py
-        entry: cd src; python sort_helpers.py
+        entry: python src/sort_helpers.py
         language: python
         additional_dependencies: [ ]
         files: src/thunno2/helpers.py
