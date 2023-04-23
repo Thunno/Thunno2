@@ -9,3 +9,12 @@ repos:
     rev: 23.3.0
     hooks:
       - id: black
+  - repo: local
+    hooks:
+      - id: sort-helpers
+        name: Sort helper functions in helpers.py
+        entry: cd src; python sort_helpers.py
+        language: python
+        additional_dependencies: [ ]
+        files: src/thunno2/helpers.py
+        pass_filenames: false
