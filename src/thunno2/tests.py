@@ -2721,7 +2721,9 @@ assert_eq(call("ØC", []), "")
 
 # ÆF
 
-assert_eq(call("ÆF", 5), 8)
+assert_eq(call("ÆF", 5), 5)
+assert_eq(call("ÆF", 1.23), 1)
+assert_eq(call("ÆF", [10, 11, 12, 13, 14]), [55, 89, 144, 233, 377])
 
 # After all the tests
 
