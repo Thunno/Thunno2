@@ -2648,6 +2648,6 @@ def brackets_are_balanced(s):
 
 @try_int_conversion
 def nth_fibonacci_number(n, a=0, b=1):
-    if n <= 0:
+    if n <= 1:
         return b
     return nth_fibonacci_number(n - 1, b, a + b)
