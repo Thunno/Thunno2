@@ -6,11 +6,6 @@ f = open("src/thunno2/helpers.py", "r", encoding="utf-8")
 file = f.read()
 f.close()
 
-# Just in case this fails
-f = open("src/thunno2/helpers_backup.py", "w+", encoding="utf-8")
-f.write(file)
-f.close()
-
 fns = [
     x.strip()
     for x in re.findall(
