@@ -1465,7 +1465,16 @@ list_digraphs = {
 }
 
 random_digraphs_1 = {
-    "F": Overload(1, {Any: nth_fibonacci_number}, 1, ("nth_fibonacci_number",))
+    "C": Overload(1, {Any: cosine}, 1, ("cosine", "cos")),
+    "D": Overload(1, {Any: degrees}, 1, ("degrees",)),
+    "E": Overload(1, {Any: exponent}, 1, ("exponent",)),
+    "F": Overload(1, {Any: nth_fibonacci_number}, 1, ("nth_fibonacci_number",)),
+    "R": Overload(1, {Any: radians}, 1, ("radians",)),
+    "S": Overload(1, {Any: sine}, 1, ("sine", "sin")),
+    "T": Overload(1, {Any: tangent}, 1, ("tangent", "tan")),
+    "c": Overload(1, {Any: arc_cosine}, 1, ("arc_cosine", "arccos")),
+    "s": Overload(1, {Any: arc_sine}, 1, ("arc_sine", "arcsin")),
+    "t": Overload(1, {Any: arc_tangent}, 1, ("arc_tangent", "arctan")),
 }
 
 random_digraphs_2 = {

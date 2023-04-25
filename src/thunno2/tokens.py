@@ -6,7 +6,7 @@ Using those tokens we can retrieve the original command.
 """
 
 from thunno2.interpreter import commands
-from thunno2.commands import string_digraphs, list_digraphs
+from thunno2.commands import string_digraphs, list_digraphs, random_digraphs_1, random_digraphs_2
 import sys
 
 
@@ -124,6 +124,14 @@ full_list = (
     + [
         (token, "Ø" + cmd)
         for cmd, ovld in list_digraphs.items()
+        for token in ovld.keywords
+    ] + [
+        (token, "Æ" + cmd)
+        for cmd, ovld in random_digraphs_1.items()
+        for token in ovld.keywords
+    ] + [
+        (token, "µ" + cmd)
+        for cmd, ovld in random_digraphs_2.items()
         for token in ovld.keywords
     ]
     + [(val, key) for key, vals in other_tokens.items() for val in vals]

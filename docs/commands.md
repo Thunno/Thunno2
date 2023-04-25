@@ -1778,9 +1778,63 @@ Push the index of the next character of the codepage + 101
 
 ***
 
+# `ÆC` (Cosine)
+
+* `any a`: push `cos(a)`
+
+***
+
+# `ÆD` (Degrees)
+
+* `any a`: push `degrees(a)`
+
+***
+
+# `ÆE` (Exponent)
+
+* `any a`: push `exp(a)`
+
+***
+
 # `ÆF` (nth Fibonacci number)
 
 * `any a`: `n`th Fibonacci number
+
+***
+
+# `ÆR` (Radians)
+
+* `any a`: push `radians(a)`
+
+***
+
+# `ÆS` (Sine)
+
+* `any a`: push `sin(a)`
+
+***
+
+# `ÆT` (Tangent)
+
+* `any a`: push `tan(a)`
+
+***
+
+# `Æc` (Inverse cosine)
+
+* `any a`: push `arccos(a)`
+
+***
+
+# `Æs` (Inverse sine)
+
+* `any a`: push `arcsin(a)`
+
+***
+
+# `Æt` (Inverse tangent)
+
+* `any a`: push `arctan(a)`
 
 ***
 

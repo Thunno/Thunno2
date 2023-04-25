@@ -150,6 +150,16 @@ def try_int_conversion(func):
     return wrapper
 
 
+def try_float_conversion(func):
+    def wrapper(*args, fn=func):
+        try:
+            return fn(*map(float, args))
+        except:
+            return args
+
+    return wrapper
+
+
 def safe_max_len(*lsts):
     m = 0
     for lst in lsts:
@@ -2651,3 +2661,48 @@ def nth_fibonacci_number(n, a=0, b=1):
     if n <= 1:
         return b
     return nth_fibonacci_number(n - 1, b, a + b)
+
+
+@try_float_conversion
+def cosine(n):
+    return math.cos(n)
+
+
+@try_float_conversion
+def sine(n):
+    return math.sin(n)
+
+
+@try_float_conversion
+def tangent(n):
+    return math.tan(n)
+
+
+@try_float_conversion
+def arc_cosine(n):
+    return math.acos(n)
+
+
+@try_float_conversion
+def arc_sine(n):
+    return math.asin(n)
+
+
+@try_float_conversion
+def arc_tangent(n):
+    return math.atan(n)
+
+
+@try_float_conversion
+def degrees(n):
+    return math.degrees(n)
+
+
+@try_float_conversion
+def radians(n):
+    return math.radians(n)
+
+
+@try_float_conversion
+def exponent(n):
+    return math.exp(n)
