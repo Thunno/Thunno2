@@ -1802,6 +1802,12 @@ Push the index of the next character of the codepage + 101
 
 ***
 
+# `ÆP` (nth prime number)
+
+* `any a`: `n`th prime number
+
+***
+
 # `ÆR` (Radians)
 
 * `any a`: push `radians(a)`

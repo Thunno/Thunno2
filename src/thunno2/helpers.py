@@ -2711,3 +2711,15 @@ def radians(n):
 @try_float_conversion
 def exponent(n):
     return math.exp(n)
+
+
+@try_int_conversion
+def nth_prime(n):
+    if n < 0:
+        n = abs(n)
+    i = 2
+    while n:
+        if is_prime(i):
+            n -= 1
+        i += 1
+    return i
