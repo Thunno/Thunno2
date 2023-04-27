@@ -2751,8 +2751,8 @@ assert_eq(call("ÆF", [10, 11, 12, 13, 14]), [55, 89, 144, 233, 377])
 
 # ÆP
 
-assert_eq(call('ÆP', 0), 2)
-assert_eq(call('ÆP', 5), 13)
+assert_eq(call("ÆP", 0), 2)
+assert_eq(call("ÆP", 5), 13)
 assert_eq(call("ÆP", 1.23), 3)
 assert_eq(call("ÆP", [10, 11, 12, 13, 14]), [31, 37, 41, 43, 47])
 
