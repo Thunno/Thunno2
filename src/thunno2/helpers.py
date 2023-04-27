@@ -2730,7 +2730,7 @@ def main_diagonal(lst):
     if not l:
         return []
     r = []
-    for i in range(min(len(l), len(l[0]))):
+    for i in range(min(len(l), min(map(len, l)))):
         r.append(l[i][i])
     return r
 
@@ -2740,7 +2740,7 @@ def anti_diagonal(lst):
     if not l:
         return []
     r = []
-    m = min(len(l), len(l[0]))
+    m = min(len(l), min(map(len, l)))
     for i in range(m):
-        r.append(l[m - i][i])
+        r.append(l[i][m - i - 1])
     return r

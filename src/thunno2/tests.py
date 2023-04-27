@@ -2725,6 +2725,26 @@ assert_eq(
 )
 assert_eq(call("ØC", []), "")
 
+# Ø\
+
+assert_eq(call("Ø\\", [123, 456, 789]), [1, 5, 9])
+assert_eq(call("Ø\\", ["abcd", 12345, "xyz", 67]), ["a", 2])
+assert_eq(call("Ø\\", [[123, 456, 789], ["abc", "def", "ghi"]]), [123, "def"])
+assert_eq(call("Ø\\", []), [])
+
+assert_eq(call("Ø\\", 123), 123)
+assert_eq(call("Ø\\", "abc"), "abc")
+
+# Ø/
+
+assert_eq(call("Ø/", [123, 456, 789]), [3, 5, 7])
+assert_eq(call("Ø/", ["abcd", 12345, "xyz", 67]), ["b", 1])
+assert_eq(call("Ø/", [[123, 456, 789], ["abc", "def", "ghi"]]), [456, "abc"])
+assert_eq(call("Ø/", []), [])
+
+assert_eq(call("Ø/", 123), 123)
+assert_eq(call("Ø/", "abc"), "abc")
+
 # # ÆC
 #
 # assert_eq(call("ÆC", 0), 1.0)  # ~ 1
