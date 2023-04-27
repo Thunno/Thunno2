@@ -140,8 +140,8 @@ def tokenise(code, expected_end=""):
             index += 1
             try:
                 x = code[index]
-                if char + x == 'µµ':
-                    i, r = tokenise(code[index + 1:], expected_end=";")
+                if char + x == "µµ":
+                    i, r = tokenise(code[index + 1 :], expected_end=";")
                     index += i
                     ret.append((char + x, "recursive environment", r))
                 else:
