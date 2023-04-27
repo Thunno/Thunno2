@@ -614,6 +614,25 @@ def run(code, *, n, iteration_index):
                     ctx.stack.push(k)
                 r.append(next(ctx.stack.rmv(1)))
             ctx.stack.push(r)
+        elif desc == "recursive environment":
+            a = next(ctx.stack.rmv(1))
+            if isinstance(a, list):
+                x = copy.deepcopy(a)
+            else:
+                x = [a]
+            for i in x:
+                print(i)
+            old_stack = Stack(copy.deepcopy(list(ctx.stack).copy()))
+            k = 0
+            while True:
+                ctx.stack = Stack(copy.deepcopy(list(old_stack).copy()))
+                for j in x:
+                    ctx.stack.push(j)
+                run(info, n=([0] + x)[-1], iteration_index=k)
+                y = next(ctx.stack.rmv(1))
+                print(y)
+                x.append(y)
+                k += 1
         else:
             if ctx.warnings:
                 print("TRACEBACK: [UNRECOGNISED TOKEN]", file=sys.stderr)

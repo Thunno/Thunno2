@@ -140,7 +140,12 @@ def tokenise(code, expected_end=""):
             index += 1
             try:
                 x = code[index]
-                ret.append((char, "digraph", get_a_function(char + x)))
+                if char + x == "µµ":
+                    i, r = tokenise(code[index + 1 :], expected_end=";")
+                    index += i
+                    ret.append((char + x, "recursive environment", r))
+                else:
+                    ret.append((char + x, "digraph", get_a_function(char + x)))
             except:
                 pass
         elif char in "0123456789.":

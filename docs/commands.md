@@ -1868,3 +1868,7 @@ Push the index of the next character of the codepage + 101
 * `any a`: random permutation of `a`
 
 ***
+
+# `µµ` (Recursive environment)
+
+Usage: `µµ CODE ;`. Start recursive list generation, executing `CODE` to get each succesive item in the sequence.
