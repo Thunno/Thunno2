@@ -1462,8 +1462,12 @@ list_digraphs = {
     "C": Overload(
         1, {((int, float, str),): pass_, list: centre_list}, 0, ("center", "centre")
     ),
-    "\\": Overload(1, {((int, float, str),): pass_, list: main_diagonal}, 0, ("main_diagonal",)),
-    "/": Overload(1, {((int, float, str),): pass_, list: anti_diagonal}, 0, ("anti_diagonal",)),
+    "\\": Overload(
+        1, {((int, float, str),): pass_, list: main_diagonal}, 0, ("main_diagonal",)
+    ),
+    "/": Overload(
+        1, {((int, float, str),): pass_, list: anti_diagonal}, 0, ("anti_diagonal",)
+    ),
 }
 
 random_digraphs_1 = {
