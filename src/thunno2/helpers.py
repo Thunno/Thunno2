@@ -2723,3 +2723,24 @@ def nth_prime(n):
         if is_prime(i):
             n -= 1
     return i
+
+
+def main_diagonal(lst):
+    l = [*map(_digits, lst)]
+    if not l:
+        return []
+    r = []
+    for i in range(min(len(l), len(l[0]))):
+        r.append(l[i][i])
+    return r
+
+
+def anti_diagonal(lst):
+    l = [*map(_digits, lst)]
+    if not l:
+        return []
+    r = []
+    m = min(len(l), len(l[0]))
+    for i in range(m):
+        r.append(l[m - i][i])
+    return r
