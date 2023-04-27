@@ -2725,6 +2725,17 @@ assert_eq(
 )
 assert_eq(call("ØC", []), "")
 
+# Ø.
+
+assert_eq(call("Ø.", [1, 2, 3], [4, 5, 6]), 32)
+assert_eq(call("Ø.", [123], [456, 789]), 56088)
+assert_eq(call("Ø.", [], [123, 456, 789]), 0)
+
+assert_eq(
+    call("Ø.", [5, 6, 7], ["abc", "def", "ghi"]),
+    "abcabcabcabcabcdefdefdefdefdefdefghighighighighighighi",
+)
+
 # Ø\
 
 assert_eq(call("Ø\\", [123, 456, 789]), [1, 5, 9])

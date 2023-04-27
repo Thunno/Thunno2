@@ -2744,3 +2744,13 @@ def anti_diagonal(lst):
     for i in range(m):
         r.append(l[i][m - i - 1])
     return r
+
+
+def dot_product(x, y):
+    r = []
+    for i, j in zip(x, y):
+        try:
+            r.append(i * j)
+        except:
+            pass
+    return it_sum(r)
