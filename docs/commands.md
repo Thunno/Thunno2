@@ -1778,6 +1778,12 @@ Push the index of the next character of the codepage + 101
 
 ***
 
+# `Ø.` (Dot product)
+
+* `any a`, `any b`: dot product of `a` and `b`
+
+***
+
 # <code>Ø\\</code> (Main diagonal)
 
 * `any a`: main diagonal of `a`
@@ -1871,4 +1877,6 @@ Push the index of the next character of the codepage + 101
 
 # `µµ` (Recursive environment)
 
-Usage: `µµ CODE ;`. Start recursive list generation, executing `CODE` to get each succesive item in the sequence.
+Usage: `µµ CODE ;`. Start recursive list generation, executing `CODE` to get each successive item in the sequence.
+
+***

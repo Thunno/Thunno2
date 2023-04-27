@@ -1462,6 +1462,9 @@ list_digraphs = {
     "C": Overload(
         1, {((int, float, str),): pass_, list: centre_list}, 0, ("center", "centre")
     ),
+    ".": Overload(
+        2, {(list, list): dot_product, (Any[0], Any[0]): pass_}, 0, ("dot_product",)
+    ),
     "\\": Overload(
         1, {((int, float, str),): pass_, list: main_diagonal}, 0, ("main_diagonal",)
     ),
