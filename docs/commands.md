@@ -1880,3 +1880,9 @@ Push the index of the next character of the codepage + 101
 Usage: `µµ CODE ;`. Start recursive list generation, executing `CODE` to get each successive item in the sequence.
 
 ***
+
+# `µ£` (Print each)
+
+* `any a`: print each item of `a`
+
+***

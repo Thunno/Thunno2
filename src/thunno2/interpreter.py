@@ -447,6 +447,11 @@ def run(code, *, n, iteration_index):
             ctx.implicit_print = False
         elif desc == "print without popping":
             print((ctx.stack.copy() + ctx.other_il + [0])[0])
+            ctx.implicit_print = False
+        elif desc == "print each":
+            for i in listify(next(ctx.stack.rmv(1))):
+                print(i)
+            ctx.implicit_print = False
         elif desc == "map":
             a = next(ctx.stack.rmv(1))
             x = listify(a)
