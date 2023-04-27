@@ -1,6 +1,6 @@
 """Just so this shows up in the tab on PyCharm"""
 
-# TODO: µ reserved for digraphs (random)
-# TODO: Æ reserved for digraphs (random)
-# TODO: Ø reserved for digraphs (list)
-# TODO: ø reserved for digraphs (string)
+# Element wishlist:
+#   TODO: Extend/truncate to length (ØE)
+#   TODO: Apply to every nth item (µ€)
+#   TODO: All (anti-)diagonals of matrix (Ø‘ and Ø’)
