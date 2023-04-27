@@ -128,7 +128,7 @@ express Statement of Purpose.
 tests_counter = 0
 tested_commands = []
 
-UNTESTABLE = "ɼ"
+UNTESTABLE = ["ɼ", "µr", "ÆC", "ÆD", "ÆE", "ÆR", "ÆS", "ÆT", "Æc", "Æs", "Æt"]
 
 
 def call(cmd, *stk):
@@ -2701,6 +2701,12 @@ assert_eq(call("ẓ", "", 10), "")
 assert_eq(call("ẓ", 2, [123, 456, 789]), [123])
 assert_eq(call("ẓ", ["abc", "def", "ghi", "jkl", "mno"], 3), ["abc", "def"])
 
+# øB
+
+assert_eq(call("øB", "([{}])"), 1)
+assert_eq(call("øB", "{]"), 0)
+assert_eq(call("øB", ["(abc)", "{}[xyz]()", "{abc", ""]), [1, 1, 0, 1])
+
 # øD
 
 assert_eq(call("øD", "Hello, World!"), "Ƙ¥, «ʋ!")
@@ -2719,11 +2725,94 @@ assert_eq(
 )
 assert_eq(call("ØC", []), "")
 
+# Ø\
+
+assert_eq(call("Ø\\", [123, 456, 789]), [1, 5, 9])
+assert_eq(call("Ø\\", ["abcd", 12345, "xyz", 67]), ["a", 2])
+assert_eq(call("Ø\\", [[123, 456, 789], ["abc", "def", "ghi"]]), [123, "def"])
+assert_eq(call("Ø\\", []), [])
+
+assert_eq(call("Ø\\", 123), 123)
+assert_eq(call("Ø\\", "abc"), "abc")
+
+# Ø/
+
+assert_eq(call("Ø/", [123, 456, 789]), [3, 5, 7])
+assert_eq(call("Ø/", ["abcd", 12345, "xyz", 67]), ["b", 1])
+assert_eq(call("Ø/", [[123, 456, 789], ["abc", "def", "ghi"]]), [456, "abc"])
+assert_eq(call("Ø/", []), [])
+
+assert_eq(call("Ø/", 123), 123)
+assert_eq(call("Ø/", "abc"), "abc")
+
+# # ÆC
+#
+# assert_eq(call("ÆC", 0), 1.0)  # ~ 1
+# assert_eq(call("ÆC", 0.524), 0.8658247218821449)  # ~ sqrt(3) / 2
+# assert_eq(call("ÆC", 0.785), 0.7073882691671998)  # ~ sqrt(2) / 2
+# assert_eq(call("ÆC", 1.047), 0.5001710745970702)  # ~ 1/2
+# assert_eq(call("ÆC", 1.571), -0.00020367320369517789)  # ~ 0
+
+# # ÆE
+#
+# assert_eq(call("ÆE", 0), 1.0)
+# assert_eq(call("ÆE", 1), 2.718281828459045)
+# assert_eq(
+#     call("ÆE", [-1.23, 4.56, -7.89, 10.11]),
+#     [0.2922925776808594, 95.58347983006624, 0.00037446957498607833, 24587.660736455156]
+# )
+
 # ÆF
 
+assert_eq(call("ÆF", 0), 0)
 assert_eq(call("ÆF", 5), 5)
 assert_eq(call("ÆF", 1.23), 1)
 assert_eq(call("ÆF", [10, 11, 12, 13, 14]), [55, 89, 144, 233, 377])
+
+# ÆP
+
+assert_eq(call("ÆP", 0), 2)
+assert_eq(call("ÆP", 5), 13)
+assert_eq(call("ÆP", 1.23), 3)
+assert_eq(call("ÆP", [10, 11, 12, 13, 14]), [31, 37, 41, 43, 47])
+
+# # ÆS
+#
+# assert_eq(call("ÆS", 0), 0.0)  # ~ 0
+# assert_eq(call("ÆS", 0.524), 0.5003474302699141)  # ~ 1/2
+# assert_eq(call("ÆS", 0.785), 0.706825181105366)  # ~ sqrt(2) / 2
+# assert_eq(call("ÆS", 1.047), 0.8659266112878228)  # ~ sqrt(3) / 2
+# assert_eq(call("ÆS", 1.571), 0.9999999792586128)  # ~ 1
+
+# # ÆT
+#
+# assert_eq(call("ÆT", 0), 0.0)  # ~ 0
+# assert_eq(call("ÆT", 0.524), 0.5778853590392409)  # ~ sqrt(3) / 3
+# assert_eq(call("ÆT", 0.785), 0.9992039901050427)  # ~ 1
+# assert_eq(call("ÆT", 1.047), 1.73126087306308)  # ~ sqrt(3)
+
+# # Æc
+#
+# assert_eq(call("Æc", 0), 1.5707963267948966)  # ~ pi/2
+# assert_eq(call("Æc", 0.5), 1.0471975511965976)  # ~ pi/3
+# assert_eq(call("Æc", 0.707), 0.7855491633997437)  # ~ pi/4
+# assert_eq(call("Æc", 0.866), 0.5236495809318289)  # ~ pi/6
+# assert_eq(call("Æc", 1), 0.0)  # ~ 0
+
+# # Æs
+#
+# assert_eq(call("Æs", 0), 0.0)  # ~ 0
+# assert_eq(call("Æs", 0.5), 0.5235987755982988)  # ~ pi/6
+# assert_eq(call("Æs", 0.707), 0.785247163395153)  # ~ pi/4
+# assert_eq(call("Æs", 0.866), 1.0471467458630677)  # ~ pi/3
+# assert_eq(call("Æs", 1), 1.5707963267948966)  # ~ pi/2
+
+# # Æt
+#
+# assert_eq(call("Æt", 0), 0.0)  # ~ 0
+# assert_eq(call("Æt", 0.577), 0.5233360338618205)  # ~ pi/6
+# assert_eq(call("Æt", 1), 0.7853981633974483)  # ~ pi/4
+# assert_eq(call("Æt", 1.732), 1.0471848490249274)  # ~ pi/3
 
 # µR
 
@@ -2740,8 +2829,16 @@ assert_eq(call("µR", "abcdef"), 0)
 
 # After all the tests
 
+all_commands = (
+    [*commands]
+    + ["ø" + cmd1 for cmd1 in string_digraphs]
+    + ["Ø" + cmd2 for cmd2 in list_digraphs]
+    + ["Æ" + cmd3 for cmd3 in random_digraphs_1]
+    + ["µ" + cmd4 for cmd4 in random_digraphs_2]
+)
+
 untested_commands = sorted(
-    {*commands} - {*tested_commands} - {*UNTESTABLE}, key=[*commands].index
+    {*all_commands} - {*tested_commands} - {*UNTESTABLE}, key=all_commands.index
 )
 if untested_commands:
     print(f'\u001b[33mUntested commands: {", ".join(untested_commands)}')

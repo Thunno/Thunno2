@@ -1461,17 +1461,39 @@ string_digraphs = {
 list_digraphs = {
     "C": Overload(
         1, {((int, float, str),): pass_, list: centre_list}, 0, ("center", "centre")
-    )
+    ),
+    "\\": Overload(
+        1, {((int, float, str),): pass_, list: main_diagonal}, 0, ("main_diagonal",)
+    ),
+    "/": Overload(
+        1, {((int, float, str),): pass_, list: anti_diagonal}, 0, ("anti_diagonal",)
+    ),
 }
 
 random_digraphs_1 = {
-    "F": Overload(1, {Any: nth_fibonacci_number}, 1, ("nth_fibonacci_number",))
+    "C": Overload(1, {Any: cosine}, 1, ("cosine", "cos")),
+    "D": Overload(1, {Any: degrees}, 1, ("degrees",)),
+    "E": Overload(1, {Any: exponent}, 1, ("exponent",)),
+    "F": Overload(1, {Any: nth_fibonacci_number}, 1, ("nth_fibonacci_number",)),
+    "P": Overload(1, {Any: nth_prime}, 1, ("nth_prime",)),
+    "R": Overload(1, {Any: radians}, 1, ("radians",)),
+    "S": Overload(1, {Any: sine}, 1, ("sine", "sin")),
+    "T": Overload(1, {Any: tangent}, 1, ("tangent", "tan")),
+    "c": Overload(1, {Any: arc_cosine}, 1, ("arc_cosine", "arccos")),
+    "s": Overload(1, {Any: arc_sine}, 1, ("arc_sine", "arcsin")),
+    "t": Overload(1, {Any: arc_tangent}, 1, ("arc_tangent", "arctan")),
 }
 
 random_digraphs_2 = {
     "R": Overload(
         1, {Number: to_roman_numerals, str: from_roman_numerals}, 1, ("roman_numerals",)
-    )
+    ),
+    "r": Overload(
+        1,
+        {Number: range_shuffle, str: str_shuffle, list: shuffle},
+        0,
+        ("random_shuffle",),
+    ),
 }
 
 

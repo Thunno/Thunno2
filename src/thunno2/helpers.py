@@ -150,6 +150,16 @@ def try_int_conversion(func):
     return wrapper
 
 
+def try_float_conversion(func):
+    def wrapper(*args, fn=func):
+        try:
+            return fn(*map(float, args))
+        except:
+            return args
+
+    return wrapper
+
+
 def safe_max_len(*lsts):
     m = 0
     for lst in lsts:
@@ -2647,7 +2657,90 @@ def brackets_are_balanced(s):
 
 
 @try_int_conversion
-def nth_fibonacci_number(n, a=0, b=1):
-    if n <= 1:
-        return b
-    return nth_fibonacci_number(n - 1, b, a + b)
+def nth_fibonacci_number(n):
+    if n <= 0:
+        return 0
+    a = 0
+    b = 1
+    while n > 1:
+        a, b = b, a + b
+        n -= 1
+    return b
+
+
+@try_float_conversion
+def cosine(n):
+    return math.cos(n)
+
+
+@try_float_conversion
+def sine(n):
+    return math.sin(n)
+
+
+@try_float_conversion
+def tangent(n):
+    return math.tan(n)
+
+
+@try_float_conversion
+def arc_cosine(n):
+    return math.acos(n)
+
+
+@try_float_conversion
+def arc_sine(n):
+    return math.asin(n)
+
+
+@try_float_conversion
+def arc_tangent(n):
+    return math.atan(n)
+
+
+@try_float_conversion
+def degrees(n):
+    return math.degrees(n)
+
+
+@try_float_conversion
+def radians(n):
+    return math.radians(n)
+
+
+@try_float_conversion
+def exponent(n):
+    return math.exp(n)
+
+
+@try_int_conversion
+def nth_prime(n):
+    if n < 0:
+        n = abs(n)
+    i = 2
+    while n:
+        i += 1
+        if is_prime(i):
+            n -= 1
+    return i
+
+
+def main_diagonal(lst):
+    l = [*map(_digits, lst)]
+    if not l:
+        return []
+    r = []
+    for i in range(min(len(l), min(map(len, l)))):
+        r.append(l[i][i])
+    return r
+
+
+def anti_diagonal(lst):
+    l = [*map(_digits, lst)]
+    if not l:
+        return []
+    r = []
+    m = min(len(l), min(map(len, l)))
+    for i in range(m):
+        r.append(l[i][m - i - 1])
+    return r
