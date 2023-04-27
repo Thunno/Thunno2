@@ -2741,15 +2741,13 @@ assert_eq(call("µR", "abcdef"), 0)
 
 # After all the tests
 
-all_commands = [*commands] + [
-    'ø' + cmd1 for cmd1 in string_digraphs
-] + [
-    'Ø' + cmd2 for cmd2 in list_digraphs
-] + [
-    'Æ' + cmd3 for cmd3 in random_digraphs_1
-] + [
-    'µ' + cmd4 for cmd4 in random_digraphs_2
-]
+all_commands = (
+    [*commands]
+    + ["ø" + cmd1 for cmd1 in string_digraphs]
+    + ["Ø" + cmd2 for cmd2 in list_digraphs]
+    + ["Æ" + cmd3 for cmd3 in random_digraphs_1]
+    + ["µ" + cmd4 for cmd4 in random_digraphs_2]
+)
 
 untested_commands = sorted(
     {*all_commands} - {*tested_commands} - {*UNTESTABLE}, key=all_commands.index
