@@ -128,7 +128,7 @@ express Statement of Purpose.
 tests_counter = 0
 tested_commands = []
 
-UNTESTABLE = ["ɼ", "ÆC", "ÆD", "ÆE", "ÆR", "ÆS", "ÆT", "Æc", "Æs", "Æt"]
+UNTESTABLE = ["ɼ", "µr", "ÆC", "ÆD", "ÆE", "ÆR", "ÆS", "ÆT", "Æc", "Æs", "Æt"]
 
 
 def call(cmd, *stk):

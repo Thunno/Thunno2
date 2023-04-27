@@ -1844,9 +1844,15 @@ Push the index of the next character of the codepage + 101
 
 ***
 
-# `µR` (To Romand numerals / From Roman numerals)
+# `µR` (To Roman numerals / From Roman numerals)
 
 * `num a`: convert `a` to Roman numerals
 * `str a`: convert `a` from Roman numerals
+
+***
+
+# `µr` (Random shuffle)
+
+* `any a`: random permutation of `a`
 
 ***
