@@ -2719,7 +2719,7 @@ def nth_prime(n):
         n = abs(n)
     i = 2
     while n:
+        i += 1
         if is_prime(i):
             n -= 1
-        i += 1
     return i

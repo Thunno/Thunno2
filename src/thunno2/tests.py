@@ -128,7 +128,7 @@ express Statement of Purpose.
 tests_counter = 0
 tested_commands = []
 
-UNTESTABLE = ["ɼ", "ÆC", "ÆD", "ÆR", "ÆS", "ÆT", "Æc", "Æs", "Æt"]
+UNTESTABLE = ["ɼ", "ÆC", "ÆD", "ÆE", "ÆR", "ÆS", "ÆT", "Æc", "Æs", "Æt"]
 
 
 def call(cmd, *stk):
@@ -2733,12 +2733,28 @@ assert_eq(call("ØC", []), "")
 # assert_eq(call("ÆC", 1.047), 0.5001710745970702)  # ~ 1/2
 # assert_eq(call("ÆC", 1.571), -0.00020367320369517789)  # ~ 0
 
+# # ÆE
+#
+# assert_eq(call("ÆE", 0), 1.0)
+# assert_eq(call("ÆE", 1), 2.718281828459045)
+# assert_eq(
+#     call("ÆE", [-1.23, 4.56, -7.89, 10.11]),
+#     [0.2922925776808594, 95.58347983006624, 0.00037446957498607833, 24587.660736455156]
+# )
+
 # ÆF
 
 assert_eq(call("ÆF", 0), 0)
 assert_eq(call("ÆF", 5), 5)
 assert_eq(call("ÆF", 1.23), 1)
 assert_eq(call("ÆF", [10, 11, 12, 13, 14]), [55, 89, 144, 233, 377])
+
+# ÆP
+
+assert_eq(call('ÆP', 0), 2)
+assert_eq(call('ÆP', 5), 13)
+assert_eq(call("ÆP", 1.23), 3)
+assert_eq(call("ÆP", [10, 11, 12, 13, 14]), [31, 37, 41, 43, 47])
 
 # # ÆS
 #
