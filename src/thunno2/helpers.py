@@ -2657,10 +2657,15 @@ def brackets_are_balanced(s):
 
 
 @try_int_conversion
-def nth_fibonacci_number(n, a=0, b=1):
-    if n <= 1:
-        return b
-    return nth_fibonacci_number(n - 1, b, a + b)
+def nth_fibonacci_number(n):
+    if n <= 0:
+        return 0
+    a = 0
+    b = 1
+    while n > 1:
+        a, b = b, a + b
+        n -= 1
+    return b
 
 
 @try_float_conversion

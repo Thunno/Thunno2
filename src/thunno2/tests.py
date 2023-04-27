@@ -2721,6 +2721,7 @@ assert_eq(call("ØC", []), "")
 
 # ÆF
 
+assert_eq(call("ÆF", 0), 0)
 assert_eq(call("ÆF", 5), 5)
 assert_eq(call("ÆF", 1.23), 1)
 assert_eq(call("ÆF", [10, 11, 12, 13, 14]), [55, 89, 144, 233, 377])
@@ -2740,8 +2741,18 @@ assert_eq(call("µR", "abcdef"), 0)
 
 # After all the tests
 
+all_commands = [*commands] + [
+    'ø' + cmd1 for cmd1 in string_digraphs
+] + [
+    'Ø' + cmd2 for cmd2 in list_digraphs
+] + [
+    'Æ' + cmd3 for cmd3 in random_digraphs_1
+] + [
+    'µ' + cmd4 for cmd4 in random_digraphs_2
+]
+
 untested_commands = sorted(
-    {*commands} - {*tested_commands} - {*UNTESTABLE}, key=[*commands].index
+    {*all_commands} - {*tested_commands} - {*UNTESTABLE}, key=all_commands.index
 )
 if untested_commands:
     print(f'\u001b[33mUntested commands: {", ".join(untested_commands)}')
