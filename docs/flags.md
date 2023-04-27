@@ -30,5 +30,8 @@
 | `g`  | Push minimum of top of stack at the end     |
 | `b`  | Boolify top of stack at the end             |
 | `!`  | Push logical not of top of stack at the end |
+| `Ḷ`  | Push lowercase of input at the end          |
+| `Ṭ`  | Push title case of input at the end         |
+| `Ụ`  | Push uppercase of input at the end          |
 | `O`  | Force implicit output at the end            |
 | `o`  | Disable implicit output at the end          |

@@ -131,6 +131,27 @@ def process_output_flags(flags, do_print=True):
         if "!" == flag:
             commands.ctx.stack.push(commands.commands["¬"]()[0])
 
+        if "Ḷ" == flag:
+            a = next(commands.ctx.stack.rmv(1))
+            if isinstance(a, str):
+                commands.ctx.stack.push(a.upper())
+            else:
+                commands.ctx.stack.push(a)
+
+        if "Ṭ" == flag:
+            a = next(commands.ctx.stack.rmv(1))
+            if isinstance(a, str):
+                commands.ctx.stack.push(a.title())
+            else:
+                commands.ctx.stack.push(a)
+
+        if "Ụ" == flag:
+            a = next(commands.ctx.stack.rmv(1))
+            if isinstance(a, str):
+                commands.ctx.stack.push(a.upper())
+            else:
+                commands.ctx.stack.push(a)
+
     if do_print:
         do_printing(flags)
 
