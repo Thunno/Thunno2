@@ -17,7 +17,7 @@ import sys
 
 def get_command(token):
     for tokens, cmd in full_list:
-        if token.lower() in tokens:
+        if token.lower() == tokens:
             return cmd
     print(f"Couldn't find a command for token {token!r}", file=sys.stderr)
     sys.exit(0)
