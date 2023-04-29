@@ -3,4 +3,4 @@
 # Element wishlist:
 #   TODO: Extend/truncate to length (ØE)
 #   TODO: Apply to every nth item (µ€)
-#   TODO: All (anti-)diagonals of matrix (Ø‘ and Ø’)
+#   TODO: All (anti-)diagonals of matrix (Ø“ and Ø”)
