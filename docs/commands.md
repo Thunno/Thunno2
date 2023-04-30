@@ -60,7 +60,7 @@ Decompress the next two characters after `«` as an integer. Use [this program](
 
 # `¿` (Integer list compression)
 
-Decompress the characters between the two `¿`s as an integer list. Use [this program](https://ato.pxeger.com/run?1=RZJpU9NQFIZn_NhfEdc05RYoiCIad9z3XWut1KZQlVBLKuA2DSIgiwvMsIhAgbaMgsgicG-COHOTZlr-gX4795eYgsunM3PO-z7nnXvuUDrSpNTUyYlfm_CR80crLxw6XslxIsfzPB2j43SCJmmKpuknOk1n6CL9zpqnjVajzXhnvDf6jYFMjzFijBppY9KYNeeyy8acsWzgTK-xym3esnXb9h28U3AVIHdhUbGnpHRn2a7d5Xsq9u4T9x84eOjwkaOVx46fOHnq9Jmz585fuHjp8pWr167fuHnLe9t3x3-3KnAvKIWqa8L3Hzyslesij6L1SuxxQ2PTk6fPnr-gS3ZEx7_IBRuRZymh83SBqd-YusjUJaYuMxUzlTBVY6rO1BWmfmfqqqVabVaH9d7qtQbY3Iw1bCWtaWs-m8z1Wu25fqsnl8ilrcHcXG7eSq0lcitrzdaXtc5sCrQE4BbAXaBhwEnQOwDPA14C0gykFfQuIB-AjAOZBj0JZBW0dtC_gdaTTQNuNm11h9kHeMS0MePmrPkDSBxIS3YGSB-QASAJIJ9BawWtA7Q3GR20McCvAHeDRgCnQO8EvAB4GchLIG2gdwMZAjIB5AudNFpAew36Imi92UnAL01b22n2Ax41bchExl6kAnmV_QqkH8ggkDEgU6C1gdYJ2tvMCp2iOosPsPggi39k8eH8AwdE3uf9fzp3IeId9lW4kFNGAaHCwUXFYgcXqotyjaiJC8ucJMdqpWiVIjllb0WF2-PLi7hogRhwuRpdYVlxNgm2S1JiUZmLrrOq_7KCotfn4Bpqwg8lTs7bggVi3iFz27mAgOyGXFQkBv7ZgxsbUjEl5C7_eT0SzYt5-oNHrtqqiPPv5yj0-6slJaxItX4_qnaGnN71caAwLAelRhSWIzHFKQg-5CkTUElZmSCgdUi9FBF5XtjAJ_6U2WLkQW4PKkHuElSK3KUb_d8) to compress an integer list. These characters can be compressed: `0123456789-.,[]`.
+Decompress the characters between the two `¿`s as an integer list. Use [this program](https://ato.pxeger.com/run?1=RZJpU9NQFIZn_NhfEdc05RYoiCIad9z3XWut1KZQlVBLKuA2DSIgiwvMsIhAgbaMgsgicG-COHOTZlr-gX4795eYgsunM3PO-z7nnXvuUDrSpNTUyYlfm_CR80crLxw6XslxIsfzPB2j43SCJmmKpuknOk1n6CL9zpqnjVajzXhnvDf6jYFMjzFijBppY9KYNeeyy8acsWzgTK-xym3esnXb9h28U3AVIHdhUbGnpHRn2a7d5Xsq9u4T9x84eOjwkaOVx46fOHnq9Jmz585fuHjp8pWr167fuHnLe9t3x3-3KnAvKIWqa8L3Hzyslesij6L1SuxxQ2PTk6fPnr-gS3ZEx7_IBRuRZymh83SBqd-YusjUJaYuMxUzlTBVY6rO1BWmfmfqqqVabVaH9d7qtQbY3Iw1bCWtaWs-m8z1Wu25fqsnl8ilrcHcXG7eSq0lcitrzdaXtc5sCrQE4BbAXaBhwEnQOwDPA14C0gykFfQuIB-AjAOZBj0JZBW0dtC_gdaTTQNuNm11h9kHeMS0MePmrPkDSBxIS3YGSB-QASAJIJ9BawWtA7Q3GR20McCvAHeDRgCnQO8EvAB4GchLIG2gdwMZAjIB5AudNFpAew36Imi92UnAL01b22n2Ax41bchExl6kAnmV_QqkH8ggkDEgU6C1gdYJ2tvMCp2iOosPsPggi39k8eH8AwdE3uf9fzp3IeId9lW4kFNGAaHCwUXFYgcXqotyjaiJC8ucJMdqpWiVIjllb0WF2-PLi7hogRhwuRpdYVlxNgm2S1JiUZmLrrOq_7KCotfn4Bpqwg8lTs7bggVi3iFz27mAgOyGXFQkBv7ZgxsbUjEl5C7_eT0SzYt5-oNHrtqqiPPv5yj0-6slJaxItX4_qnaGnN71caAwLAelRhSWIzHFKQg-5CkTUElZmSCgdUi9FBF5XtjAJ_6U2WLkQW4PKkHuElSK3KUb_d8) to compress an integer list. These characters can be compressed: `,0123456789-.`.
 
 ***
 
@@ -1790,9 +1790,21 @@ Push the index of the next character of the codepage + 101
 
 ***
 
-# `Ø/` (Anti-diagonal)
+# `Ø/` (Main anti-diagonal)
 
-* `any a`: anti-diagonal of `a`
+* `any a`: main anti-diagonal of `a`
+
+***
+
+# `Ø“` (All diagonals)
+
+* `any a`: all diagonals of `a`
+
+***
+
+# `Ø”` (All anti-diagonals)
+
+* `any a`: all anti-diagonals of `a`
 
 ***
 

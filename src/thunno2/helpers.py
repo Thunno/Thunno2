@@ -2760,10 +2760,10 @@ def all_diagonals(lst):
     l = [*map(_digits, lst)]
     if not l:
         return []
-    r = [[] for _ in range(len(l) + len(l[0]) - 1)]
+    r = [[] for _ in range(len(l) + min(map(len, l)) - 1)]
     for i, x in enumerate(l):
-        for j in range(len(l[0])):
-            r[(-i) % len(r)].append(x[j])
+        for j in range(min(map(len, l))):
+            r[(j - i) % len(r)].append(x[j])
     return r
 
 
@@ -2771,8 +2771,8 @@ def all_anti_diagonals(lst):
     l = [*map(_digits, lst)]
     if not l:
         return []
-    r = [[] for _ in range(len(l) + len(l[0]) - 1)]
+    r = [[] for _ in range(len(l) + min(map(len, l)) - 1)]
     for i, x in enumerate(l):
-        for j in range(len(l[0])):
-            r[((-i) - j + min(len(l), len(l[0])) - 1) % len(r)].append(x[j])
+        for j in range(min(map(len, l))):
+            r[((-i) - j + min(len(l), min(map(len, l))) - 1) % len(r)].append(x[j])
     return r

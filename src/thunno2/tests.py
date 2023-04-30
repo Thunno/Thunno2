@@ -2756,6 +2756,36 @@ assert_eq(call("Ø/", []), [])
 assert_eq(call("Ø/", 123), 123)
 assert_eq(call("Ø/", "abc"), "abc")
 
+# Ø“
+
+assert_eq(call("Ø“", [123, 456, 789]), [[1, 5, 9], [2, 6], [3], [7], [4, 8]])
+assert_eq(
+    call("Ø“", ["abcd", 12345, "xyz", 67]), [["a", 2], ["b"], [6], ["x", 7], [1, "y"]]
+)
+assert_eq(
+    call("Ø“", [[123, 456, 789], ["abc", "def", "ghi"]]),
+    [[123, "def"], [456, "ghi"], [789], ["abc"]],
+)
+assert_eq(call("Ø“", []), [])
+
+assert_eq(call("Ø“", 123), 123)
+assert_eq(call("Ø“", "abc"), "abc")
+
+# Ø”
+
+assert_eq(call("Ø”", [123, 456, 789]), [[3, 5, 7], [2, 4], [1], [9], [6, 8]])
+assert_eq(
+    call("Ø”", ["abcd", 12345, "xyz", 67]), [["b", 1], ["a"], [7], ["y", 6], [2, "x"]]
+)
+assert_eq(
+    call("Ø”", [[123, 456, 789], ["abc", "def", "ghi"]]),
+    [[456, "abc"], [123], ["ghi"], [789, "def"]],
+)
+assert_eq(call("Ø”", []), [])
+
+assert_eq(call("Ø”", 123), 123)
+assert_eq(call("Ø”", "abc"), "abc")
+
 # # ÆC
 #
 # assert_eq(call("ÆC", 0), 1.0)  # ~ 1

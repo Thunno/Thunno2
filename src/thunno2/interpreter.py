@@ -224,10 +224,19 @@ def run(code, *, n, iteration_index):
             ctx.stack.push(base255_number)
         elif desc == "compressed list":
             base255_number = decompress(info, "¿")
-            decompressed_string = to_custom_base_string(
-                "][0123456789-.,", base255_number
-            )
+            decompressed_string = to_custom_base_string(",.0123456789-", base255_number)
             try:
+                if decompressed_string[:1] == ",":
+                    decompressed_string = "0" + decompressed_string
+                if decompressed_string[-1:] == ",":
+                    decompressed_string += "0"
+                if decompressed_string[:1] == ".":
+                    decompressed_string = ".5" + decompressed_string[1:]
+                if decompressed_string[-1:] == ".":
+                    decompressed_string += "5"
+                decompressed_string = decompressed_string.replace(",,", ",0,").replace(
+                    ",.,", ",.5,"
+                )
                 e = eval(decompressed_string)
                 if isinstance(e, tuple):
                     ctx.stack.push(list(e))
