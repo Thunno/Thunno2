@@ -1471,6 +1471,15 @@ list_digraphs = {
     "/": Overload(
         1, {((int, float, str),): pass_, list: anti_diagonal}, 0, ("anti_diagonal",)
     ),
+    "“": Overload(
+        1, {((int, float, str),): pass_, list: all_diagonals}, 0, ("all_diagonals",)
+    ),
+    "”": Overload(
+        1,
+        {((int, float, str),): pass_, list: all_anti_diagonals},
+        0,
+        ("all_anti_diagonals",),
+    ),
 }
 
 random_digraphs_1 = {

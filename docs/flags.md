@@ -6,6 +6,7 @@
 | `v`  | Enable verbose mode (tokens)                |
 | `V`  | Verify all test cases                       |
 | `C`  | Confirm all test cases                      |
+| `e`  | Auto-explain the code (experimental)        |
 | `W`  | Take input as one multi-line string         |
 | `E`  | Don't evaluate the inputs                   |
 | `Z`  | Preset top of stack to `0`                  |
