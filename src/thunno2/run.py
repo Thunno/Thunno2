@@ -54,7 +54,9 @@ def from_cmdline():
         with open(filename) as f:
             code = f.read()
             if "e" in "".join(flags_list):
-                sys.stderr.write("\nExplanation:\n\n" + autoexplanation.auto_explain(code) + "\n")
+                sys.stderr.write(
+                    "\nExplanation:\n\n" + autoexplanation.auto_explain(code) + "\n"
+                )
             if "v" in "".join(flags_list):
                 transpiled = tokens.transpile(code)
                 print("Transpiled:", transpiled, file=sys.stderr)
