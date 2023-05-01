@@ -1778,6 +1778,18 @@ Push the index of the next character of the codepage + 101
 
 ***
 
+# `ØG` (Longest element)
+
+* `any a`: longest element of `a`
+
+***
+
+# `ØM` (Shortest element)
+
+* `any a`: shortest element of `a`
+
+***
+
 # `Ø.` (Dot product)
 
 * `any a`, `any b`: dot product of `a` and `b`
