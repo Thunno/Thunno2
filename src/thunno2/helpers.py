@@ -2779,8 +2779,12 @@ def all_anti_diagonals(lst):
 
 
 def longest(l):
+    if not l:
+        return []
     return max(l, key=lambda x: len(_digits(x)))
 
 
 def shortest(l):
+    if not l:
+        return []
     return min(l, key=lambda x: len(_digits(x)))
