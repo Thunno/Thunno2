@@ -2725,6 +2725,24 @@ assert_eq(
 )
 assert_eq(call("ØC", []), "")
 
+# ØG
+
+assert_eq(call("ØG", [123, 4567, 89]), 4567)
+assert_eq(call("ØG", ["abcd", "ef", "ghi"]), "abcd")
+assert_eq(call("ØG", []), [])
+
+assert_eq(call("ØG", 123), 123)
+assert_eq(call("ØG", "abc"), "abc")
+
+# ØM
+
+assert_eq(call("ØM", [123, 4567, 89]), 89)
+assert_eq(call("ØM", ["abcd", "ef", "ghi"]), "ef")
+assert_eq(call("ØM", []), [])
+
+assert_eq(call("ØM", 123), 123)
+assert_eq(call("ØM", "abc"), "abc")
+
 # Ø.
 
 assert_eq(call("Ø.", [1, 2, 3], [4, 5, 6]), 32)

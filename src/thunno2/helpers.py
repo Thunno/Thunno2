@@ -2776,3 +2776,15 @@ def all_anti_diagonals(lst):
         for j in range(min(map(len, l))):
             r[((-i) - j + min(len(l), min(map(len, l))) - 1) % len(r)].append(x[j])
     return r
+
+
+def longest(l):
+    if not l:
+        return []
+    return max(l, key=lambda x: len(_digits(x)))
+
+
+def shortest(l):
+    if not l:
+        return []
+    return min(l, key=lambda x: len(_digits(x)))
