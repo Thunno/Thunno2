@@ -1126,9 +1126,12 @@ commands = {
     ),
     "Ọ": Overload(
         2,
-        {(Any[0], Any[0]): logical_or},
-        0,
-        ("non_vectorised_or", "non_vectorised_logical_or"),
+        {
+            (Number[0], Number[0]): dyadic_minimum,
+            (Any[0], Any[0]): string_dyadic_minimum,
+        },
+        2,
+        ("dyadic_minimum",),
     ),
     "Ṛ": Overload(
         2,
@@ -1207,9 +1210,12 @@ commands = {
     ),
     "§": Overload(
         2,
-        {(Any[0], Any[0]): logical_and},
-        0,
-        ("non_vectorised_and", "non_vectorised_logical_and"),
+        {
+            (Number[0], Number[0]): dyadic_maximum,
+            (Any[0], Any[0]): string_dyadic_maximum,
+        },
+        2,
+        ("dyadic_maximum",),
     ),
     "½": Overload(1, {Number: halve, str: chunk_halve}, 1, ("halve",)),
     "Ƈ": Overload(
@@ -1496,6 +1502,10 @@ random_digraphs_1 = {
     "c": Overload(1, {Any: arc_cosine}, 1, ("arc_cosine", "arccos")),
     "s": Overload(1, {Any: arc_sine}, 1, ("arc_sine", "arcsin")),
     "t": Overload(1, {Any: arc_tangent}, 1, ("arc_tangent", "arctan")),
+    "&": Overload(2, {(Any[0], Any[0]): bitwise_and}, 2, ("bitwise_and",)),
+    "|": Overload(2, {(Any[0], Any[0]): bitwise_or}, 2, ("bitwise_or",)),
+    "^": Overload(2, {(Any[0], Any[0]): bitwise_xor}, 2, ("bitwise_xor",)),
+    "~": Overload(1, {Any: bitwise_not}, 1, ("bitwise_not",)),
 }
 
 random_digraphs_2 = {
@@ -1507,6 +1517,24 @@ random_digraphs_2 = {
         {Number: range_shuffle, str: str_shuffle, list: shuffle},
         0,
         ("random_shuffle",),
+    ),
+    "&": Overload(
+        2,
+        {(Any[0], Any[0]): logical_and},
+        0,
+        ("non_vectorised_and", "non_vectorised_logical_and"),
+    ),
+    "|": Overload(
+        2,
+        {(Any[0], Any[0]): logical_or},
+        0,
+        ("non_vectorised_or", "non_vectorised_logical_or"),
+    ),
+    "^": Overload(
+        2,
+        {(Any[0], Any[0]): logical_xor},
+        0,
+        ("non_vectorised_xor", "non_vectorised_logical_xor"),
     ),
 }
 

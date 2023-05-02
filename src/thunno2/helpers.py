@@ -145,7 +145,7 @@ def try_int_conversion(func):
         try:
             return fn(*map(int, args))
         except:
-            return args
+            return [*args]
 
     return wrapper
 
@@ -2788,3 +2788,39 @@ def shortest(l):
     if not l:
         return []
     return min(l, key=lambda x: len(_digits(x)))
+
+
+def dyadic_maximum(x, y):
+    return max(y, x)
+
+
+def dyadic_minimum(x, y):
+    return min(y, x)
+
+
+def string_dyadic_maximum(x, y):
+    return x if str(x) > str(y) else y
+
+
+def string_dyadic_minimum(x, y):
+    return x if str(x) < str(y) else y
+
+
+@try_int_conversion
+def bitwise_and(x, y):
+    return y & x
+
+
+@try_int_conversion
+def bitwise_or(x, y):
+    return y | x
+
+
+@try_int_conversion
+def bitwise_xor(x, y):
+    return y ^ x
+
+
+@try_int_conversion
+def bitwise_not(x):
+    return ~x
