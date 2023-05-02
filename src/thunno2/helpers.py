@@ -145,7 +145,7 @@ def try_int_conversion(func):
         try:
             return fn(*map(int, args))
         except:
-            return args
+            return [*args]
 
     return wrapper
 
