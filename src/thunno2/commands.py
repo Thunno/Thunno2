@@ -1125,9 +1125,13 @@ commands = {
         ("transliterate",),
     ),
     "Ọ": Overload(
-        2, {(Number[0], Number[0]): dyadic_minimum, (Any[0], Any[0]): string_dyadic_minimum},
         2,
-        ("dyadic_minimum",)
+        {
+            (Number[0], Number[0]): dyadic_minimum,
+            (Any[0], Any[0]): string_dyadic_minimum,
+        },
+        2,
+        ("dyadic_minimum",),
     ),
     "Ṛ": Overload(
         2,
@@ -1205,9 +1209,13 @@ commands = {
         1, {Any: logical_not}, 0, ("non_vectorised_not", "non_vectorised_logical_not")
     ),
     "§": Overload(
-        2, {(Number[0], Number[0]): dyadic_maximum, (Any[0], Any[0]): string_dyadic_maximum},
         2,
-        ("dyadic_maximum",)
+        {
+            (Number[0], Number[0]): dyadic_maximum,
+            (Any[0], Any[0]): string_dyadic_maximum,
+        },
+        2,
+        ("dyadic_maximum",),
     ),
     "½": Overload(1, {Number: halve, str: chunk_halve}, 1, ("halve",)),
     "Ƈ": Overload(
