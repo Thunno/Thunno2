@@ -1127,9 +1127,9 @@ Push `\n` to the stack.
 
 ***
 
-# `§` (Non-vectorised logical AND)
+# `§` (Dyadic maximum)
 
-* `any a`, `any b`: push `b and a`
+* `any a`, `any b`: push `max([a, b])`
 
 ***
 
@@ -1341,9 +1341,9 @@ Push `abcdefghijklmnopqrstuvwxyz` to the stack
 
 ***
 
-# `Ọ` (Non-vectorised logical OR)
+# `Ọ` (Dyadic minimum)
 
-* `any a`, `any b`: push `b or a`
+* `any a`, `any b`: push `min([a, b])`
 
 ***
 
@@ -1886,6 +1886,30 @@ Push the index of the next character of the codepage + 101
 
 ***
 
+# `Æ&` (Bitwise AND)
+
+* `any a`, `any b`: push `b & a`
+
+***
+
+# `Æ|` (Bitwise OR)
+
+* `any a`, `any b`: push `b | a`
+
+***
+
+# `Æ^` (Bitwise XOR)
+
+* `any a`, `any b`: push `b ^ a`
+
+***
+
+# `Æ~` (Bitwise NOT)
+
+* `any a`: push `~a`
+
+***
+
 # `µR` (To Roman numerals / From Roman numerals)
 
 * `num a`: convert `a` to Roman numerals
@@ -1908,5 +1932,23 @@ Usage: `µµ CODE ;`. Start recursive list generation, executing `CODE` to get e
 # `µ£` (Print each)
 
 * `any a`: print each item of `a`
+
+***
+
+# `µ&` (Non-vectorised logical AND)
+
+* `any a`, `any b`: push `b and a`
+
+***
+
+# `µ|` (Non-vectorised logical OR)
+
+* `any a`, `any b`: push `b or a`
+
+***
+
+# `µ^` (Non-vectorised logical XOR)
+
+* `any a`, `any b`: push `b ^ a`
 
 ***
