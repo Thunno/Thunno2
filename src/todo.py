@@ -1,6 +1,9 @@
 """Just so this shows up in the tab on PyCharm"""
 
-# Element wishlist:
+# Commands wishlist:
 #   TODO: Extend/truncate to length (ØE)
-#   TODO: Apply to every nth item (µ€)
 #   TODO: Hypotenuse (ÆH)
+#   TODO: Depth of list (ØD)
+#   TODO: Type (µT)
+#   TODO: [Not helpers] Apply to every nth item (µ€)
+#   TODO: [Not helpers] Single function reduce by (µƲ)
