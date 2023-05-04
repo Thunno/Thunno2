@@ -155,7 +155,7 @@ def try_float_conversion(func):
         try:
             return fn(*map(float, args))
         except:
-            return args
+            return [*args]
 
     return wrapper
 
@@ -2844,3 +2844,8 @@ def type_of(x):
     if isinstance(x, list):
         return 3
     return -1
+
+
+@try_float_conversion
+def hypotenuse(a, b):
+    return math.sqrt(a ** 2 + b ** 2)
