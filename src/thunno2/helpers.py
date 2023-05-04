@@ -2824,3 +2824,11 @@ def bitwise_xor(x, y):
 @try_int_conversion
 def bitwise_not(x):
     return ~x
+
+
+def depth(lst, curr=0):
+    if isinstance(lst, list):
+        if not lst:
+            return curr + 1
+        return max(depth(i, curr + 1) for i in lst)
+    return curr
