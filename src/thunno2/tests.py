@@ -2961,6 +2961,20 @@ assert_eq(call("µR", "CMXCIX"), 999)
 assert_eq(call("µR", ""), 0)
 assert_eq(call("µR", "abcdef"), 0)
 
+# µT
+
+assert_eq(call("µT", 123), 0)
+assert_eq(call("µT", -456), 0)
+
+assert_eq(call("µT", 1.23), 1)
+assert_eq(call("µT", -4.56), 1)
+
+assert_eq(call("µT", "abc"), 2)
+assert_eq(call("µT", ""), 2)
+
+assert_eq(call("µT", [123, 456, 789]), 3)
+assert_eq(call("µT", []), 3)
+
 # µ&
 
 assert_eq(call("µ&", 123, 456), 123)

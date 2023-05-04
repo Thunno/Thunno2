@@ -1513,6 +1513,7 @@ random_digraphs_2 = {
     "R": Overload(
         1, {Number: to_roman_numerals, str: from_roman_numerals}, 1, ("roman_numerals",)
     ),
+    "T": Overload(1, {Any: type_of}, 0, ("type",)),
     "r": Overload(
         1,
         {Number: range_shuffle, str: str_shuffle, list: shuffle},

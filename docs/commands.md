@@ -1778,6 +1778,12 @@ Push the index of the next character of the codepage + 101
 
 ***
 
+# `ØD` (Depth)
+
+* `any a`: maximum depth of `a`
+
+***
+
 # `ØG` (Longest element)
 
 * `any a`: longest element of `a`
@@ -1914,6 +1920,14 @@ Push the index of the next character of the codepage + 101
 
 * `num a`: convert `a` to Roman numerals
 * `str a`: convert `a` from Roman numerals
+
+***
+
+# `µT` (Type)
+
+* `num a`: push `0` if int, `1` if float
+* `str a`: push `2`
+* `lst a`: push `3`
 
 ***
 
