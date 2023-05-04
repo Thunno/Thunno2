@@ -2827,6 +2827,8 @@ def bitwise_not(x):
 
 
 def depth(lst, curr=0):
-    if isinstance(curr, list):
+    if isinstance(lst, list):
+        if not lst:
+            return curr + 1
         return max(depth(i, curr + 1) for i in lst)
     return curr
