@@ -2832,3 +2832,15 @@ def depth(lst, curr=0):
             return curr + 1
         return max(depth(i, curr + 1) for i in lst)
     return curr
+
+
+def type_of(x):
+    if isinstance(x, int):
+        return 0
+    if isinstance(x, float):
+        return 1
+    if isinstance(x, str):
+        return 2
+    if isinstance(x, list):
+        return 3
+    return -1
