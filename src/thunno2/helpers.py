@@ -2848,4 +2848,4 @@ def type_of(x):
 
 @try_float_conversion
 def hypotenuse(a, b):
-    return math.sqrt(a ** 2 + b ** 2)
+    return math.sqrt(a**2 + b**2)
