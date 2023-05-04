@@ -1850,6 +1850,12 @@ Push the index of the next character of the codepage + 101
 
 ***
 
+# `ÆH` (Hypotenuse)
+
+* `any a`, `any b`: push `sqrt(a**2 + b**2)`
+
+***
+
 # `ÆP` (nth prime number)
 
 * `any a`: `n`th prime number
