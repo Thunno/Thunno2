@@ -170,9 +170,11 @@ def tokenise(code, expected_end=""):
                         index += 1
                         cmd += code[index]
                     func = get_a_function(cmd)
-                    ret.append((char + cmd, "single function right cumulative reduce by", func))
+                    ret.append(
+                        (char + cmd, "single function right cumulative reduce by", func)
+                    )
                 elif y == "µʋ":
-                    i, r = tokenise(code[index + 1:], expected_end=";")
+                    i, r = tokenise(code[index + 1 :], expected_end=";")
                     index += i
                     ret.append((y, "right reduce by", r))
                 else:
