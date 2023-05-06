@@ -147,6 +147,36 @@ def tokenise(code, expected_end=""):
                     ret.append((y, "recursive environment", r))
                 elif y == "µ£":
                     ret.append((y, "print each", 0))
+                elif y == "µƲ":
+                    index += 1
+                    cmd = code[index]
+                    if cmd in DIGRAPHS:
+                        index += 1
+                        cmd += code[index]
+                    func = get_a_function(cmd)
+                    ret.append((char + cmd, "single function reduce by", func))
+                elif y == "µɼ":
+                    index += 1
+                    cmd = code[index]
+                    if cmd in DIGRAPHS:
+                        index += 1
+                        cmd += code[index]
+                    func = get_a_function(cmd)
+                    ret.append((char + cmd, "single function right reduce by", func))
+                elif y == "µƇ":
+                    index += 1
+                    cmd = code[index]
+                    if cmd in DIGRAPHS:
+                        index += 1
+                        cmd += code[index]
+                    func = get_a_function(cmd)
+                    ret.append(
+                        (char + cmd, "single function right cumulative reduce by", func)
+                    )
+                elif y == "µʋ":
+                    i, r = tokenise(code[index + 1 :], expected_end=";")
+                    index += i
+                    ret.append((y, "right reduce by", r))
                 else:
                     ret.append((y, "digraph", get_a_function(y)))
             except:

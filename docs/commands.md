@@ -1538,7 +1538,7 @@ Usage: `Ƙ CODE ;`. Push the first `a` positive integers where the result of `CO
 
 # `Ʋ` (Cumulative reduce by)
 
-Usage: `Ʋ CODE ;`. Cumulatively reduce `a` by `CODE`
+Usage: `Ʋ CODE ;`. Cumulative reduce (scanl) `a` by `CODE`
 
 ***
 
@@ -1970,5 +1970,29 @@ Usage: `µµ CODE ;`. Start recursive list generation, executing `CODE` to get e
 # `µ^` (Non-vectorised logical XOR)
 
 * `any a`, `any b`: push `b ^ a`
+
+***
+
+# `µƲ` (Single function reduce by)
+
+Reduce (foldl) the elements of `a` by the next command.
+
+***
+
+# `µɼ` (Single function right reduce by)
+
+Right reduce (foldr) the elements of `a` by the next command.
+
+***
+
+# `µƇ` (Single function right cumulative reduce by)
+
+Right cumulative reduce (scanr) the elements of `a` by the next command.
+
+***
+
+# `µʋ` (Right reduce by)
+
+Usage: `Ʋ CODE ;`. Right reduce (foldr) `a` by `CODE`
 
 ***

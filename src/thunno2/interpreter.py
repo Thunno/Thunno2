@@ -567,6 +567,72 @@ def run(code, *, n, iteration_index):
                 ctx.stack.push(r)
             else:
                 ctx.stack.push([])
+        elif desc == "single function reduce by":
+            a = next(ctx.stack.rmv(1))
+            x = listify(a)
+            old_stack = Stack(copy.deepcopy(list(ctx.stack).copy()))
+            func = info
+            if func != Void:
+                if x:
+                    r = [x.pop(0)]
+                    for i, j in enumerate(x):
+                        ctx.stack = Stack(copy.deepcopy(old_stack))
+                        ctx.stack.push(r[-1])
+                        ctx.stack.push(j)
+                        for k in func():
+                            r.append(k)
+                    ctx.stack.push(r[-1])
+                else:
+                    ctx.stack.push([])
+        elif desc == "single function right reduce by":
+            a = next(ctx.stack.rmv(1))
+            x = listify(a)[::-1]
+            old_stack = Stack(copy.deepcopy(list(ctx.stack).copy()))
+            func = info
+            if func != Void:
+                if x:
+                    r = [x.pop(0)]
+                    for i, j in enumerate(x):
+                        ctx.stack = Stack(copy.deepcopy(old_stack))
+                        ctx.stack.push(r[-1])
+                        ctx.stack.push(j)
+                        for k in func():
+                            r.append(k)
+                    ctx.stack.push(r[-1])
+                else:
+                    ctx.stack.push([])
+        elif desc == "single function right cumulative reduce by":
+            a = next(ctx.stack.rmv(1))
+            x = listify(a)[::-1]
+            old_stack = Stack(copy.deepcopy(list(ctx.stack).copy()))
+            func = info
+            if func != Void:
+                if x:
+                    r = [x.pop(0)]
+                    for i, j in enumerate(x):
+                        ctx.stack = Stack(copy.deepcopy(old_stack))
+                        ctx.stack.push(r[-1])
+                        ctx.stack.push(j)
+                        for k in func():
+                            r.append(k)
+                    ctx.stack.push(r)
+                else:
+                    ctx.stack.push([])
+        elif desc == "right reduce by":
+            a = next(ctx.stack.rmv(1))
+            x = listify(a)[::-1]
+            old_stack = Stack(copy.deepcopy(list(ctx.stack).copy()))
+            if x:
+                r = [x.pop(0)]
+                for i, j in enumerate(x):
+                    ctx.stack = Stack(copy.deepcopy(old_stack))
+                    ctx.stack.push(r[-1])
+                    ctx.stack.push(j)
+                    run(info, n=j, iteration_index=i)
+                    r.append(next(ctx.stack.rmv(1)))
+                ctx.stack.push(r[-1])
+            else:
+                ctx.stack.push([])
         elif desc == "for loop":
             a = next(ctx.stack.rmv(1))
             x = listify(a)
