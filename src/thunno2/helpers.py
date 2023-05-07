@@ -2849,3 +2849,35 @@ def type_of(x):
 @try_float_conversion
 def hypotenuse(a, b):
     return math.sqrt(a**2 + b**2)
+
+
+def extend_truncate(x, y):
+    x = abs(int(x))
+    if x == 0:
+        return y * 0
+    if not y:
+        return y
+    i = 0
+    l = len(y)
+    while x > len(y):
+        y += y[(i % l) : (i % l) + 1]
+        i += 1
+    while x < len(y):
+        y = y[:-1]
+    return y
+
+
+def swapped_extend_truncate(y, x):
+    return extend_truncate(x, y)
+
+
+def length_extend_truncate(x, y):
+    return extend_truncate(len(x), y)
+
+
+def num_extend_truncate(x, y):
+    r = extend_truncate(x, str(y))
+    try:
+        return eval(r)
+    except:
+        return r
