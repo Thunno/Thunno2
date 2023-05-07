@@ -1950,6 +1950,12 @@ Push the index of the next character of the codepage + 101
 
 ***
 
+# `µU` (Connected uniquify)
+
+* `any a`: connected uniquify `a`
+
+***
+
 # `µr` (Random shuffle)
 
 * `any a`: random permutation of `a`
