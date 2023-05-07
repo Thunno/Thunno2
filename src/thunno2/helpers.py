@@ -2861,6 +2861,7 @@ def extend_truncate(x, y):
     l = len(y)
     while x > len(y):
         y += y[(i % l) : (i % l) + 1]
+        i += 1
     while x < len(y):
         y = y[:-1]
     return y
@@ -2875,4 +2876,8 @@ def length_extend_truncate(x, y):
 
 
 def num_extend_truncate(x, y):
-    return extend_truncate(x, _digits(y))
+    r = extend_truncate(x, str(y))
+    try:
+        return eval(r)
+    except:
+        return r

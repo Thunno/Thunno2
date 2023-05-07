@@ -1784,6 +1784,13 @@ Push the index of the next character of the codepage + 101
 
 ***
 
+# `ØE` (Extend/truncate to length)
+
+* `num a`, `any b`: extend/truncate `b` to length `a`
+* `any a`, `num b`: extend/truncate `a` to length `b`
+
+***
+
 # `ØG` (Longest element)
 
 * `any a`: longest element of `a`
