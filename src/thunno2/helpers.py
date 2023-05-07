@@ -2927,3 +2927,11 @@ def str_right_trim(x, y):
 
 def str_trim(x, y):
     return str(y).strip(str(x))
+
+
+def connected_uniquify(l):
+    return [x[0] for x in group_consecutive(l)]
+
+
+def num_connected_uniquify(n):
+    return connected_uniquify(_digits(n))
