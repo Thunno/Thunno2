@@ -1547,7 +1547,7 @@ random_digraphs_2 = {
             (Any[0], (int, float, str)): str_trim,
         },
         0,
-        ("trim",)
+        ("trim",),
     ),
     "<": Overload(
         2,
@@ -1557,7 +1557,7 @@ random_digraphs_2 = {
             (Any[0], (int, float, str)): str_left_trim,
         },
         0,
-        ("left_trim",)
+        ("left_trim",),
     ),
     ">": Overload(
         2,
@@ -1567,7 +1567,7 @@ random_digraphs_2 = {
             (Any[0], (int, float, str)): str_right_trim,
         },
         0,
-        ("right_trim",)
+        ("right_trim",),
     ),
     "&": Overload(
         2,
