@@ -2758,7 +2758,9 @@ assert_eq(call("ØE", "thunno", -5.67), "thunn")
 assert_eq(call("ØE", 3, ""), "")
 assert_eq(call("ØE", "abc", 0), "")
 
-assert_eq(call("ØE", [123, 456, 789], 10), [123, 456, 789, 123, 456, 789, 123, 456, 789, 123])
+assert_eq(
+    call("ØE", [123, 456, 789], 10), [123, 456, 789, 123, 456, 789, 123, 456, 789, 123]
+)
 assert_eq(call("ØE", -3, ["abc", 123, "def", 456, "ghi", 789]), ["abc", 123, "def"])
 assert_eq(call("ØE", 3, []), [])
 assert_eq(call("ØE", [123, 456, 789], 0), [])
