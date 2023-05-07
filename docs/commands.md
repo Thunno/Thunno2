@@ -1956,6 +1956,24 @@ Push the index of the next character of the codepage + 101
 
 ***
 
+# `µv` (Trim)
+
+* `any a`, `any b`: remove `a` from both sides of `b`
+
+***
+
+# `µ<` (Left trim)
+
+* `any a`, `any b`: remove `a` from the left side of `b`
+
+***
+
+# `µ>` (Right trim)
+
+* `any a`, `any b`: remove `a` from the right side of `b`
+
+***
+
 # `µµ` (Recursive environment)
 
 Usage: `µµ CODE ;`. Start recursive list generation, executing `CODE` to get each successive item in the sequence.
