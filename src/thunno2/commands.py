@@ -1539,6 +1539,36 @@ random_digraphs_2 = {
         0,
         ("random_shuffle",),
     ),
+    "v": Overload(
+        2,
+        {
+            (Any[0], list): trim,
+            (list, Any[0]): swapped_trim,
+            (Any[0], (int, float, str)): str_trim,
+        },
+        0,
+        ("trim",)
+    ),
+    "<": Overload(
+        2,
+        {
+            (Any[0], list): left_trim,
+            (list, Any[0]): swapped_left_trim,
+            (Any[0], (int, float, str)): str_left_trim,
+        },
+        0,
+        ("left_trim",)
+    ),
+    ">": Overload(
+        2,
+        {
+            (Any[0], list): right_trim,
+            (list, Any[0]): swapped_right_trim,
+            (Any[0], (int, float, str)): str_right_trim,
+        },
+        0,
+        ("right_trim",)
+    ),
     "&": Overload(
         2,
         {(Any[0], Any[0]): logical_and},
