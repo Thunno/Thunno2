@@ -28,7 +28,7 @@
 | `h`  | Push first item of top of stack at the end  |
 | `t`  | Push last item of top of stack at the end   |
 | `G`  | Push maximum of top of stack at the end     |
-| `g`  | Push minimum of top of stack at the end     |
+| `M`  | Push minimum of top of stack at the end     |
 | `b`  | Boolify top of stack at the end             |
 | `!`  | Push logical not of top of stack at the end |
 | `Ḷ`  | Push lowercase of input at the end          |
