@@ -2881,3 +2881,8 @@ def num_extend_truncate(x, y):
         return eval(r)
     except:
         return r
+
+
+@try_float_conversion
+def insignificant(x):
+    return int(abs(x) <= 1)

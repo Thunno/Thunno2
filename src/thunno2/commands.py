@@ -1514,6 +1514,7 @@ random_digraphs_1 = {
     "E": Overload(1, {Any: exponent}, 1, ("exponent",)),
     "F": Overload(1, {Any: nth_fibonacci_number}, 1, ("nth_fibonacci_number",)),
     "H": Overload(2, {(Any[0], Any[0]): hypotenuse}, 2, ("hypot", "hypotenuse")),
+    "I": Overload(1, {Any: insignificant}, 1, ("insignificant",)),
     "P": Overload(1, {Any: nth_prime}, 1, ("nth_prime",)),
     "R": Overload(1, {Any: radians}, 1, ("radians",)),
     "S": Overload(1, {Any: sine}, 1, ("sine", "sin")),

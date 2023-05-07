@@ -1863,6 +1863,12 @@ Push the index of the next character of the codepage + 101
 
 ***
 
+# `ÆI` (Insignificant)
+
+* `any a`: push `abs(a) <= 1`
+
+***
+
 # `ÆP` (nth prime number)
 
 * `any a`: `n`th prime number
