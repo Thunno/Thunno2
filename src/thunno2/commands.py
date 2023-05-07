@@ -1469,6 +1469,17 @@ list_digraphs = {
         1, {((int, float, str),): pass_, list: centre_list}, 0, ("center", "centre")
     ),
     "D": Overload(1, {Any: depth}, 0, ("depth",)),
+    "E": Overload(
+        2,
+        {
+            (Number[0], Iterable[0]): extend_truncate,
+            (Iterable[0], Number[0]): swapped_extend_truncate,
+            (Iterable[0], Iterable[0]): length_extend_truncate,
+            (Number[0], Number[0]): num_extend_truncate
+        },
+        0,
+        ("extend", "truncate", "extend_truncate", "extend_to_length", "truncate_to_length")
+    ),
     "G": Overload(1, {((int, float, str),): pass_, list: longest}, 0, ("longest",)),
     "M": Overload(1, {((int, float, str),): pass_, list: shortest}, 0, ("shortest",)),
     ".": Overload(

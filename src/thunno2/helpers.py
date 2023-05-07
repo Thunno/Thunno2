@@ -2852,24 +2852,27 @@ def hypotenuse(a, b):
 
 
 def extend_truncate(x, y):
+    x = abs(int(x))
     if x == 0:
         return y * 0
     if not y:
         return y
+    i = 0
+    l = len(y)
     while x > len(y):
-        y += y[:1]
+        y += y[(i % l) : (i % l) + 1]
     while x < len(y):
         y = y[:-1]
     return y
+
+
+def swapped_extend_truncate(y, x):
+    return extend_truncate(x, y)
 
 
 def length_extend_truncate(x, y):
     return extend_truncate(len(x), y)
 
 
-def num_extend_truncate_1(x, y):
+def num_extend_truncate(x, y):
     return extend_truncate(x, _digits(y))
-
-
-def num_extend_truncate_2(x, y):
-    return extend_truncate(len(x), _digits(y))
