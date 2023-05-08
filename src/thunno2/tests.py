@@ -2724,6 +2724,24 @@ assert_eq(call("øD", "thunnobest"), "thunnoÇ&")
 assert_eq(call("øD", "withree"), "wiċŀ")
 assert_eq(call("øD", 123456), "123456")
 
+# ø<
+
+assert_eq(call("ø<", 123, 123456), 1)
+assert_eq(call("ø<", -1, -1.23), 1)
+assert_eq(call("ø<", 1, [123, -1, 456, 1, 1.23]), [1, 0, 0, 1, 1])
+
+assert_eq(call("ø<", "abc", "abcdef"), 1)
+assert_eq(call("ø<", "xyz", "abcdef"), 0)
+
+# ø>
+
+assert_eq(call("ø>", 456, 123456), 1)
+assert_eq(call("ø>", -1, -1.23), 0)
+assert_eq(call("ø>", 1, [321, -1, 456, 1, 1.23]), [1, 1, 0, 1, 0])
+
+assert_eq(call("ø>", "def", "abcdef"), 1)
+assert_eq(call("ø>", "xyz", "abcdef"), 0)
+
 # ØC
 
 assert_eq(call("ØC", 123), 123)

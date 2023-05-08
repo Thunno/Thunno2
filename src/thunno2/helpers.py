@@ -2956,3 +2956,11 @@ def str_connected_uniquify(s):
 
 def num_connected_uniquify(n):
     return eval(str_connected_uniquify(str(n)))
+
+
+def str_starts_with(x, y):
+    return int(str(y).startswith(str(x)))
+
+
+def str_ends_with(x, y):
+    return int(str(y).endswith(str(x)))
