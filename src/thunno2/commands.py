@@ -1552,6 +1552,7 @@ random_digraphs_2 = {
     "v": Overload(
         2,
         {
+            (list, list): vectorised_trim,
             (Any[0], list): trim,
             (list, Any[0]): swapped_trim,
             (Any[0], (int, float, str)): str_trim,
@@ -1562,6 +1563,7 @@ random_digraphs_2 = {
     "<": Overload(
         2,
         {
+            (list, list): vectorised_left_trim,
             (Any[0], list): left_trim,
             (list, Any[0]): swapped_left_trim,
             (Any[0], (int, float, str)): str_left_trim,
@@ -1572,6 +1574,7 @@ random_digraphs_2 = {
     ">": Overload(
         2,
         {
+            (list, list): vectorised_right_trim,
             (Any[0], list): right_trim,
             (list, Any[0]): swapped_right_trim,
             (Any[0], (int, float, str)): str_right_trim,

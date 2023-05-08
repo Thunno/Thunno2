@@ -2929,6 +2929,23 @@ def str_trim(x, y):
     return str(y).strip(str(x))
 
 
+def vectorised_left_trim(x, l):
+    r = l * 0
+    for i, j in enumerate(l):
+        if j not in x:
+            r = l[i:]
+            break
+    return r
+
+
+def vectorised_right_trim(x, l):
+    return vectorised_left_trim(x, l[::-1])[::-1]
+
+
+def vectorised_trim(x, l):
+    return vectorised_right_trim(x, vectorised_left_trim(x, l))
+
+
 def connected_uniquify(l):
     return [x[0] for x in group_consecutive(l)]
 
