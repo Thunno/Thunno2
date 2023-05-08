@@ -1772,6 +1772,18 @@ Push the index of the next character of the codepage + 101
 
 ***
 
+# `ø<` (Starts with)
+
+* `any a`, `any b`: does `b` start with `a`?
+
+***
+
+# `ø>` (Ends with)
+
+* `any a`, `any b`: does `b` end with `a`?
+
+***
+
 # `ØC` (Center)
 
 * `any a`: center `a`
