@@ -2881,3 +2881,78 @@ def num_extend_truncate(x, y):
         return eval(r)
     except:
         return r
+
+
+@try_float_conversion
+def insignificant(x):
+    return int(abs(x) <= 1)
+
+
+def left_trim(x, l):
+    r = l * 0
+    for i, j in enumerate(l):
+        if j != x:
+            r = l[i:]
+            break
+    return r
+
+
+def right_trim(x, l):
+    return left_trim(x, l[::-1])[::-1]
+
+
+def trim(x, l):
+    return right_trim(x, left_trim(x, l))
+
+
+def swapped_left_trim(l, x):
+    return left_trim(x, l)
+
+
+def swapped_right_trim(l, x):
+    return right_trim(x, l)
+
+
+def swapped_trim(l, x):
+    return trim(x, l)
+
+
+def str_left_trim(x, y):
+    return str(y).lstrip(str(x))
+
+
+def str_right_trim(x, y):
+    return str(y).rstrip(str(x))
+
+
+def str_trim(x, y):
+    return str(y).strip(str(x))
+
+
+def vectorised_left_trim(x, l):
+    r = l * 0
+    for i, j in enumerate(l):
+        if j not in x:
+            r = l[i:]
+            break
+    return r
+
+
+def vectorised_right_trim(x, l):
+    return vectorised_left_trim(x, l[::-1])[::-1]
+
+
+def vectorised_trim(x, l):
+    return vectorised_right_trim(x, vectorised_left_trim(x, l))
+
+
+def connected_uniquify(l):
+    return [x[0] for x in group_consecutive(l)]
+
+
+def str_connected_uniquify(s):
+    return "".join(connected_uniquify(s))
+
+
+def num_connected_uniquify(n):
+    return eval(str_connected_uniquify(str(n)))

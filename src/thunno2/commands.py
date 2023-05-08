@@ -1514,6 +1514,7 @@ random_digraphs_1 = {
     "E": Overload(1, {Any: exponent}, 1, ("exponent",)),
     "F": Overload(1, {Any: nth_fibonacci_number}, 1, ("nth_fibonacci_number",)),
     "H": Overload(2, {(Any[0], Any[0]): hypotenuse}, 2, ("hypot", "hypotenuse")),
+    "I": Overload(1, {Any: insignificant}, 1, ("insignificant",)),
     "P": Overload(1, {Any: nth_prime}, 1, ("nth_prime",)),
     "R": Overload(1, {Any: radians}, 1, ("radians",)),
     "S": Overload(1, {Any: sine}, 1, ("sine", "sin")),
@@ -1532,11 +1533,54 @@ random_digraphs_2 = {
         1, {Number: to_roman_numerals, str: from_roman_numerals}, 1, ("roman_numerals",)
     ),
     "T": Overload(1, {Any: type_of}, 0, ("type",)),
+    "U": Overload(
+        1,
+        {
+            Number: num_connected_uniquify,
+            str: str_connected_uniquify,
+            list: connected_uniquify,
+        },
+        0,
+        ("connected_uniquify",),
+    ),
     "r": Overload(
         1,
         {Number: range_shuffle, str: str_shuffle, list: shuffle},
         0,
         ("random_shuffle",),
+    ),
+    "v": Overload(
+        2,
+        {
+            (list, list): vectorised_trim,
+            (Any[0], list): trim,
+            (list, Any[0]): swapped_trim,
+            (Any[0], (int, float, str)): str_trim,
+        },
+        0,
+        ("trim",),
+    ),
+    "<": Overload(
+        2,
+        {
+            (list, list): vectorised_left_trim,
+            (Any[0], list): left_trim,
+            (list, Any[0]): swapped_left_trim,
+            (Any[0], (int, float, str)): str_left_trim,
+        },
+        0,
+        ("left_trim",),
+    ),
+    ">": Overload(
+        2,
+        {
+            (list, list): vectorised_right_trim,
+            (Any[0], list): right_trim,
+            (list, Any[0]): swapped_right_trim,
+            (Any[0], (int, float, str)): str_right_trim,
+        },
+        0,
+        ("right_trim",),
     ),
     "&": Overload(
         2,

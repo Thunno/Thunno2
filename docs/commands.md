@@ -1863,6 +1863,12 @@ Push the index of the next character of the codepage + 101
 
 ***
 
+# `ÆI` (Insignificant)
+
+* `any a`: push `abs(a) <= 1`
+
+***
+
 # `ÆP` (nth prime number)
 
 * `any a`: `n`th prime number
@@ -1944,9 +1950,33 @@ Push the index of the next character of the codepage + 101
 
 ***
 
+# `µU` (Connected uniquify)
+
+* `any a`: connected uniquify `a`
+
+***
+
 # `µr` (Random shuffle)
 
 * `any a`: random permutation of `a`
+
+***
+
+# `µv` (Trim)
+
+* `any a`, `any b`: remove `a` from both sides of `b`
+
+***
+
+# `µ<` (Left trim)
+
+* `any a`, `any b`: remove `a` from the left side of `b`
+
+***
+
+# `µ>` (Right trim)
+
+* `any a`, `any b`: remove `a` from the right side of `b`
 
 ***
 

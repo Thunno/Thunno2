@@ -2876,6 +2876,18 @@ assert_eq(call("ÆH", 7, 24), 25.0)
 
 assert_eq(call("ÆH", 123, "abc"), [123, "abc"])
 
+# ÆI
+
+assert_eq(call("ÆI", 0), 1)
+assert_eq(call("ÆI", 123), 0)
+assert_eq(call("ÆI", -1.23), 0)
+
+assert_eq(
+    call("ÆI", [-2, -1.5, -1, -0.5, 0, 0.5, 1, 1.5, 2]), [0, 0, 1, 1, 1, 1, 1, 0, 0]
+)
+
+assert_eq(call("ÆI", "abc"), ["abc"])
+
 # ÆP
 
 assert_eq(call("ÆP", 0), 2)
@@ -2999,6 +3011,157 @@ assert_eq(call("µT", ""), 2)
 
 assert_eq(call("µT", [123, 456, 789]), 3)
 assert_eq(call("µT", []), 3)
+
+# µU
+
+assert_eq(call("µU", 122333444455555), 12345)
+assert_eq(call("µU", 123112233111222333), 123123123)
+assert_eq(call("µU", 123), 123)
+assert_eq(call("µU", 111), 1)
+
+assert_eq(call("µU", "abbcccddddeeeee"), "abcde")
+assert_eq(call("µU", "abcaabbccaaabbbccc"), "abcabcabc")
+assert_eq(call("µU", "xyz"), "xyz")
+assert_eq(call("µU", "aaa"), "a")
+assert_eq(call("µU", ""), "")
+
+assert_eq(call("µU", [123, 456, 456, 789, 789, 789]), [123, 456, 789])
+assert_eq(
+    call("µU", [123, 456, 789, 123, 123, 456, 456, 789, 789]),
+    [123, 456, 789, 123, 456, 789],
+)
+assert_eq(call("µU", ["abc", "def"]), ["abc", "def"])
+assert_eq(call("µU", ["abc", "abc", "abc"]), ["abc"])
+assert_eq(call("µU", []), [])
+
+# µv
+
+assert_eq(call("µv", 1, 111222333111), "222333")
+assert_eq(call("µv", 123, 111222333111), "")
+
+assert_eq(call("µv", "a", "aaabbbcccaaa"), "bbbccc")
+assert_eq(call("µv", "abc", "aaabbbcccaaa"), "")
+assert_eq(call("µv", "xyz", "aaabbbcccaaa"), "aaabbbcccaaa")
+
+assert_eq(
+    call("µv", 123, [123, 123, 123, 456, 456, 456, 789, 789, 789, 123, 123, 123]),
+    [456, 456, 456, 789, 789, 789],
+)
+assert_eq(
+    call(
+        "µv",
+        ["abc", "def", "ghi"],
+        [
+            "abc",
+            "abc",
+            "abc",
+            "def",
+            "def",
+            "def",
+            "ghi",
+            "ghi",
+            "ghi",
+            "abc",
+            "abc",
+            "abc",
+        ],
+    ),
+    [],
+)
+assert_eq(
+    call(
+        "µv",
+        ["abc", "def", "ghi"],
+        [123, 123, 123, 456, 456, 456, 789, 789, 789, 123, 123, 123],
+    ),
+    [123, 123, 123, 456, 456, 456, 789, 789, 789, 123, 123, 123],
+)
+
+# µ<
+
+assert_eq(call("µ<", 1, 111222333111), "222333111")
+assert_eq(call("µ<", 123, 111222333111), "")
+
+assert_eq(call("µ<", "a", "aaabbbcccaaa"), "bbbcccaaa")
+assert_eq(call("µ<", "abc", "aaabbbcccaaa"), "")
+assert_eq(call("µ<", "xyz", "aaabbbcccaaa"), "aaabbbcccaaa")
+
+assert_eq(
+    call("µ<", 123, [123, 123, 123, 456, 456, 456, 789, 789, 789, 123, 123, 123]),
+    [456, 456, 456, 789, 789, 789, 123, 123, 123],
+)
+assert_eq(
+    call(
+        "µ<",
+        ["abc", "def", "ghi"],
+        [
+            "abc",
+            "abc",
+            "abc",
+            "def",
+            "def",
+            "def",
+            "ghi",
+            "ghi",
+            "ghi",
+            "abc",
+            "abc",
+            "abc",
+        ],
+    ),
+    [],
+)
+assert_eq(
+    call(
+        "µ<",
+        ["abc", "def", "ghi"],
+        [123, 123, 123, 456, 456, 456, 789, 789, 789, 123, 123, 123],
+    ),
+    [123, 123, 123, 456, 456, 456, 789, 789, 789, 123, 123, 123],
+)
+
+# µ>
+
+assert_eq(call("µ>", 1, 111222333111), "111222333")
+assert_eq(call("µ>", 123, 111222333111), "")
+
+assert_eq(call("µ>", "a", "aaabbbcccaaa"), "aaabbbccc")
+assert_eq(call("µ>", "abc", "aaabbbcccaaa"), "")
+assert_eq(call("µ>", "xyz", "aaabbbcccaaa"), "aaabbbcccaaa")
+
+assert_eq(
+    call("µ>", 123, [123, 123, 123, 456, 456, 456, 789, 789, 789, 123, 123, 123]),
+    [123, 123, 123, 456, 456, 456, 789, 789, 789],
+)
+assert_eq(
+    call(
+        "µ>",
+        ["abc", "def", "ghi"],
+        [
+            "abc",
+            "abc",
+            "abc",
+            "def",
+            "def",
+            "def",
+            "ghi",
+            "ghi",
+            "ghi",
+            "abc",
+            "abc",
+            "abc",
+        ],
+    ),
+    [],
+)
+assert_eq(
+    call(
+        "µ>",
+        ["abc", "def", "ghi"],
+        [123, 123, 123, 456, 456, 456, 789, 789, 789, 123, 123, 123],
+    ),
+    [123, 123, 123, 456, 456, 456, 789, 789, 789, 123, 123, 123],
+)
 
 # µ&
 
