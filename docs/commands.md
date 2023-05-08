@@ -1256,15 +1256,15 @@ Reserved for the index of the loop. Defaults to 0.
 
 ***
 
-# `ẋ` (Increment x)
+# `ẋ` (Apply to x)
 
-Add one to `x`. Only works if `x` is a number, not a list of numbers.
+Apply the next command to `x`.
 
 ***
 
-# `ẏ` (Increment y)
+# `ẏ` (Apply to y)
 
-Add one to `y`. Only works if `y` is a number, not a list of numbers.
+Apply the next command to `y`.
 
 ***
 

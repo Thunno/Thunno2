@@ -464,9 +464,21 @@ def tokenise(code, expected_end=""):
         elif char == "Ẏ":
             ret.append((char, "set y without popping", 0))
         elif char == "ẋ":
-            ret.append((char, "increment x", 0))
+            index += 1
+            cmd = code[index]
+            if cmd in DIGRAPHS:
+                index += 1
+                cmd += code[index]
+            func = get_a_function(cmd)
+            ret.append((char, "apply to x", func))
         elif char == "ẏ":
-            ret.append((char, "increment y", 0))
+            index += 1
+            cmd = code[index]
+            if cmd in DIGRAPHS:
+                index += 1
+                cmd += code[index]
+            func = get_a_function(cmd)
+            ret.append((char, "apply to y", func))
         elif char == "Ȥ":
             ret.append((char, "get global array", 0))
         elif char == "ȥ":

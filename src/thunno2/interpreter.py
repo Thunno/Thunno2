@@ -384,16 +384,20 @@ def run(code, *, n, iteration_index):
         elif desc == "set y without popping":
             a = (ctx.stack.copy() + ctx.other_il + [0])[0]
             vars_dict["y"] = a
-        elif desc == "increment x":
-            try:
-                vars_dict["x"] = vars_dict.get("x", 1) + 1
-            except:
-                pass
-        elif desc == "increment y":
-            try:
-                vars_dict["y"] = vars_dict.get("y", 2) + 1
-            except:
-                pass
+        elif desc == "apply to x":
+            old_stack = copy.deepcopy(ctx.stack)
+            ctx.stack.push(vars_dict.get("x", 1))
+            for k in info():
+                ctx.stack.push(k)
+            vars_dict["x"] = next(ctx.stack.rmv(1))
+            ctx.stack = copy.deepcopy(old_stack)
+        elif desc == "apply to y":
+            old_stack = copy.deepcopy(ctx.stack)
+            ctx.stack.push(vars_dict.get("y", 2))
+            for k in info():
+                ctx.stack.push(k)
+            vars_dict["y"] = next(ctx.stack.rmv(1))
+            ctx.stack = copy.deepcopy(old_stack)
         elif desc == "get global array":
             ctx.stack.push(vars_dict.get("ga", []))
         elif desc == "add to global array":
