@@ -1,2 +1,3 @@
 [console_scripts]
 thunno2 = thunno2.run:from_cmdline
+
