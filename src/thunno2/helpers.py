@@ -2933,5 +2933,9 @@ def connected_uniquify(l):
     return [x[0] for x in group_consecutive(l)]
 
 
+def str_connected_uniquify(s):
+    return "".join(connected_uniquify(s))
+
+
 def num_connected_uniquify(n):
-    return connected_uniquify(_digits(n))
+    return eval(str_connected_uniquify(str(n)))

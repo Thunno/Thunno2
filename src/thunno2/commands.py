@@ -1535,9 +1535,9 @@ random_digraphs_2 = {
     "T": Overload(1, {Any: type_of}, 0, ("type",)),
     "U": Overload(
         1,
-        {Number: num_connected_uniquify, Iterable: connected_uniquify},
+        {Number: num_connected_uniquify, str: str_connected_uniquify, list: connected_uniquify},
         0,
-        ("connected_uniquify"),
+        ("connected_uniquify",),
     ),
     "r": Overload(
         1,
