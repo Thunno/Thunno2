@@ -1462,6 +1462,8 @@ string_digraphs = {
     "D": Overload(
         1, {Any: optimal_dictionary_compression}, 1, ("optimal_dictionary_compression",)
     ),
+    "<": Overload(2, {(Any[0], Any[0]): str_starts_with}, 2, ("starts_with",)),
+    ">": Overload(2, {(Any[0], Any[0]): str_ends_with}, 2, ("starts_with",)),
 }
 
 list_digraphs = {
