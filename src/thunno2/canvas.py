@@ -2,7 +2,6 @@ from thunno2.helpers import length_extend_truncate
 
 
 class Canvas:
-
     def __init__(self):
         self.board = []
         self.x, self.y = 0, 0
@@ -12,16 +11,7 @@ class Canvas:
         return "\n".join(map("".join, self.board))
 
     def add_xy(self, d):
-        x, y = [
-            (0, -1),
-            (1, -1),
-            (1, 0),
-            (1, 1),
-            (0, 1),
-            (-1, 1),
-            (-1, 0),
-            (-1, -1)
-        ][d]
+        x, y = [(0, -1), (1, -1), (1, 0), (1, 1), (0, 1), (-1, 1), (-1, 0), (-1, -1)][d]
         self.x += x
         self.y += y
 
