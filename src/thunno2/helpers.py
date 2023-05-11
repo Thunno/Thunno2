@@ -1,5 +1,17 @@
 """An unordered, chaotic mess of helper functions"""
 
+
+import copy
+import itertools
+import math
+import random
+import re
+import string
+
+from thunno2 import codepage
+from thunno2 import canvas
+
+
 """Creative Commons Legal Code
 
 CC0 1.0 Universal
@@ -122,15 +134,6 @@ express Statement of Purpose.
     party to this document and has no duty or obligation with respect to
     this CC0 or use of the Work.
 """
-
-import copy
-import itertools
-import math
-import random
-import re
-import string
-
-from thunno2 import codepage
 
 
 def convert_all_to_string(func):
@@ -2964,3 +2967,59 @@ def str_starts_with(x, y):
 
 def str_ends_with(x, y):
     return int(str(y).endswith(str(x)))
+
+
+def canvas_draw(dirs, text):
+    l = []
+    for i in dirs:
+        try:
+            j = int(i)
+            if 0 <= j <= 7:
+                l.append(j)
+        except:
+            pass
+    canvas.canvas.draw(text, length_extend_truncate(text, l or [2]))
+    return str(canvas.canvas)
+
+
+def digits_canvas_draw(n, s):
+    return canvas_draw(digits(n), s)
+
+
+def swapped_canvas_draw(text, dirs):
+    return canvas_draw(dirs, text)
+
+
+def swapped_digits_canvas_draw(s, n):
+    return digits_canvas_draw(n, s)
+
+
+def blank_canvas_draw(dirs, text):
+    l = []
+    for i in dirs:
+        try:
+            j = int(i)
+            if 0 <= j <= 7:
+                l.append(j)
+        except:
+            pass
+    temp_canvas = canvas.Canvas()
+    temp_canvas.draw(text, length_extend_truncate(text, l or [2]))
+    return str(temp_canvas)
+
+
+def blank_digits_canvas_draw(n, s):
+    return blank_canvas_draw(digits(n), s)
+
+
+def blank_swapped_canvas_draw(text, dirs):
+    return blank_canvas_draw(dirs, text)
+
+
+def blank_swapped_digits_canvas_draw(s, n):
+    return blank_digits_canvas_draw(n, s)
+
+
+def clear_canvas():
+    canvas.canvas.clear()
+    return ()

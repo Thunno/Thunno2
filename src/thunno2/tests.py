@@ -128,7 +128,22 @@ express Statement of Purpose.
 tests_counter = 0
 tested_commands = []
 
-UNTESTABLE = ["ɼ", "µr", "ÆC", "ÆD", "ÆE", "ÆR", "ÆS", "ÆT", "Æc", "Æs", "Æt"]
+UNTESTABLE = [
+    "ɼ",
+    "øv",
+    "øV",
+    "ø^",
+    "µr",
+    "ÆC",
+    "ÆD",
+    "ÆE",
+    "ÆR",
+    "ÆS",
+    "ÆT",
+    "Æc",
+    "Æs",
+    "Æt",
+]
 
 
 def call(cmd, *stk):
@@ -141,10 +156,10 @@ def call(cmd, *stk):
 def assert_eq(a, *b):
     global tests_counter
     tests_counter += 1
-    #               Because 1 == True
-    #               but '1' != 'True'
-    #            (we don't want booleans)
-    #                      ↓↓
+    #                  Because 1 == True
+    #                  but '1' != 'True'
+    #               (we don't want booleans)
+    #                         ↓↓
     assert a == b and repr(a) == repr(b), f"\n\nTest {tests_counter}\n{a!r} != {b!r}"
 
 
