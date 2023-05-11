@@ -1772,6 +1772,26 @@ Push the index of the next character of the codepage + 101
 
 ***
 
+# `øv` (Global canvas draw)
+
+* `any a`, `any b`: draw `b` on the global canvas using `a` as directions. \
+  See [`docs/canvas.md`](https://github.com/Thunno/Thunno2/blob/main/docs/canvas.md) for more.
+
+***
+
+# `øV` (Blank canvas draw)
+
+* `any a`, `any b`: draw `b` on a blank canvas using `a` as directions. \
+  See [`docs/canvas.md`](https://github.com/Thunno/Thunno2/blob/main/docs/canvas.md) for more.
+
+***
+
+# `ø^` (Clear global canvas)
+
+Clear the global canvas. See [`docs/canvas.md`](https://github.com/Thunno/Thunno2/blob/main/docs/canvas.md) for more.
+
+***
+
 # `ø<` (Starts with)
 
 * `any a`, `any b`: does `b` start with `a`?
