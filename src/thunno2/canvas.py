@@ -1,6 +1,3 @@
-from thunno2.helpers import length_extend_truncate
-
-
 class Canvas:
     def __init__(self):
         self.board = []
@@ -42,7 +39,7 @@ class Canvas:
             self.extend(3)
 
     def draw(self, text, dirs):
-        for c, d in zip(text, length_extend_truncate(text, dirs or [2])):
+        for c, d in zip(text, dirs):
             self.add_xy(d)
             self.decide_extend()
             self.board[self.y][self.x] = c

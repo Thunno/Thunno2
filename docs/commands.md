@@ -1480,7 +1480,7 @@ Run the next command without popping any items from the stack.
 
 # `Ƈ` (Contains / nPr)
 
-* `num a`, `num b`: push `nCr(b, a)`
+* `num a`, `num b`: push `nPr(b, a)`
 * `any a`, `str/lst b`: push `a in b`
 
 ***

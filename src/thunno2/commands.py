@@ -1462,6 +1462,31 @@ string_digraphs = {
     "D": Overload(
         1, {Any: optimal_dictionary_compression}, 1, ("optimal_dictionary_compression",)
     ),
+    "v": Overload(
+        2,
+        {
+            (list, Any[0]): canvas_draw,
+            (Number[0], str): digits_canvas_draw,
+            (str, list): swapped_canvas_draw,
+            (str, Number[0]): swapped_digits_canvas_draw,
+            (Any[0], Any[0]): pass_,
+        },
+        0,
+        ("canvas", "draw", "canvas_draw"),
+    ),
+    "V": Overload(
+        2,
+        {
+            (list, Any[0]): blank_canvas_draw,
+            (Number[0], str): blank_digits_canvas_draw,
+            (str, list): blank_swapped_canvas_draw,
+            (str, Number[0]): blank_swapped_digits_canvas_draw,
+            (Any[0], Any[0]): pass_,
+        },
+        0,
+        ("blank_canvas", "blank_draw", "blank_canvas_draw"),
+    ),
+    "^": Overload(0, {Any: clear_canvas}, 0, ("clear_canvas",)),
     "<": Overload(2, {(Any[0], Any[0]): str_starts_with}, 2, ("starts_with",)),
     ">": Overload(2, {(Any[0], Any[0]): str_ends_with}, 2, ("starts_with",)),
 }

@@ -1,5 +1,17 @@
 """An unordered, chaotic mess of helper functions"""
 
+
+import copy
+import itertools
+import math
+import random
+import re
+import string
+
+from thunno2 import codepage
+from thunno2 import canvas
+
+
 """Creative Commons Legal Code
 
 CC0 1.0 Universal
@@ -122,15 +134,6 @@ express Statement of Purpose.
     party to this document and has no duty or obligation with respect to
     this CC0 or use of the Work.
 """
-
-import copy
-import itertools
-import math
-import random
-import re
-import string
-
-from thunno2 import codepage
 
 
 def convert_all_to_string(func):
@@ -341,14 +344,14 @@ def interleave_lst(lst1, lst2):
         for i, j in zip(lst2, lst1):
             r.append(i)
             r.append(j)
-        r.extend(lst1[len(lst2) :])
+        r.extend(lst1[len(lst2):])
         return r
     else:
         r = []
         for i, j in zip(lst2, lst1):
             r.append(i)
             r.append(j)
-        r.extend(lst2[len(lst1) :])
+        r.extend(lst2[len(lst1):])
         return r
 
 
@@ -362,13 +365,13 @@ def interleave_str(s1, s2):
         r = ""
         for i, j in zip(s2, s1):
             r += i + j
-        r += s1[len(s2) :]
+        r += s1[len(s2):]
         return r
     else:
         r = ""
         for i, j in zip(s2, s1):
             r += i + j
-        r += s2[len(s1) :]
+        r += s2[len(s1):]
         return r
 
 
@@ -416,7 +419,7 @@ def safe_int(x):
 
 
 def two_power(n):
-    return 2**n
+    return 2 ** n
 
 
 def is_prime(n):
@@ -570,7 +573,7 @@ def duplicate(x):
 
 
 def ten_power(n):
-    return 10**n
+    return 10 ** n
 
 
 def comma_split(s):
@@ -882,7 +885,7 @@ def split2(a, b):
     k = 0
     r = []
     while k < len(b):
-        r.append(b[k : k + x + (y > 0)])
+        r.append(b[k: k + x + (y > 0)])
         k += x + (y > 0)
         if y > 0:
             y -= 1
@@ -898,7 +901,7 @@ def split3(a, b):
 
 
 def exponentiate(x, y):
-    return y**x
+    return y ** x
 
 
 def append_first1(a, b):
@@ -1012,7 +1015,7 @@ def swapped_modulo(x, y):
 
 
 def swapped_exponentiate(x, y):
-    return x**y
+    return x ** y
 
 
 def prepend_last1(a, b):
@@ -1323,12 +1326,12 @@ def string_repr(s):
         return r
     f = first_char_not_present(r, "\\'\"")
     return (
-        '"'
-        + recursive_replace(f, "\\\\", r[1:-1])
-        .replace("\\'", "'")
-        .replace('"', '\\"')
-        .replace(f, "\\\\")
-        + '"'
+            '"'
+            + recursive_replace(f, "\\\\", r[1:-1])
+            .replace("\\'", "'")
+            .replace('"', '\\"')
+            .replace(f, "\\\\")
+            + '"'
     )
 
 
@@ -1539,7 +1542,7 @@ def median(lst):
         return []
     if len(l) % 2:
         return sorted(l)[len(l) // 2]
-    s = sorted(l)[len(l) // 2 - 1 : len(l) // 2 + 1]
+    s = sorted(l)[len(l) // 2 - 1: len(l) // 2 + 1]
     return mean(s)
 
 
@@ -1639,7 +1642,7 @@ def tail_remove(x):
 
 def chunk3(n, l):
     x, y = len(l), abs(int(n))
-    return list(filter(bool, [l[i : i + y] for i in range(0, (x // y + 1) * y, y)]))
+    return list(filter(bool, [l[i: i + y] for i in range(0, (x // y + 1) * y, y)]))
 
 
 def chunk4(l, n):
@@ -1824,7 +1827,7 @@ def combinations_with_replacement4(x, y):
 
 
 def square(n):
-    return n**2
+    return n ** 2
 
 
 def chunk_wrap_2(s):
@@ -1832,7 +1835,7 @@ def chunk_wrap_2(s):
 
 
 def cube(n):
-    return n**3
+    return n ** 3
 
 
 def chunk_wrap_3(s):
@@ -1840,7 +1843,7 @@ def chunk_wrap_3(s):
 
 
 def fourth(n):
-    return n**4
+    return n ** 4
 
 
 def chunk_wrap_4(s):
@@ -1848,7 +1851,7 @@ def chunk_wrap_4(s):
 
 
 def fifth(n):
-    return n**5
+    return n ** 5
 
 
 def chunk_wrap_5(s):
@@ -2848,7 +2851,7 @@ def type_of(x):
 
 @try_float_conversion
 def hypotenuse(a, b):
-    return math.sqrt(a**2 + b**2)
+    return math.sqrt(a ** 2 + b ** 2)
 
 
 def extend_truncate(x, y):
@@ -2860,7 +2863,7 @@ def extend_truncate(x, y):
     i = 0
     l = len(y)
     while x > len(y):
-        y += y[(i % l) : (i % l) + 1]
+        y += y[(i % l): (i % l) + 1]
         i += 1
     while x < len(y):
         y = y[:-1]
@@ -2964,3 +2967,59 @@ def str_starts_with(x, y):
 
 def str_ends_with(x, y):
     return int(str(y).endswith(str(x)))
+
+
+def canvas_draw(dirs, text):
+    l = []
+    for i in dirs:
+        try:
+            j = int(i)
+            if 0 <= j <= 7:
+                l.append(j)
+        except:
+            pass
+    canvas.canvas.draw(text, length_extend_truncate(text, l or [2]))
+    return str(canvas.canvas)
+
+
+def digits_canvas_draw(n, s):
+    return canvas_draw(digits(n), s)
+
+
+def swapped_canvas_draw(text, dirs):
+    return canvas_draw(dirs, text)
+
+
+def swapped_digits_canvas_draw(s, n):
+    return digits_canvas_draw(n, s)
+
+
+def blank_canvas_draw(dirs, text):
+    l = []
+    for i in dirs:
+        try:
+            j = int(i)
+            if 0 <= j <= 7:
+                l.append(j)
+        except:
+            pass
+    temp_canvas = canvas.Canvas()
+    temp_canvas.draw(text, length_extend_truncate(text, l or [2]))
+    return str(temp_canvas)
+
+
+def blank_digits_canvas_draw(n, s):
+    return blank_canvas_draw(digits(n), s)
+
+
+def blank_swapped_canvas_draw(text, dirs):
+    return blank_canvas_draw(dirs, text)
+
+
+def blank_swapped_digits_canvas_draw(s, n):
+    return blank_digits_canvas_draw(n, s)
+
+
+def clear_canvas():
+    canvas.canvas.clear()
+    return ()

@@ -22,10 +22,14 @@ on Code Golf Stack Exchange)</i></sup></sub>
 
 * For each character, you provide a direction to move before adding that character to the canvas.
 
-* There is only one canvas. You can add to it with the `ø^` command, and clear it with the `øv` command.
+* There is one global canvas. You can add to it with the `øv` command, and clear it with the `ø^` command.
 
-The canvas command (`ø^`) takes two arguments:
+* You can also write to a blank canvas using the `øV` command.
+
+The canvas commands (`øv` and `øV`) take two arguments:
 
 * a string of text
 * a list of integer directions \
   (this can also be an integer which is interpreted as a digit list)
+
+They return a string of text representing the canvas after drawing the text onto it.
