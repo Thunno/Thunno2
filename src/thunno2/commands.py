@@ -1222,8 +1222,8 @@ commands = {
         2,
         {
             (Number[0], Number[0]): nPr,
-            (Any, str): string_contains,
             (Any, list): list_contains,
+            (Any, str): string_contains,
         },
         0,
         ("npr", "contains"),
