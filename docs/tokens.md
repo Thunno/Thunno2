@@ -75,6 +75,7 @@ Each Thunno 2 command has at least one token. You can use these tokens in verbos
 |`!`|`set_variable`|
 |`"`|`string_literal`|
 |`#`|`comment`|
+<!-- * This is where I am right now-->
 |`$`|`next_input`|
 |`%`|`modulo`,`mod`,`format`|
 |`&`|`and`,`logical_and`|
@@ -124,7 +125,7 @@ Each Thunno 2 command has at least one token. You can use these tokens in verbos
 |`]`|`close_list_literal`|
 |`^`|`xor`,`logical_xor`|
 |`_`|`swapped_subtract`,`swapped_minus`|
-|<code>`</code>|`two_characters`|
+|<code>\`</code>|`two_characters`|
 |`a`|`append`|
 |`b`|`from_base`,`to_decimal`|
 |`c`|`ncr`,`count`|
