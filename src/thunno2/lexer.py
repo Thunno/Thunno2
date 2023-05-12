@@ -634,5 +634,11 @@ def tokenise(code, expected_end=""):
             ret.append((char + cmd1 + cmd2, "two function map", (func1, func2)))
         elif char in expected_end:
             return index, ret
+        elif char == ":":
+            ret.append((":", "command", commands["="]))
+            return index + 1, ret
+        elif char == "}":
+            ret.append(("}", "command", commands["¬"]))
+            return index + 1, ret
         index += 1
     return index + 1, ret
