@@ -1085,7 +1085,7 @@ Push `0.5` to the stack
 
 ---
 
-# `$` (`Next input`)
+# `$` (`next_input`)
 
 Push the next input from the input list.
 
