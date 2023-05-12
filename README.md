@@ -2,6 +2,12 @@
 
 A concise golfing language
 
+## Links
+
+Thunno 2 is on [Attempt This Online!](https://ato.pxeger.com/run?1=m728JKM0Ly_faMGCpaUlaboWC5YUJyUXwzhQGgA), an online sandbox environment for running code in hundreds of different programming languages.
+
+If you have any questions about Thunno 2, feel free to ping me (`@TheThonnu`) in the [Thunno 2 chatroom](https://chat.stackexchange.com/rooms/145278/thunno-2)
+
 ## Installation
 
 You'll need Python 3.6+ to run Thunno 2. If you don't have this already, you can download it from [here](https://www.python.org/downloads/).
