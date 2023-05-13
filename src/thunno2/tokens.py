@@ -116,6 +116,10 @@ other_tokens = {
     "Ƙ": ("first_n_integers",),
     "Ʋ": ("cumulative_reduce_by",),
     "Ɓ": ("execute_without_popping",),
+    "µƲ": ("single_function_reduce_by",),
+    "µɼ": ("single_function_right_reduce_by",),
+    "µƇ": ("single_function_right_cumulative_reduce_by",),
+    "µʋ": ("right_reduce_by",),
 }
 
 
