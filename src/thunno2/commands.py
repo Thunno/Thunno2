@@ -425,7 +425,9 @@ DIGRAPHS = "ØøÆµ"
 """DICTIONARY"""
 
 commands = {
-    "A": Overload(1, {Number: abs, str: isalpha}, 1, ("abs", "absolute", "isalpha", "is_alpha")),
+    "A": Overload(
+        1, {Number: abs, str: isalpha}, 1, ("abs", "absolute", "isalpha", "is_alpha")
+    ),
     "B": Overload(
         2,
         {
@@ -445,7 +447,9 @@ commands = {
     "E": Overload(1, {Number: is_even, str: eval2}, 1, ("even", "is_even", "eval")),
     "F": Overload(1, {Number: factors, str: substrings}, 1, ("factors", "substrings")),
     "G": Overload(1, {Number: max2, Iterable: max3}, 0, ("max", "maximum", "greatest")),
-    "H": Overload(1, {(int, str): from_hex, float: pass_}, 1, ("from_hex", "from_hexadecimal")),
+    "H": Overload(
+        1, {(int, str): from_hex, float: pass_}, 1, ("from_hex", "from_hexadecimal")
+    ),
     "I": Overload(
         2,
         {
@@ -621,7 +625,10 @@ commands = {
         1, {Number: num_uninterleave, Iterable: uninterleave}, 0, ("uninterleave",)
     ),
     "Ȧ": Overload(
-        1, {Number: bool2, str: isalphanum, list: any2}, 0, ("any", "is_alphanum", "is_alpha_num")
+        1,
+        {Number: bool2, str: isalphanum, list: any2},
+        0,
+        ("any", "is_alphanum", "is_alpha_num"),
     ),
     "Ḃ": Overload(1, {(int, str): from_binary, float: pass_}, 1, ("from_binary",)),
     "Ċ": Overload(
@@ -1283,7 +1290,9 @@ commands = {
     "ƈ": Overload(1, {Number: num_counts, Iterable: counts}, 0, ("counts",)),
     "ɗ": Overload(1, {Number: parity, str: second_half}, 1, ("parity", "second_half")),
     "ƒ": Overload(1, {Number: num_prefixes, Iterable: prefixes}, 0, ("prefixes",)),
-    "ɠ": Overload(0, {Any: (lambda: 256)}, 0, ("two_fifty_six", "two_hundred_fifty_six")),
+    "ɠ": Overload(
+        0, {Any: (lambda: 256)}, 0, ("two_fifty_six", "two_hundred_fifty_six")
+    ),
     "ɦ": Overload(0, {Any: (lambda: 100)}, 0, ("hundred", "one_hundred")),
     "ƙ": Overload(
         1,
@@ -1335,7 +1344,9 @@ commands = {
     ),
     "²": Overload(1, {Number: square, str: chunk_wrap_2}, 1, ("square",)),
     "³": Overload(1, {Number: cube, str: chunk_wrap_3}, 1, ("cube",)),
-    "⁴": Overload(1, {Number: fourth, str: chunk_wrap_4}, 1, ("fourth", "fourth_power")),
+    "⁴": Overload(
+        1, {Number: fourth, str: chunk_wrap_4}, 1, ("fourth", "fourth_power")
+    ),
     "⁵": Overload(1, {Number: fifth, str: chunk_wrap_5}, 1, ("fifth", "fifth_power")),
     "ạ": Overload(1, {Number: num_all_equal, Iterable: all_equal}, 0, ("all_equal",)),
     "ḅ": Overload(1, {Any: equals_one}, 1, ("equals_one",)),
