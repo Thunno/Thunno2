@@ -93,15 +93,15 @@ Each Thunno 2 command has at least one token. You can use these tokens in verbos
 |`>`|`greater_than`|
 |`?`|`if_statement`|
 |`@`|`swapped_exponentiate`,`swapped_pow`,`swapped_findall`,`swapped_regex`|
-|`A`|`abs`,`absolute`,`isalpha`|
+|`A`|`abs`,`absolute`,`isalpha`,`is_alpha`|
 |`B`|`to_base`,`from_decimal`|
 |`C`|`chr`,`character`,`ord`,`ordinal`|
 |`D`|`dup`,`duplicate`|
 |`E`|`even`,`is_even`,`eval`|
 |`F`|`factors`,`substrings`|
 |`G`|`max`,`maximum`,`greatest`|
-|`H`|`from_hex`|
-|`I`|`binary_range`,`slice`,`interleave`|
+|`H`|`from_hex`,`from_hexadecimal`|
+|`I`|`inclusive_range`,`slice`,`interleave`|
 |`J`|`empty_join`,`str`|
 |`K`|`stack`|
 |`L`|`lowered_range`,`zero_range`,`lower`,`lowercase`|
@@ -159,8 +159,8 @@ Each Thunno 2 command has at least one token. You can use these tokens in verbos
 |`¹`|`second_input`|
 |`²`|`square`|
 |`³`|`cube`|
-|`⁴`|`fourth`|
-|`⁵`|`fifth`|
+|`⁴`|`fourth`,`fourth_power`|
+|`⁵`|`fifth`,`fifth_power`|
 |`⁶`|`third_input`|
 |`⁷`|`third_last_input`|
 |`⁸`|`second_last_input`|
@@ -177,7 +177,7 @@ Each Thunno 2 command has at least one token. You can use these tokens in verbos
 |`Ɠ`|`sixteen`|
 |`Ƙ`|`first_n_integers`|
 |`Ɱ`|`palindromise`|
-|`Ɲ`|`integer_partitions`,`newline_join`|
+|`Ɲ`|`integer_partitions`,`newline_join`,`join_by_newlines`|
 |`Ƥ`|`prepend`|
 |`Ƭ`|`transpose_with_filler`|
 |`Ʋ`|`cumulative_reduce_by`|
@@ -186,7 +186,7 @@ Each Thunno 2 command has at least one token. You can use these tokens in verbos
 |`ƈ`|`counts`|
 |`ɗ`|`parity`,`second_half`|
 |`ƒ`|`prefixes`|
-|`ɠ`|`two_fifty_six`|
+|`ɠ`|`two_fifty_six`,`two_hundred_fifty_six`|
 |`ɦ`|`hundred`,`one_hundred`|
 |`ƙ`|`grade_up`,`increment_twice`|
 |`ɱ`|`head_slice`|
@@ -217,7 +217,7 @@ Each Thunno 2 command has at least one token. You can use these tokens in verbos
 |`Ẉ`|`uninterleave_into_pieces`|
 |`Ỵ`|`rotate_left`,`left_bit_shift`|
 |`Ẓ`|`rotate_right`,`right_bit_shift`|
-|`Ȧ`|`any`,`isalphanum`|
+|`Ȧ`|`any`,`is_alphanum`,`is_alpha_num`|
 |`Ḃ`|`from_binary`|
 |`Ċ`|`codepage_chr`,`codepage_character`,`codepage_ord`,`codepage_ordinal`|
 |`Ḋ`|`divisible`,`is_divisible`|
