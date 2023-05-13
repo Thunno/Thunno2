@@ -88,7 +88,7 @@ Decompress the characters between the two `¿`s as an integer list. Use [this pr
 
 # `[` (Open list literal)
 
-Tokens: `open_list_literal`
+Tokens: `open_list_literal`, `open_list`, `list`
 
 Start a list literal. Anything between `[` and `]` is evaluated as a Python list and pushed to the stack.
 
@@ -96,7 +96,7 @@ Start a list literal. Anything between `[` and `]` is evaluated as a Python list
 
 # `]` (Close list literal)
 
-Tokens: `close_list_literal`
+Tokens: `close_list_literal`, `close_list`, `end_list`
 
 End a list literal. Anything between `[` and `]` is evaluated as a Python list and pushed to the stack.
 
