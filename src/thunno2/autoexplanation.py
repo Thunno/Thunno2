@@ -8,11 +8,11 @@ def auto_explain(code, indent=0):
     index = 0
     for chars, info, other in lexed:
         if "single function" in info or info in (
-                "outer product",
-                "apply to x",
-                "apply to y",
-                "execute without popping",
-                "apply to every nth item"
+            "outer product",
+            "apply to x",
+            "apply to y",
+            "execute without popping",
+            "apply to every nth item",
         ):
             if len(chars) == 2:
                 i = 1
@@ -24,24 +24,24 @@ def auto_explain(code, indent=0):
                 else:
                     i = 1
             ret += (
-                    " " * (index + indent)
-                    + chars[:-i]
-                    + (len(code) - index - len(chars) + i) * " "
-                    + "  # "
-                    + info
-                    + "\n"
-                    + " " * (index + indent + len(chars) - i)
-                    + chars[-i:]
-                    + (len(code) - index - len(chars)) * " "
-                    + "  # "
+                " " * (index + indent)
+                + chars[:-i]
+                + (len(code) - index - len(chars) + i) * " "
+                + "  # "
+                + info
+                + "\n"
+                + " " * (index + indent + len(chars) - i)
+                + chars[-i:]
+                + (len(code) - index - len(chars)) * " "
+                + "  # "
             )
             ret += other.keywords[0] + "\n"
         else:
             ret += (
-                    " " * (index + indent)
-                    + chars
-                    + (len(code) - index - len(chars)) * " "
-                    + "  # "
+                " " * (index + indent)
+                + chars
+                + (len(code) - index - len(chars)) * " "
+                + "  # "
             )
             if isinstance(other, list):
                 ret += info + "\n"
