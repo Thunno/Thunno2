@@ -48,7 +48,9 @@ def auto_explain(code, indent=0, comment_indent=0):
             )
             if isinstance(other, list):
                 ret += info + ":\n"
-                ret += auto_explain(code[index + 1 :], index + indent + 1, comment_indent+1)
+                ret += auto_explain(
+                    code[index + 1 :], index + indent + 1, comment_indent + 1
+                )
             elif info not in ("command", "digraph"):
                 ret += info + "\n"
             else:
