@@ -717,6 +717,27 @@ def run(code, *, n, iteration_index):
                 print(y)
                 x.append(y)
                 k += 1
+        elif desc == "apply to every nth item":
+            a = next(ctx.stack.rmv(1))
+            try:
+                a = int(a)
+            except:
+                try:
+                    a = len(a)
+                except:
+                    a = 2
+            b = listify(next(ctx.stack.rmv(1)))
+            old_stack = Stack(copy.deepcopy(list(ctx.stack).copy()))
+            r = []
+            for i, j in enumerate(b):
+                if i % a == 0:
+                    ctx.stack = Stack(copy.deepcopy(list(old_stack).copy()))
+                    ctx.stack.push(j)
+                    for k in info():
+                        r.append(k)
+                else:
+                    r.append(j)
+            ctx.stack.push(r)
         else:
             if ctx.warnings:
                 print("TRACEBACK: [UNRECOGNISED TOKEN]", file=sys.stderr)
