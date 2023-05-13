@@ -2,6 +2,12 @@
 
 A concise golfing language
 
+![Test status](https://github.com/Thunno/Thunno2/actions/workflows/tests.yml/badge.svg)
+![Pypi Monthly Downloads](https://img.shields.io/pypi/dm/thunno2)
+![Last Commit](https://img.shields.io/github/last-commit/Thunno/Thunno2)
+<!-- ![Contributors](https://img.shields.io/github/contributors/Thunno/Thunno2)
+ (Add when this goes up) -->
+
 ## Links
 
 Thunno 2 is on [Attempt This Online!](https://ato.pxeger.com/run?1=m728JKM0Ly_faMGCpaUlaboWC5YUJyUXwzhQGgA), an online sandbox environment for running code in hundreds of different programming languages.
