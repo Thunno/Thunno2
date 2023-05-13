@@ -2564,6 +2564,8 @@ Tokens: `right_trim`
 
 # `µµ` (Recursive environment)
 
+Tokens: `recursive_environment`
+
 Usage: `µµ CODE ;`. Start recursive list generation, executing `CODE` to get each successive item in the sequence.
 
 ***
