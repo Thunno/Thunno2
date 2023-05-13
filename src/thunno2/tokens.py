@@ -121,6 +121,7 @@ other_tokens = {
     "µɼ": ("single_function_right_reduce_by",),
     "µƇ": ("single_function_right_cumulative_reduce_by",),
     "µʋ": ("right_reduce_by",),
+    "µ€": ("apply_to_every_nth_item",),
 }
 
 

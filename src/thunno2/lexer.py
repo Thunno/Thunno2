@@ -154,7 +154,7 @@ def tokenise(code, expected_end=""):
                         index += 1
                         cmd += code[index]
                     func = get_a_function(cmd)
-                    ret.append((char + cmd, "single function reduce by", func))
+                    ret.append((y + cmd, "single function reduce by", func))
                 elif y == "µɼ":
                     index += 1
                     cmd = code[index]
@@ -162,7 +162,7 @@ def tokenise(code, expected_end=""):
                         index += 1
                         cmd += code[index]
                     func = get_a_function(cmd)
-                    ret.append((char + cmd, "single function right reduce by", func))
+                    ret.append((y + cmd, "single function right reduce by", func))
                 elif y == "µƇ":
                     index += 1
                     cmd = code[index]
@@ -171,12 +171,20 @@ def tokenise(code, expected_end=""):
                         cmd += code[index]
                     func = get_a_function(cmd)
                     ret.append(
-                        (char + cmd, "single function right cumulative reduce by", func)
+                        (y + cmd, "single function right cumulative reduce by", func)
                     )
                 elif y == "µʋ":
                     i, r = tokenise(code[index + 1 :], expected_end=";")
                     index += i
                     ret.append((y, "right reduce by", r))
+                elif y == "µ€":
+                    index += 1
+                    cmd = code[index]
+                    if cmd in DIGRAPHS:
+                        index += 1
+                        cmd += code[index]
+                    func = get_a_function(cmd)
+                    ret.append((y + cmd, "apply to every nth item", func))
                 else:
                     ret.append((y, "digraph", get_a_function(y)))
             except:

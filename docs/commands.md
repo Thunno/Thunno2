@@ -2631,3 +2631,11 @@ Tokens: `right_reduce_by`
 Usage: `Ʋ CODE ;`. Right reduce (foldr) `a` by `CODE`
 
 ***
+
+# `µ€` (Apply to every nth item)
+
+Tokens: `apply_to_every_nth_item`
+
+Apply the next command to every `a`th item of `b`.
+
+***
