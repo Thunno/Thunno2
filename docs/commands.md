@@ -2321,6 +2321,14 @@ Tokens: `longest`
 
 ***
 
+# `ØI` (Multidimensional index)
+
+Tokens: `multidimensional_index`
+
+* `any a`, `any b`: first multidimensional index of `a` in `b`
+
+***
+
 # `ØM` (Shortest element)
 
 Tokens: `shortest`
