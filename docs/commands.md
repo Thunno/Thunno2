@@ -2564,6 +2564,8 @@ Tokens: `right_trim`
 
 # `µµ` (Recursive environment)
 
+Tokens: `recursive_environment`
+
 Usage: `µµ CODE ;`. Start recursive list generation, executing `CODE` to get each successive item in the sequence.
 
 ***
@@ -2600,11 +2602,15 @@ Tokens: `non_vectorised_xor`,`non_vectorised_logical_xor`
 
 # `µƲ` (Single function reduce by)
 
+Tokens: `single_function_reduce_by`
+
 Reduce (foldl) the elements of `a` by the next command.
 
 ***
 
 # `µɼ` (Single function right reduce by)
+
+Tokens: `single_function_right_reduce_by`
 
 Right reduce (foldr) the elements of `a` by the next command.
 
@@ -2612,11 +2618,15 @@ Right reduce (foldr) the elements of `a` by the next command.
 
 # `µƇ` (Single function right cumulative reduce by)
 
+Tokens: `single_function_right_cumulative_reduce_by`
+
 Right cumulative reduce (scanr) the elements of `a` by the next command.
 
 ***
 
 # `µʋ` (Right reduce by)
+
+Tokens: `right_reduce_by`
 
 Usage: `Ʋ CODE ;`. Right reduce (foldr) `a` by `CODE`
 
