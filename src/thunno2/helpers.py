@@ -3023,3 +3023,24 @@ def blank_swapped_digits_canvas_draw(s, n):
 def clear_canvas():
     canvas.canvas.clear()
     return ()
+
+
+def multidimensional_index(x, l):
+    for i, j in enumerate(l):
+        if j == x:
+            return [i]
+        elif isinstance(j, list):
+            r = multidimensional_index(x, j)
+            if r:
+                return [i] + r
+    return []
+
+
+def swapped_multidimensional_index(l, x):
+    return multidimensional_index(x, l)
+
+
+def vectorised_multidimensional_index(x, l):
+    if not isinstance(x, list):
+        return multidimensional_index(x, l)
+    return [*map(lambda i, y=l: vectorised_multidimensional_index(i, y), x)]

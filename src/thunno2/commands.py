@@ -186,6 +186,9 @@ class VoidType:
     def __repr__(self):
         return "Void"
 
+    def __iter__(self):
+        yield from []
+
 
 Void = VoidType()
 
@@ -1525,6 +1528,17 @@ list_digraphs = {
         ),
     ),
     "G": Overload(1, {((int, float, str),): pass_, list: longest}, 0, ("longest",)),
+    "I": Overload(
+        2,
+        {
+            ((int, float, str), list): multidimensional_index,
+            (list, (int, float, str)): swapped_multidimensional_index,
+            (list, list): vectorised_multidimensional_index,
+            (Any[0], Any[0]): pass_,
+        },
+        0,
+        ("multidimensional_index",),
+    ),
     "M": Overload(1, {((int, float, str),): pass_, list: shortest}, 0, ("shortest",)),
     ".": Overload(
         2, {(list, list): dot_product, (Any[0], Any[0]): pass_}, 0, ("dot_product",)
