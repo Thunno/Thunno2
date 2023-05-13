@@ -1534,7 +1534,7 @@ list_digraphs = {
             ((int, float, str), list): multidimensional_index,
             (list, (int, float, str)): swapped_multidimensional_index,
             (list, list): vectorised_multidimensional_index,
-            (Any[0], Any[0]): pass_
+            (Any[0], Any[0]): pass_,
         },
         0,
         ("multidimensional_index",),
