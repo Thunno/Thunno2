@@ -29,11 +29,11 @@ def auto_explain(code, indent=0):
                 + (len(code) - index - len(chars) + i) * " "
                 + "  # "
                 + info
-                + "\n"
+                + ":\n"
                 + " " * (index + indent + len(chars) - i)
                 + chars[-i:]
                 + (len(code) - index - len(chars)) * " "
-                + "  # "
+                + "  #  "
             )
             ret += other.keywords[0] + "\n"
         else:
