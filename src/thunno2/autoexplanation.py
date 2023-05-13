@@ -2,7 +2,7 @@ from thunno2.tokens import *
 from thunno2.lexer import *
 
 
-def auto_explain(code, indent=0):
+def auto_explain(code, indent=0, comment_indent=0):
     _, lexed = tokenise(code)
     ret = ""
     index = 0
@@ -28,12 +28,14 @@ def auto_explain(code, indent=0):
                 + chars[:-i]
                 + (len(code) - index - len(chars) + i) * " "
                 + "  # "
+                + " " * comment_indent
                 + info
                 + ":\n"
                 + " " * (index + indent + len(chars) - i)
                 + chars[-i:]
                 + (len(code) - index - len(chars)) * " "
                 + "  #  "
+                + " " * comment_indent
             )
             ret += other.keywords[0] + "\n"
         else:
@@ -42,10 +44,13 @@ def auto_explain(code, indent=0):
                 + chars
                 + (len(code) - index - len(chars)) * " "
                 + "  # "
+                + " " * comment_indent
             )
             if isinstance(other, list):
-                ret += info + "\n"
-                ret += auto_explain(code[index + 1 :], index + indent + 1)
+                ret += info + ":\n"
+                ret += auto_explain(
+                    code[index + 1 :], index + indent + 1, comment_indent + 1
+                )
             elif info not in ("command", "digraph"):
                 ret += info + "\n"
             else:
