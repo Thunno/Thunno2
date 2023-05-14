@@ -1584,7 +1584,7 @@ Tokens: `chunk_wrap`,`split_chunk`
 
 # `ẋ` (Apply to x)
 
-Tokens: `increment_x`
+Tokens: `apply_to_x`
 
 Apply the next command to `x`.
 
@@ -1592,7 +1592,7 @@ Apply the next command to `x`.
 
 # `ẏ` (Apply to y)
 
-Tokens: `increment_y`
+Tokens: `apply_to_y`
 
 Apply the next command to `y`.
 
