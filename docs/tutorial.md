@@ -2,7 +2,8 @@
 
 ## 1. The stack
 
-Thunno 2's "stack" is just a list of items which have been referenced in the program. You can push items to the stack, or pop items from the stack. You can even rotate and reverse the stack! <!-- TODO -->
+Thunno 2's "stack" is just a list of items which have been referenced in the program. You can push items to the stack, or pop items from the stack. <!-- You can even rotate and reverse the stack! 
+ TODO -->
 
 ## 2. Numbers
 
