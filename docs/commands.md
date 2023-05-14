@@ -2671,3 +2671,15 @@ Tokens: `reverse_stack`
 Reverse the stack.
 
 ***
+
+# `µÑ` (Adjacent group by)
+
+Tokens: `adjacent_group_by`
+
+***
+
+# `µñ` (Single function adjacent group by)
+
+Tokens: `single_function_adjacent_group_by`
+
+***
