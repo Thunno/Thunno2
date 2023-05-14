@@ -1,6 +1,7 @@
 setup.py
 thunno2/__init__.py
 thunno2/autoexplanation.py
+thunno2/canvas.py
 thunno2/codepage.py
 thunno2/commands.py
 thunno2/constants.py
