@@ -122,6 +122,9 @@ other_tokens = {
     "µƇ": ("single_function_right_cumulative_reduce_by",),
     "µʋ": ("right_reduce_by",),
     "µ€": ("apply_to_every_nth_item",),
+    "µ«": ("rotate_stack_left",),
+    "µ»": ("rotate_stack_right",),
+    "µ!": ("reverse_stack",),
 }
 
 

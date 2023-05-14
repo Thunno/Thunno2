@@ -185,6 +185,12 @@ def tokenise(code, expected_end=""):
                         cmd += code[index]
                     func = get_a_function(cmd)
                     ret.append((y + cmd, "apply to every nth item", func))
+                elif y == "µ«":
+                    ret.append((y, "rotate stack left", 0))
+                elif y == "µ»":
+                    ret.append((y, "rotate stack right", 0))
+                elif y == "µ!":
+                    ret.append((y, "reverse stack", 0))
                 else:
                     ret.append((y, "digraph", get_a_function(y)))
             except:
