@@ -192,7 +192,7 @@ def tokenise(code, expected_end=""):
                 elif y == "µ!":
                     ret.append((y, "reverse stack", 0))
                 elif y == "µÑ":
-                    i, r = tokenise(code[index + 1:], expected_end=";")
+                    i, r = tokenise(code[index + 1 :], expected_end=";")
                     index += i
                     ret.append((y, "adjacent group by", r))
                 elif y == "µñ":
