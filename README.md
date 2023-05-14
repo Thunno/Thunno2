@@ -38,6 +38,10 @@ This will start the interpreter. After that, type in your code, input and flags 
 
 See the [`docs` folder](https://github.com/Thunno/Thunno2/blob/main/docs) for the documentation.
 
+## Tips
+
+For tips on how to code-golf in Thunno 2, see [Tips for golfing in Thunno 2](https://codegolf.stackexchange.com/q/260902/114446) on Code Golf Stack Exchange.
+
 ## License
 
 © Rujul Nayak 2023
