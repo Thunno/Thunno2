@@ -721,6 +721,10 @@ Tokens: `join`
 | `k)`    | `[-1, 1]`                                                     |
 | `k*`    | `[-1, -1]`                                                    |
 | `k+`    | `[3, 5]`                                                      |
+| `k,`    | Uppercase + lowercase vowels: `AEIOUaeiou`                    |
+| `k-`    | Lowercase + uppercase vowels: `aeiouAEIOU`                    |
+| `k.`    | Uppercase + lowercase vowels with `y`: `AEIOUYaeiouy`         |
+| `k/`    | Lowercase + uppercase vowels with `y`: `aeiouyAEIOUY`         |
 | `kȦ`    | Alphanumeric characters: `[a-zA-Z0-9]`                        |
 | `kḂ`    | Base digits: `[0-9A-Za-z]`                                    |
 | `kĊ`    | Alphanumeric characters + underscore: `[a-zA-Z0-9_]`          |
@@ -734,7 +738,7 @@ Tokens: `join`
 | `kṀ`    | Reversed alphanumeric characters: `[Z-Az-a9-0]`               |
 | `kṄ`    | Reversed digits: `[9-0]`                                      |
 | `kȮ`    | Printable ASCII characters including newline                  |
-| `kṖ`    | Punctuation: <code>'!"#$%&\\'()*+,-./:;<=>?@[\\\\]^_`{\       |}~'</code>|
+| `kṖ`    | Punctuation: <code>'!"#$%&\\'()*+,-./:;<=>?@[\|\]^_`{\}~'</code>|
 | `kṘ`    | `'http://'`                                                   |
 | `kṠ`    | `'http://www.'`                                               |
 | `kṪ`    | `'https://www.'`                                              |
