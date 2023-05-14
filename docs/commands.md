@@ -2647,3 +2647,27 @@ Tokens: `apply_to_every_nth_item`
 Apply the next command to every `a`th item of `b`.
 
 ***
+
+# `µ«` (Rotate stack left)
+
+Tokens: `rotate_stack_left`
+
+Rotate the stack left by one place.
+
+***
+
+# `µ»` (Rotate stack right)
+
+Tokens: `rotate_stack_right`
+
+Rotate the stack right by one place.
+
+***
+
+# `µ!` (Reverse stack)
+
+Tokens: `reverse_stack`
+
+Reverse the stack.
+
+***

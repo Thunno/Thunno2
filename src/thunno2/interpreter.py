@@ -738,6 +738,12 @@ def run(code, *, n, iteration_index):
                 else:
                     r.append(j)
             ctx.stack.push(r)
+        elif desc == "rotate stack left":
+            ctx.stack = Stack(rotate_left_once(ctx.stack))
+        elif desc == "rotate stack right":
+            ctx.stack = Stack(rotate_right_once(ctx.stack))
+        elif desc == "reverse stack":
+            ctx.stack = Stack(ctx.stack[::-1])
         else:
             if ctx.warnings:
                 print("TRACEBACK: [UNRECOGNISED TOKEN]", file=sys.stderr)
