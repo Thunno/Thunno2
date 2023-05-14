@@ -191,6 +191,18 @@ def tokenise(code, expected_end=""):
                     ret.append((y, "rotate stack right", 0))
                 elif y == "µ!":
                     ret.append((y, "reverse stack", 0))
+                elif y == "µÑ":
+                    i, r = tokenise(code[index + 1:], expected_end=";")
+                    index += i
+                    ret.append((y, "adjacent group by", r))
+                elif y == "µñ":
+                    index += 1
+                    cmd = code[index]
+                    if cmd in DIGRAPHS:
+                        index += 1
+                        cmd += code[index]
+                    func = get_a_function(cmd)
+                    ret.append((y + cmd, "single function adjacent group by", func))
                 else:
                     ret.append((y, "digraph", get_a_function(y)))
             except:

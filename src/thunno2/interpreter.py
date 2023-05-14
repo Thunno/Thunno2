@@ -744,6 +744,55 @@ def run(code, *, n, iteration_index):
             ctx.stack = Stack(rotate_right_once(ctx.stack))
         elif desc == "reverse stack":
             ctx.stack = Stack(ctx.stack[::-1])
+        elif desc == "adjacent group by":
+            a = next(ctx.stack.rmv(1))
+            x = listify(a)
+            r = []
+            old_stack = Stack(copy.deepcopy(list(ctx.stack).copy()))
+            for i, j in enumerate(x):
+                ctx.stack = Stack([j] + copy.deepcopy(old_stack))
+                run(info, n=j, iteration_index=i)
+                z = next(ctx.stack.rmv(1))
+                r.append((j, z))
+            try:
+                d = []
+                last = None
+                for val, key in r:
+                    if key == last:
+                        d[-1].append(val)
+                    else:
+                        d.append([val])
+                    last = key
+                ctx.stack.push(d)
+            except:
+                ctx.stack.push(x)
+        elif desc == "single function adjacent group by":
+            a = next(ctx.stack.rmv(1))
+            func = info
+            if func != Void:
+                x = listify(a)
+                group_by = []
+                old_stack = Stack(copy.deepcopy(list(ctx.stack).copy()))
+                for i in x:
+                    ctx.stack = Stack(copy.deepcopy(list(old_stack).copy()))
+                    ctx.stack.push(i)
+                    f = func()
+                    if not f:
+                        group_by.append((i, i))
+                    else:
+                        group_by.append((i, f[-1]))
+                try:
+                    d = []
+                    last = None
+                    for val, key in group_by:
+                        if key == last:
+                            d[-1].append(val)
+                        else:
+                            d.append([val])
+                        last = key
+                    ctx.stack.push(d)
+                except:
+                    ctx.stack.push(x)
         else:
             if ctx.warnings:
                 print("TRACEBACK: [UNRECOGNISED TOKEN]", file=sys.stderr)

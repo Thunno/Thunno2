@@ -125,6 +125,8 @@ other_tokens = {
     "µ«": ("rotate_stack_left",),
     "µ»": ("rotate_stack_right",),
     "µ!": ("reverse_stack",),
+    "µÑ": ("adjacent_group_by",),
+    "µñ": ("single_function_adjacent_group_by",),
 }
 
 
