@@ -139,7 +139,12 @@ vars_dict = {
 """RUN FUNCTION"""
 
 
-def run(code, *, n, iteration_index):
+def run(code, *, context=None, iteration_index=None):
+    if context is None:
+        n = 0
+    else:
+        n = context
+    ctx.context = context
     # while ctx.index < len(code):
     for chars, desc, info in code:
         if desc == "command" or desc == "digraph":
@@ -472,7 +477,7 @@ def run(code, *, n, iteration_index):
             old_stack = Stack(copy.deepcopy(list(ctx.stack).copy()))
             for i, j in enumerate(x):
                 ctx.stack = Stack([j] + copy.deepcopy(old_stack))
-                run(info, n=j, iteration_index=i)
+                run(info, context=j, iteration_index=i)
                 r.append(next(ctx.stack.rmv(1)))
             ctx.stack.push(r)
         elif desc == "filter":
@@ -482,7 +487,7 @@ def run(code, *, n, iteration_index):
             old_stack = Stack(copy.deepcopy(list(ctx.stack).copy()))
             for i, j in enumerate(x):
                 ctx.stack = Stack([j] + copy.deepcopy(old_stack))
-                run(info, n=j, iteration_index=i)
+                run(info, context=j, iteration_index=i)
                 z = next(ctx.stack.rmv(1))
                 if z:
                     r.append(j)
@@ -494,7 +499,7 @@ def run(code, *, n, iteration_index):
             old_stack = Stack(copy.deepcopy(list(ctx.stack).copy()))
             for i, j in enumerate(x):
                 ctx.stack = Stack([j] + copy.deepcopy(old_stack))
-                run(info, n=j, iteration_index=i)
+                run(info, context=j, iteration_index=i)
                 z = next(ctx.stack.rmv(1))
                 r.append((j, z))
             try:
@@ -509,7 +514,7 @@ def run(code, *, n, iteration_index):
             old_stack = Stack(copy.deepcopy(list(ctx.stack).copy()))
             for i, j in enumerate(x):
                 ctx.stack = Stack([j] + copy.deepcopy(old_stack))
-                run(info, n=j, iteration_index=i)
+                run(info, context=j, iteration_index=i)
                 z = next(ctx.stack.rmv(1))
                 r.append((j, z))
             try:
@@ -530,7 +535,7 @@ def run(code, *, n, iteration_index):
             i = 0
             while True:
                 ctx.stack = Stack(copy.deepcopy(old_stack))
-                run(info, n=r[-1], iteration_index=i)
+                run(info, context=r[-1], iteration_index=i)
                 k = (ctx.stack + ctx.other_il + [0])[0]
                 print(k)
                 r.append(k)
@@ -550,7 +555,7 @@ def run(code, *, n, iteration_index):
             while len(r) < x:
                 ctx.stack = Stack(copy.deepcopy(old_stack))
                 ctx.stack.push(i)
-                run(info, n=i, iteration_index=i - 1)
+                run(info, context=i, iteration_index=i - 1)
                 k = next(ctx.stack.rmv(1))
                 if k:
                     r.append(i)
@@ -566,7 +571,7 @@ def run(code, *, n, iteration_index):
                     ctx.stack = Stack(copy.deepcopy(old_stack))
                     ctx.stack.push(r[-1])
                     ctx.stack.push(j)
-                    run(info, n=j, iteration_index=i)
+                    run(info, context=j, iteration_index=i)
                     r.append(next(ctx.stack.rmv(1)))
                 ctx.stack.push(r)
             else:
@@ -632,7 +637,7 @@ def run(code, *, n, iteration_index):
                     ctx.stack = Stack(copy.deepcopy(old_stack))
                     ctx.stack.push(r[-1])
                     ctx.stack.push(j)
-                    run(info, n=j, iteration_index=i)
+                    run(info, context=j, iteration_index=i)
                     r.append(next(ctx.stack.rmv(1)))
                 ctx.stack.push(r[-1])
             else:
@@ -643,26 +648,26 @@ def run(code, *, n, iteration_index):
             for i, j in enumerate(x):
                 if not isinstance(a, (int, float)):
                     ctx.stack.push(j)
-                run(info, n=j, iteration_index=i)
+                run(info, context=j, iteration_index=i)
         elif desc == "while loop":
             cond, body = info
             i = 0
             while True:
                 old_stack = Stack(copy.deepcopy(list(ctx.stack).copy()))
-                run(cond, n=0, iteration_index=i)
+                run(cond, context=0, iteration_index=i)
                 z = next(ctx.stack.rmv(1))
                 ctx.stack = Stack(copy.deepcopy(old_stack))
                 if not z:
                     break
-                run(body, n=0, iteration_index=i)
+                run(body, context=0, iteration_index=i)
                 i += 1
         elif desc == "if statement":
             if_true, if_false = info
             a = next(ctx.stack.rmv(1))
             if a:
-                run(if_true, n=0, iteration_index=1)
+                run(if_true, context=0, iteration_index=1)
             else:
-                run(if_false, n=0, iteration_index=0)
+                run(if_false, context=0, iteration_index=0)
         elif desc == "execute without popping":
             if info != Void:
                 values = info(pop=False)
@@ -712,7 +717,7 @@ def run(code, *, n, iteration_index):
                 ctx.stack = Stack(copy.deepcopy(list(old_stack).copy()))
                 for j in x:
                     ctx.stack.push(j)
-                run(info, n=([0] + x)[-1], iteration_index=k)
+                run(info, context=([0] + x)[-1], iteration_index=k)
                 y = next(ctx.stack.rmv(1))
                 print(y)
                 x.append(y)
@@ -751,7 +756,7 @@ def run(code, *, n, iteration_index):
             old_stack = Stack(copy.deepcopy(list(ctx.stack).copy()))
             for i, j in enumerate(x):
                 ctx.stack = Stack([j] + copy.deepcopy(old_stack))
-                run(info, n=j, iteration_index=i)
+                run(info, context=j, iteration_index=i)
                 z = next(ctx.stack.rmv(1))
                 r.append((j, z))
             try:
@@ -806,7 +811,7 @@ def test(cod, inp=(), stk=(), warn=True):
     ctx.other_il = list(inp)
     ctx.warnings = warn
     tokenised = tokenise(cod)[1]
-    run(tokenised, n=0, iteration_index=0)
+    run(tokenised, context=0, iteration_index=0)
     print(ctx.stack)
     if ctx.implicit_print:
         print(ctx.stack[0])

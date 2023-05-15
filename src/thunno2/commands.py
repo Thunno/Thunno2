@@ -141,12 +141,15 @@ class Stack(list):
             if list(self):
                 yield self.pop(0)
             else:
-                if ctx.other_il:
-                    x = ctx.other_il.pop(0)
-                    ctx.other_il.append(x)
-                    yield x
+                if (not ctx.vyxal_mode) or ctx.context is None:
+                    if ctx.other_il:
+                        x = ctx.other_il.pop(0)
+                        ctx.other_il.append(x)
+                        yield x
+                    else:
+                        yield default
                 else:
-                    yield default
+                    yield ctx.context
 
 
 class Context:
@@ -156,6 +159,8 @@ class Context:
         self.other_il = []
         self.implicit_print = True
         self.warnings = False
+        self.context = None
+        self.vyxal_mode = False
 
 
 ctx = Context()

@@ -65,6 +65,9 @@ def process_input_flags(flags, inputs):
                 new_input.append(inp)
         inputs = new_input[:]
 
+    if "c" in flags:
+        commands.ctx.vyxal_mode = True
+
     return inputs
 
 
@@ -176,7 +179,7 @@ def run(flags, code, inputs):
             commands.ctx.og_input_list = new_inputs.copy()
             commands.ctx.other_il = new_inputs.copy()
             print(line, "--> ", end="")
-            interpreter.run(code, n=0, iteration_index=0)
+            interpreter.run(code, context=0, iteration_index=0)
             process_output_flags(new_flags)
         return None
 
@@ -206,7 +209,7 @@ def run(flags, code, inputs):
             commands.ctx.og_input_list = new_inputs.copy()
             commands.ctx.other_il = new_inputs.copy()
             print(line, "--> ", end="")
-            interpreter.run(code, n=0, iteration_index=0)
+            interpreter.run(code, context=0, iteration_index=0)
             process_output_flags(new_flags, False)
             actual_output = next(commands.ctx.stack.rmv(1))
             print(actual_output, end="\t")
@@ -219,5 +222,5 @@ def run(flags, code, inputs):
     inputs = process_input_flags(flags, inputs)
     commands.ctx.og_input_list = inputs.copy()
     commands.ctx.other_il = inputs.copy()
-    interpreter.run(code, n=0, iteration_index=0)
+    interpreter.run(code, context=0, iteration_index=0)
     process_output_flags(flags)
