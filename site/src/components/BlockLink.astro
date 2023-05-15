@@ -1,0 +1,16 @@
+---
+interface Props {
+  href: string;
+  class: string;
+  target?: string;
+}
+const { class: cn, href, target = "_self" } = Astro.props;
+---
+
+<a
+  class={`block w-max bg-gradient-to-b rounded border-2 px-4 py-1 ${cn}`}
+  href={href}
+  target={target}
+>
+  <slot />
+</a>

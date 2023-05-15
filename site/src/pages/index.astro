@@ -1,0 +1,81 @@
+---
+import Layout from "../layouts/Layout.astro";
+import BlockLink from "../components/BlockLink.astro";
+import { getCollection } from "astro:content";
+const docsEntries = await getCollection("docs");
+---
+
+<Layout title="Thunno 2">
+  <main class="max-w-xl mx-auto py-20">
+    <div class="text-center">
+      <h1
+        class="text-5xl font-medium uppercase tracking-tighter flex items-center justify-center gap-5"
+      >
+        Thunno 2
+        <img
+          src="./thunno_logo.svg"
+          alt="Thunno logo"
+          class="w-16 inline-block"
+        />
+      </h1>
+      <p class="text-2xl my-5">A concise golfing language</p>
+      <div class="flex flex-col gap-4 items-center">
+        <BlockLink
+          href="./docs/tutorial"
+          class="from-orange-200 to-orange-300 text-black border-orange-500 hover:from-orange-100 hover:to-orange-300 after:inline-block after:content-['→'] after:translate-x-1 after:transition-transform hover:after:translate-x-2"
+        >
+          Try the tutorial
+        </BlockLink>
+        <BlockLink
+          href="https://ato.pxeger.com/run?1=m728JKM0Ly_faMGCpaUlaboW65Q8UnNy8nUUwvOLclIUlxQnJRdDpWBKAA"
+          class="from-blue-700 to-indigo-800 text-white border-blue-500 hover:from-blue-800 hover:to-indigo-800"
+          target="_blank"
+        >
+          Try it at Attempt This Online!
+        </BlockLink>
+        <BlockLink
+          href="https://github.com/Thunno/Thunno2"
+          class="from-neutral-200 to-neutral-300 text-neutral-800 border-neutral-400 hover:from-neutral-300 hover:to-neutral-300"
+          target="_blank"
+        >
+          ☆ Star on GitHub!
+        </BlockLink>
+        <BlockLink
+          href="https://chat.stackexchange.com/rooms/145278/thunno-2"
+          class="from-green-500 to-green-700 text-white border-green-800 hover:from-green-700 hover:to-green-700"
+          target="_blank"
+        >
+          <img
+            src="/cgcc-logo.svg"
+            class="w-6 inline-block mr-2 -ml-3"
+            alt="Code Golf and Coding Challenges Stack Exchange:"
+          /> Join our chatroom!
+        </BlockLink>
+      </div>
+    </div>
+    <div class="grid sm:grid-cols-2 gap-3 p-10">
+      {
+        docsEntries.map((entry) => {
+          if (entry.data.ignore) return null;
+          return (
+            <a
+              href={`./docs/${entry.slug}`}
+              class="rounded bg-red-300 dark:bg-orange-900 dark:!bg-opacity-30 hover:bg-red-400 dark:hover:bg-orange-700 border-red-400 border-2 p-3 block"
+            >
+              {entry.data.title}
+              <span class="float-right">&rarr;</span>
+            </a>
+          );
+        })
+      }
+      <a
+        href="https://codegolf.stackexchange.com/questions/260902/tips-for-golfing-in-thunno-2/260909#260909"
+        target="_blank"
+        class="rounded bg-purple-300 dark:bg-purple-900 dark:!bg-opacity-30 border-purple-400 border-2 p-3 block hover:bg-purple-400 dark:hover:bg-purple-700"
+      >
+        Tips for golfing in Thunno 2
+        <span class="float-right">&rarr;</span>
+      </a>
+    </div>
+  </main>
+</Layout>

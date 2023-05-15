@@ -1,7 +1,12 @@
+---
+title: Flags
+slug: flags
+---
+
 # List of flags in Thunno 2
 
 | Flag | Description                                 |
-|------|---------------------------------------------|
+| ---- | ------------------------------------------- |
 | `w`  | Enable warnings                             |
 | `v`  | Enable verbose mode (tokens)                |
 | `V`  | Verify all test cases                       |

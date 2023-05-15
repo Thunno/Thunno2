@@ -1,3 +1,5 @@
+import typography from "@tailwindcss/typography";
+
 // @ts-check
 
 /** @type {import("tailwindcss").Config} */
@@ -6,10 +8,11 @@ const config = {
   theme: {
     extend: {
       fontFamily: {
-        display: ["Karla", "sans-serif"],
+        // display: ["Karla", "sans-serif"],
+        sans: ["Seravek", "sans-serif"],
       },
     },
   },
-  plugins: [],
+  plugins: [typography],
 };
 export default config;

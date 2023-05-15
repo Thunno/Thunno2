@@ -3,4 +3,10 @@
 .idea
 
 # dependencies
-docs/node_modules
+site/node_modules
+
+# astro
+site/.astro
+
+# OS specific files
+.DS_Store

@@ -6,5 +6,10 @@ import tailwind from "@astrojs/tailwind";
 export default defineConfig({
   site: "https://thunno.github.io",
   base: "/thunno2",
-  integrations: [tailwind()]
+  integrations: [tailwind()],
+  vite: {
+    resolve: {
+      preserveSymlinks: true,
+    },
+  },
 });

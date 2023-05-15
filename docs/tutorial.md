@@ -1,3 +1,8 @@
+---
+title: Tutorial
+slug: tutorial
+---
+
 # Thunno 2 tutorial
 
 ## 1. The stack
@@ -10,9 +15,9 @@ To push a number to the stack, just write it.
 
 For example:
 
-* `1` pushes 1
-* `1.23` pushes 1.23
-* `.456` pushes 0.456
+- `1` pushes 1
+- `1.23` pushes 1.23
+- `.456` pushes 0.456
 
 ## 3. Mathematical operations
 
@@ -22,10 +27,10 @@ These go **after** the operands.
 
 For example:
 
-* `1 2+` pushes 3
-* `4.56 1-` pushes 3.56
-* `12 3×` pushes 36
-* `20 4/` pushes 5
+- `1 2+` pushes 3
+- `4.56 1-` pushes 3.56
+- `12 3×` pushes 36
+- `20 4/` pushes 5
 
 (Note that there needs to be a space between two numbers so the interpreter knows they are separate from each other.)
 
@@ -35,13 +40,13 @@ Strings in Thunno 2 start and end with double quotes (`"`). You can include doub
 
 For example:
 
-* `"abc"` pushes abc
-* `"\"Thunno\""` pushes "Thunno"
+- `"abc"` pushes abc
+- `"\"Thunno\""` pushes "Thunno"
 
 Strings can be concatenated using `+`. A string can be concatenated to another string, or a number:
 
-* `"abc""def"+` pushes abcdef
-* `123"abc"+` pushes 123abc
+- `"abc""def"+` pushes abcdef
+- `123"abc"+` pushes 123abc
 
 ## 5. Lists
 
@@ -49,8 +54,8 @@ List work just like in Python. Anything between a `[` and `]` is pushed as a lis
 
 For example:
 
-* `[1,2,3,4]` pushes [1, 2, 3, 4]
-* `['abc', 123, "def"]` pushes ['abc', 123, 'def']
+- `[1,2,3,4]` pushes [1, 2, 3, 4]
+- `['abc', 123, "def"]` pushes ['abc', 123, 'def']
 
 ## 6. Vectorisation
 
@@ -58,18 +63,18 @@ Thunno 2 can do operations on lists without needing loops. This is called "vecto
 
 For example:
 
-* `[1, 2, 3] 2 +` pushes [3, 4, 5]
-* `10 [1, 2, 5, 10] /` pushes [10.0, 5.0, 2.0, 1.0]
+- `[1, 2, 3] 2 +` pushes [3, 4, 5]
+- `10 [1, 2, 5, 10] /` pushes [10.0, 5.0, 2.0, 1.0]
 
 This works with lists on both sides as well:
 
-* `[1, 2, 3] [4, 5, 6] +` pushes [5, 7, 9]
-* `[2, 3, 4] [10, 20, 30] ×` pushes [20, 60, 120]
+- `[1, 2, 3] [4, 5, 6] +` pushes [5, 7, 9]
+- `[2, 3, 4] [10, 20, 30] ×` pushes [20, 60, 120]
 
 And nested lists:
 
-* `[50, [100, [200], 400], 800] 10 -` pushes [40, [90, [190], 390], 790]
-* `[[[[[10], 11], 12], 13], 14] [[1, 2], 3] +` pushes [[[[[11], 12], 13], 15, 17]]
+- `[50, [100, [200], 400], 800] 10 -` pushes [40, [90, [190], 390], 790]
+- `[[[[[10], 11], 12], 13], 14] [[1, 2], 3] +` pushes [[[[[11], 12], 13], 15, 17]]
 
 ## 7. Input
 
