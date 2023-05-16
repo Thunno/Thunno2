@@ -1,21 +1,32 @@
 ---
 import Layout from "../../layouts/Layout.astro";
 import { getCollection } from "astro:content";
+import type { InferGetStaticPropsType, GetStaticPaths } from "astro";
 
-export async function getStaticPaths() {
+export const getStaticPaths = (async () => {
   const docsEntries = await getCollection("docs");
   return docsEntries.map((entry) => ({
     params: { slug: entry.slug },
     props: { entry },
   }));
-}
+}) satisfies GetStaticPaths;
+
+export type Props = InferGetStaticPropsType<typeof getStaticPaths>;
 
 const { entry } = Astro.props;
 const { Content } = await entry.render();
 ---
 
 <Layout title={entry.data.title}>
-  <main class="p-10 prose lg:prose-xl dark:prose-invert">
+  <main
+    class="py-20 px-10 max-w-xl mx-auto prose lg:prose-xl dark:prose-invert"
+  >
     <Content />
   </main>
 </Layout>
+
+<style is:global>
+  .prose :not(pre) > code {
+    @apply before:hidden after:hidden bg-violet-300 dark:bg-gray-700 rounded px-1 py-0.5;
+  }
+</style>
