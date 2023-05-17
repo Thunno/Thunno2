@@ -6,6 +6,7 @@
 
 src/dist/
 src/setup.py
+src/thunno2.egg-info/
 
 # Others
 .DS_Store
