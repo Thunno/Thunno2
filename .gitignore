@@ -1,3 +1,12 @@
 # editor directories / files
 .vscode
 .idea
+
+# PyPI stuff
+
+src/dist/
+src/setup.py
+
+# Others
+*.DS_Store
+*/__pycache__/
