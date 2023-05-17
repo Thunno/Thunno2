@@ -8,5 +8,5 @@ src/dist/
 src/setup.py
 
 # Others
-*.DS_Store
+.DS_Store
 */__pycache__/
