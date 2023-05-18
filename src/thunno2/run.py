@@ -28,8 +28,6 @@ def from_terminal():
     while inp:
         inputs += inp + "\n"
         inp = input()
-    if "e" in flags_list:
-        print("\nExplanation:\n\n" + autoexplanation.auto_explain(code) + "\n")
     if "v" in flags_list:
         transpiled = tokens.transpile(code)
         print("\nTranspiled:")
@@ -38,6 +36,8 @@ def from_terminal():
         _, tokenised = lexer.tokenise(transpiled)
     else:
         _, tokenised = lexer.tokenise(code)
+    if "e" in flags_list:
+        print("\nExplanation:\n\n" + autoexplanation.auto_explain(tokenised, tkn=False) + "\n")
     print("\nOutput:")
     flags.run(flags_list, tokenised, inputs)
 
