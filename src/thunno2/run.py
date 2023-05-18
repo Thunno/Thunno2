@@ -37,7 +37,11 @@ def from_terminal():
     else:
         _, tokenised = lexer.tokenise(code)
     if "e" in flags_list:
-        print("\nExplanation:\n\n" + autoexplanation.auto_explain(tokenised, tkn=False) + "\n")
+        print(
+            "\nExplanation:\n\n"
+            + autoexplanation.auto_explain(tokenised, tkn=False)
+            + "\n"
+        )
     print("\nOutput:")
     flags.run(flags_list, tokenised, inputs)
 
