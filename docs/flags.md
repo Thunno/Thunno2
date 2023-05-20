@@ -37,3 +37,4 @@
 | `Ụ`  | Push uppercase of input at the end             |
 | `O`  | Force implicit output at the end               |
 | `o`  | Disable implicit output at the end             |
+| `.`  | Output timings at the end                      |
