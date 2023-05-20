@@ -53,7 +53,7 @@ def from_terminal():
         times = [
             (lexed_time - start_time) * 1000,
             (end_time - lexed_time) * 1000,
-            (end_time - start_time) * 1000
+            (end_time - start_time) * 1000,
         ]
         print("\nTimings:")
         print(f"Lexer: {times[0]:.3f}ms")
@@ -94,8 +94,10 @@ def from_cmdline():
                 times = [
                     (lexed_time - start_time) * 1000,
                     (end_time - lexed_time) * 1000,
-                    (end_time - start_time) * 1000
+                    (end_time - start_time) * 1000,
                 ]
-                sys.stderr.write(f"\nTimings:\nLexer: {times[0]:.3f}ms\nProgram: {times[1]:.3f}ms\nTotal: {times[2]:.3f}ms\n")
+                sys.stderr.write(
+                    f"\nTimings:\nLexer: {times[0]:.3f}ms\nProgram: {times[1]:.3f}ms\nTotal: {times[2]:.3f}ms\n"
+                )
     except Exception as E:
         sys.stderr.write("An error occurred: " + repr(E))
