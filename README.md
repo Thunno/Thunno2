@@ -3,7 +3,7 @@
 A concise golfing language
 
 ![Test status](https://github.com/Thunno/Thunno2/actions/workflows/tests.yml/badge.svg)
-![Downloads](https://static.pepy.tech/personalized-badge/thunno2?period=month&units=international_system&left_color=grey&right_color=brightgreen&left_text=Downloads)
+![Downloads](https://static.pepy.tech/personalized-badge/thunno2?period=total&units=abbreviation&left_color=grey&right_color=brightgreen&left_text=Downloads)
 ![Last Commit](https://img.shields.io/github/last-commit/Thunno/Thunno2)
 <!-- ![Contributors](https://img.shields.io/github/contributors/Thunno/Thunno2)
  (Add when this goes up) -->
