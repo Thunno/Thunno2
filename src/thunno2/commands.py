@@ -1426,13 +1426,13 @@ commands = {
     "ṛ": Overload(
         2,
         {
-            (Number[0], Number[0]): cmp,
+            (Number[0], Number[0]): absolute_difference,
             (Number[0], str): zfill1,
             (str, Number[0]): zfill2,
             (str, str): surround,
         },
         2,
-        ("compare", "cmp", "zfill", "surround"),
+        ("absolute_difference", "zfill", "surround"),
     ),
     "ṣ": Overload(1, {Number: spaces, Iterable: suffixes}, 0, ("suffixes", "spaces")),
     "ṭ": Overload(3, {(Any[0], Any[0], Any[0]): triple_swap}, 0, ("triple_swap",)),

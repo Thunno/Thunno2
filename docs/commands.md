@@ -2189,11 +2189,11 @@ Tokens: `repeat`
 
 ***
 
-# `ṛ` (Compare / Zfill / Surround)
+# `ṛ` (Absolute difference / Zfill / Surround)
 
-Tokens: `compare`,`cmp`,`zfill`,`surround`
+Tokens: `absolute_difference`,`zfill`,`surround`
 
-* `num a`, `num b`: push `1` if `b > a`, `0` if `b == a`, `-1` if `b < a`
+* `num a`, `num b`: push `abs(b - a)`
 * `num a`, `str b`: push `b.zfill(a)`
 * `str a`, `str b`: push `a.zfill(b)`
 * `str a`, `str b`: push `a + b + a`
