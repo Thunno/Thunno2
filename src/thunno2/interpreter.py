@@ -661,6 +661,11 @@ def run(code, *, context=None, iteration_index=None):
                     break
                 run(body, context=0, iteration_index=i)
                 i += 1
+        elif desc == "forever loop":
+            i = 0
+            while True:
+                run(info, context=0, iteration_index=i)
+                i += 1
         elif desc == "if statement":
             if_true, if_false = info
             a = next(ctx.stack.rmv(1))

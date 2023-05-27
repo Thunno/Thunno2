@@ -599,6 +599,10 @@ def tokenise(code, expected_end=""):
             except:
                 pass
             ret.append((char, "while loop", (r1, r2)))
+        elif char == "⁽":
+            i, r = tokenise(code[index + 1:], expected_end="⁾")
+            index += i
+            ret.append((char, "forever loop", r))
         elif char == "?":
             i, r1 = tokenise(code[index + 1 :], expected_end=":;")
             index += i + 1
