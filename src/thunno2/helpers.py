@@ -3044,3 +3044,7 @@ def vectorised_multidimensional_index(x, l):
     if not isinstance(x, list):
         return multidimensional_index(x, l)
     return [*map(lambda i, y=l: vectorised_multidimensional_index(i, y), x)]
+
+
+def absolute_difference(a, b):
+    return abs(b - a)

@@ -2446,10 +2446,10 @@ assert_eq(call("ọ", [123, 456], ["abc", "def"]), ["abc", "def", "abc", "def"])
 
 # ṛ
 
-assert_eq(call("ṛ", 5, 3), -1)
-assert_eq(call("ṛ", 3, 5), 1)
+assert_eq(call("ṛ", 5, 3), 2)
+assert_eq(call("ṛ", 3, 5), 2)
 assert_eq(
-    call("ṛ", 10, [-10, -5, 0, 5, 10, 15, 20, 25, 30]), [-1, -1, -1, -1, 0, 1, 1, 1, 1]
+    call("ṛ", 10, [-10, -5, 0, 5, 10, 15, 20, 25, 30]), [20, 15, 10, 5, 0, 5, 10, 15, 20]
 )
 
 assert_eq(call("ṛ", 8, "abcde"), "000abcde")
