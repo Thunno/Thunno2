@@ -537,7 +537,6 @@ def run(code, *, context=None, iteration_index=None):
                 ctx.stack = Stack(copy.deepcopy(old_stack))
                 run(info, context=r[-1], iteration_index=i)
                 k = (ctx.stack + ctx.other_il + [0])[0]
-                print(k)
                 r.append(k)
                 if r[-1] == r[-2]:
                     break
