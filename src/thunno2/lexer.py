@@ -600,7 +600,7 @@ def tokenise(code, expected_end=""):
                 pass
             ret.append((char, "while loop", (r1, r2)))
         elif char == "⁽":
-            i, r = tokenise(code[index + 1:], expected_end="⁾")
+            i, r = tokenise(code[index + 1 :], expected_end="⁾")
             index += i
             ret.append((char, "forever loop", r))
         elif char == "?":
