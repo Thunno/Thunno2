@@ -1,4 +1,4 @@
-from thunno2 import lexer, version, flags, tokens, autoexplanation
+from thunno2 import lexer, version, flags, tokens, autoexplanation, codepage
 import sys, time
 
 
@@ -28,6 +28,8 @@ def from_terminal():
     while inp:
         inputs += inp + "\n"
         inp = input()
+    if "U" in flags_list:
+        code = codepage.utf8_to_thunno2(code)
     if "." in "".join(flags_list):
         start_time = time.time()
     if "v" in flags_list:
@@ -72,6 +74,8 @@ def from_cmdline():
     try:
         with open(filename) as f:
             code = f.read()
+            if "U" in "".join(flags_list):
+                code = codepage.utf8_to_thunno2(code)
             if "." in "".join(flags_list):
                 start_time = time.time()
             if "v" in "".join(flags_list):
