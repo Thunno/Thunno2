@@ -10,6 +10,7 @@
 | `c`  | Auto-fill stack with context rather than input |
 | `W`  | Take input as one multi-line string            |
 | `E`  | Don't evaluate the inputs                      |
+| `U`  | Read in code as UTF-8, not Thunno 2 encoding   |
 | `Z`  | Preset top of stack to `0`                     |
 | `T`  | Preset top of stack to `10`                    |
 | `H`  | Preset top of stack to `100`                   |
