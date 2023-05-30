@@ -276,7 +276,7 @@ Close a `FOREVER` loop.
 
 # `?` (IF statement)
 
-Tokens: `if_statement`
+Tokens: `if_statement`,`if`
 
 Usage: `CONDITION ? IF_TRUE : IF_FALSE ;`. If `CONDITION` is true, execute `IF_TRUE`. Otherwise, execute `IF_FALSE`
 
@@ -284,7 +284,7 @@ Usage: `CONDITION ? IF_TRUE : IF_FALSE ;`. If `CONDITION` is true, execute `IF_T
 
 # `:` (ELSE statement)
 
-Tokens: `else_statement`
+Tokens: `else_statement`,`else`
 
 Used in conjunction with `IF` statements.
 
