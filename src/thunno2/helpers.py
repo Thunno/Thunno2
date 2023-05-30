@@ -3048,3 +3048,23 @@ def vectorised_multidimensional_index(x, l):
 
 def absolute_difference(a, b):
     return abs(b - a)
+
+
+@try_float_conversion
+def logarithm(a, b):
+    return math.log(b, a)
+
+
+@try_float_conversion
+def log10(a):
+    return math.log10(a)
+
+
+@try_float_conversion
+def ln(a):
+    return math.log(a)
+
+
+@try_float_conversion
+def log2(a):
+    return math.log2(a)
