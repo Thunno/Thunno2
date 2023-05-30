@@ -2427,6 +2427,22 @@ Tokens: `insignificant`
 
 ***
 
+# `ÆL` (Custom base logarithm)
+
+Tokens: `log`,`logarithm`
+
+* `any a`, `any b`: logarithm of `b` with base `a`
+
+***
+
+# `ÆN` (Natural logarithm)
+
+Tokens: `natural_log`,`natural_logarithm`
+
+* `any a`: logarithm of `a` with base \$e\$
+
+***
+
 # `ÆP` (nth prime number)
 
 Tokens: `nth_prime`
@@ -2467,6 +2483,14 @@ Tokens: `arc_cosine`,`arccos`
 
 ***
 
+# `Æl` (Common logarithm)
+
+Tokens: `log10`,`common_log`,`common_logarithm`
+
+* `any a`: logarithm of `a` with base 10
+
+***
+
 # `Æs` (Inverse sine)
 
 Tokens: `arc_sine`,`arcsin`
@@ -2480,6 +2504,14 @@ Tokens: `arc_sine`,`arcsin`
 Tokens: `arc_tangent`,`arctan`
 
 * `any a`: push `arctan(a)`
+
+***
+
+# `Æḷ` (Base 2 logarithm)
+
+Tokens: `log2`,`log_base_2`
+
+* `any a`: logarithm of `a` with base 2
 
 ***
 
