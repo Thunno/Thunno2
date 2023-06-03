@@ -208,6 +208,7 @@ def run(flags, code, inputs):
                 continue
             commands.ctx.og_input_list = new_inputs.copy()
             commands.ctx.other_il = new_inputs.copy()
+            commands.ctx.stack = commands.Stack()
             print(line, "--> ", end="")
             interpreter.run(code, context=0, iteration_index=0)
             process_output_flags(new_flags, False)
