@@ -3072,3 +3072,23 @@ def ln(a):
 @try_float_conversion
 def log2(a):
     return math.log2(a)
+
+
+def split_on(x, l):
+    if isinstance(l, str):
+        x = str(x)
+    r = [l * 0]
+    for i in l:
+        if i == x:
+            r.append(l * 0)
+        else:
+            r[-1] += [i] if isinstance(l, list) else i
+    return r
+
+
+def num_split_on(x, y):
+    return split_on(x, _digits(y))
+
+
+def swapped_split_on(l, x):
+    return split_on(x, l)
