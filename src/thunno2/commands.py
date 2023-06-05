@@ -1663,7 +1663,11 @@ random_digraphs_2 = {
     ),
     "/": Overload(
         2,
-        {(list, Any[0]): swapped_split_on, (Any[0], Iterable[0]): split_on, (Any[0], Number[0]): num_split_on},
+        {
+            (list, Any[0]): swapped_split_on,
+            (Any[0], Iterable[0]): split_on,
+            (Any[0], Number[0]): num_split_on,
+        },
         0,
         ("split_on",),
     ),
