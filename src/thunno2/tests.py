@@ -2159,6 +2159,7 @@ assert_eq(call("ƭ", 10), 3.1622776601683795)
 assert_eq(
     call("ƭ", [-2, -1, 0, 1, 2]), [1.4142135623730951, 1, 0, 1, 1.4142135623730951]
 )
+assert_eq(call("ƭ", 6.25), 2.5)
 
 assert_eq(call("ƭ", "abcdef"), "ace")
 assert_eq(call("ƭ", "xyz"), "xz")

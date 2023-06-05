@@ -2237,10 +2237,14 @@ def randchoice(l):
 
 def square_root(i):
     n = abs(i)
-    x, y = math.sqrt(n), math.isqrt(n)
-    if x == y:
-        return y
-    return x
+    x = math.sqrt(n)
+    try:
+        y = math.isqrt(n)
+        if x == y:
+            return y
+        return x
+    except:
+        return x
 
 
 def every_second_item(s):
