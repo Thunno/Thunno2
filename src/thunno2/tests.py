@@ -3328,6 +3328,15 @@ assert_eq(call("µ^", "xyz", 0), 1)
 assert_eq(call("µ^", [-1, 0, 1], ["abc", "def", ""]), 0)
 assert_eq(call("µ^", 5, []), 1)
 
+# µ/
+
+assert_eq(call("µ/", "b", "abcbabcba"), ["a", "c", "a", "c", "a"])
+assert_eq(
+    call("µ/", 3, 12345432123454321), [[1, 2], [4, 5, 4], [2, 1, 2], [4, 5, 4], [2, 1]]
+)
+
+assert_eq(call("µ/", 123, [123, 456, 789, 123, 456, 789]), [[], [456, 789], [456, 789]])
+
 # After all the tests
 
 all_commands = (

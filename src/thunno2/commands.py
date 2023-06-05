@@ -1661,6 +1661,16 @@ random_digraphs_2 = {
         0,
         ("non_vectorised_xor", "non_vectorised_logical_xor"),
     ),
+    "/": Overload(
+        2,
+        {
+            (list, Any[0]): swapped_split_on,
+            (Any[0], Iterable[0]): split_on,
+            (Any[0], Number[0]): num_split_on,
+        },
+        0,
+        ("split_on",),
+    ),
 }
 
 
