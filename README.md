@@ -44,6 +44,6 @@ For tips on how to code-golf in Thunno 2, see [Tips for golfing in Thunno 2](htt
 
 ## License
 
-© Rujul Nayak 2023
+© Thunno organisation 2023
 
 The code in this repository is licenced under the Creative Commons Zero v1.0 Universal License. See [`LICENSE.txt`](https://github.com/Thunno/Thunno2/blob/main/LICENSE.txt) for the full license.
