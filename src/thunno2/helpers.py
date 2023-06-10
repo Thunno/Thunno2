@@ -2288,7 +2288,7 @@ def sum_each(l):
 
 
 def all_equal(l):
-    return int(len({*l}) <= 1)
+    return int(len(uniquify_lst(l)) <= 1)
 
 
 def num_all_equal(n):
