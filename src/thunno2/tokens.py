@@ -85,7 +85,6 @@ other_tokens = {
     "?": ("if_statement", "if"),
     ":": ("else_statement", "else"),
     ";": ("close_statement",),
-    "Ç": ("two_function_map",),
     "ç": ("pair_apply",),
     "n": ("context_variable",),
     "ṅ": ("iteration_index",),

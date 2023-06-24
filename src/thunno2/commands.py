@@ -1220,6 +1220,7 @@ commands = {
         ("num_to_alphabet", "alphabet_to_num"),
     ),
     "¶": Overload(0, {Any: (lambda: "\n")}, 0, ("newline",)),
+    "Ç": Overload(0, {Any: (lambda: "|")}, 0, ("pipe",)),
     "¬": Overload(
         1, {Any: logical_not}, 0, ("non_vectorised_not", "non_vectorised_logical_not")
     ),

@@ -298,14 +298,6 @@ Used to close statements like mapping loops or `IF` statements.
 
 ***
 
-# `Ç` (Two function map)
-
-Tokens: `two_function_map`
-
-Map the next two commands over the elements of `a`.
-
-***
-
 # `ç` (Pair apply)
 
 Tokens: `pair_apply`
@@ -1408,6 +1400,14 @@ Tokens: `print_without_popping`
 Tokens: `newline`
 
 Push `\n` to the stack.
+
+***
+
+# `Ç` (Pipe character)
+
+Tokens: `pipe`
+
+Push `|` to the stack.
 
 ***
 
