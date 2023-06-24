@@ -1759,51 +1759,67 @@ def mirror(x):
 
 
 def str_transliterate(a, b, c):
-    for i, j in zip(a, b):
-        c = str(c).replace(str(j), str(i))
-    return str(c)
+    r = ""
+    d = dict(zip(map(str, b), map(str, a)))
+    for x in str(c):
+        r += str(d.get(x, x))
+    return r
 
 
 def list_transliterate(a, b, c):
-    for i, j in zip(a, b):
-        c = list_replace(i, j, c)
-    return c
+    r = []
+    d = dict(zip(b, a))
+    for x in c:
+        r.append(d.get(x, x))
+    return r
 
 
 def str_transliterate_overload_1(a, b, c):
-    for i, j in zip(a, str(b)):
-        c = str(c).replace(str(j), str(i))
-    return str(c)
+    r = ""
+    d = dict(zip(str(b), map(str, a)))
+    for x in str(c):
+        r += str(d.get(x, x))
+    return r
 
 
 def list_transliterate_overload_1(a, b, c):
-    for i, j in zip(a, str(b)):
-        c = list_replace(i, j, c)
-    return c
+    r = []
+    d = dict(zip(str(b), a))
+    for x in c:
+        r.append(d.get(x, x))
+    return r
 
 
 def str_transliterate_overload_2(a, b, c):
-    for i, j in zip(str(a), b):
-        c = str(c).replace(str(j), str(i))
-    return str(c)
+    r = ""
+    d = dict(zip(map(str, b), str(a)))
+    for x in str(c):
+        r += str(d.get(x, x))
+    return r
 
 
 def list_transliterate_overload_2(a, b, c):
-    for i, j in zip(str(a), b):
-        c = list_replace(i, j, c)
-    return c
+    r = []
+    d = dict(zip(b, str(a)))
+    for x in c:
+        r.append(d.get(x, x))
+    return r
 
 
 def str_transliterate_overload_3(a, b, c):
-    for i, j in zip(str(a), str(b)):
-        c = str(c).replace(str(j), str(i))
-    return str(c)
+    r = ""
+    d = dict(zip(str(b), str(a)))
+    for x in str(c):
+        r += str(d.get(x, x))
+    return r
 
 
 def list_transliterate_overload_3(a, b, c):
-    for i, j in zip(str(a), str(b)):
-        c = list_replace(i, j, c)
-    return c
+    r = []
+    d = dict(zip(str(b), str(a)))
+    for x in c:
+        r.append(d.get(x, x))
+    return r
 
 
 def combinations_with_replacement1(n, x):
