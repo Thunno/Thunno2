@@ -692,21 +692,6 @@ def run(code, *, context=None, iteration_index=None):
             if k:
                 r.append(k[-1])
             ctx.stack.push(r)
-        elif desc == "two function map":
-            a = next(ctx.stack.rmv(1))
-            old_stack = Stack(copy.deepcopy(list(ctx.stack).copy()))
-            r = []
-            f1, f2 = info
-            x = listify(a)
-            for i in x:
-                ctx.stack = Stack(copy.deepcopy(list(old_stack).copy()))
-                ctx.stack.push(i)
-                for j in f1():
-                    ctx.stack.push(j)
-                for k in f2():
-                    ctx.stack.push(k)
-                r.append(next(ctx.stack.rmv(1)))
-            ctx.stack.push(r)
         elif desc == "recursive environment":
             a = next(ctx.stack.rmv(1))
             if isinstance(a, list):

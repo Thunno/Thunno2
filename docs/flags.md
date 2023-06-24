@@ -22,7 +22,7 @@
 | `N`  | Join top of stack by newlines at the end       |
 | `n`  | Join stack by newlines at the end              |
 | `Ṡ`  | Join top of stack by spaces at the end         |
-| `ṡ`  | Join stack by nothing at the end               |
+| `ṡ`  | Join stack by spaces at the end                |
 | `S`  | Sum top of stack at the end                    |
 | `s`  | Sum stack at the end                           |
 | `L`  | Push length of top of stack at the end         |
@@ -33,9 +33,9 @@
 | `M`  | Push minimum of top of stack at the end        |
 | `b`  | Boolify top of stack at the end                |
 | `!`  | Push logical not of top of stack at the end    |
-| `Ḷ`  | Push lowercase of input at the end             |
-| `Ṭ`  | Push title case of input at the end            |
-| `Ụ`  | Push uppercase of input at the end             |
+| `Ḷ`  | Push lowercase of top of stack at the end      |
+| `Ṭ`  | Push title case of top of stack at the end     |
+| `Ụ`  | Push uppercase of top of stack at the end      |
 | `O`  | Force implicit output at the end               |
 | `o`  | Disable implicit output at the end             |
 | `.`  | Output timings at the end                      |
