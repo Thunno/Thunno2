@@ -1553,6 +1553,7 @@ assert_eq(
 
 # Ṇ
 
+assert_eq(call("Ṇ", "ZYXWVUTSRQPONMLKJIHGFEDCBA", "ABCDEFGHIJKLMNOPQRSTUVWXYZ", "HELLO, WORLD!"), "SVOOL, DLIOW!")
 assert_eq(call("Ṇ", "wxyz", 4321, "abcd1234"), "abcdzyxw")
 assert_eq(
     call("Ṇ", "abc", 123, ["1", "9", "4", "7", "8", "5", "6", "2", "3"]),
