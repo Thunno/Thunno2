@@ -642,26 +642,6 @@ def tokenise(code, expected_end=""):
             except:
                 func2, cmd2 = Void, ""
             ret.append((char + cmd1 + cmd2, "pair apply", (func1, func2)))
-        elif char == "Ç":
-            try:
-                index += 1
-                cmd1 = code[index]
-                if cmd1 in DIGRAPHS:
-                    index += 1
-                    cmd1 += code[index]
-                func1 = get_a_function(cmd1)
-            except:
-                func1, cmd1 = Void, ""
-            try:
-                index += 1
-                cmd2 = code[index]
-                if cmd2 in DIGRAPHS:
-                    index += 1
-                    cmd2 += code[index]
-                func2 = get_a_function(cmd2)
-            except:
-                func2, cmd2 = Void, ""
-            ret.append((char + cmd1 + cmd2, "two function map", (func1, func2)))
         elif char in expected_end:
             return index, ret
         elif char == ":":
