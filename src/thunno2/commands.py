@@ -943,7 +943,9 @@ commands = {
     ),
     "&": Overload(2, {(Any[0], Any[0]): logical_and}, 2, ("and", "logical_and")),
     "|": Overload(2, {(Any[0], Any[0]): logical_or}, 2, ("or", "logical_or")),
-    "^": Overload(2, {(Any[0], Any[0]): logical_xor}, 2, ("xor", "logical_xor")),
+    "^": Overload(
+        1, {Number: num_uninterleave_dump, Iterable: uninterleave_dump}, 0, ("uninterleave_dump",)
+    ),
     "~": Overload(1, {Any: logical_not}, 1, ("not", "logical_not")),
     "ð": Overload(0, {Any: (lambda: " ")}, 0, ("space",)),
     "Ð": Overload(1, {Any: triplicate}, 0, ("triplicate",)),

@@ -1218,13 +1218,14 @@ assert_eq(call("|", [-1, 0, 1], ["abc", "def", ""]), ["abc", "def", 1])
 
 # ^
 
-assert_eq(call("^", 123, 456), 0)
-assert_eq(call("^", 123, 0), 1)
+assert_eq(call("z", 12345), [1, 3, 5], [2, 4])
+assert_eq(call("z", -6.789), [6, 8], [7, 9])
 
-assert_eq(call("^", -123, "abc"), 0)
-assert_eq(call("^", "xyz", 0), 1)
+assert_eq(call("z", "abcdef"), "ace", "bdf")
+assert_eq(call("z", "xyz"), "xz", "y")
 
-assert_eq(call("^", [-1, 0, 1], ["abc", "def", ""]), [0, 1, 1])
+assert_eq(call("z", [1, 2, 3, 4]), [1, 3], [2, 4])
+assert_eq(call("z", []), [], [])
 
 # ~
 
