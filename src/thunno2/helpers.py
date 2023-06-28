@@ -817,6 +817,14 @@ def num_uninterleave(n):
     return uninterleave(_digits(n))
 
 
+def uninterleave_dump(l):
+    return l[0::2], l[1::2]
+
+
+def num_uninterleave_dump(n):
+    return uninterleave_dump(_digits(n))
+
+
 def bool2(x):
     return int(bool(x))
 

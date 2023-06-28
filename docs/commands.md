@@ -866,6 +866,14 @@ Tokens: `uninterleave`
 
 ***
 
+# `^` (Uninterleave and dump)
+
+Tokens: `uninterleave_dump`
+
+* `any a`: push `a[0::2], a[1::2]` (separately)
+
+***
+
 # `0` (Literal digit `0`)
 
 Used in numeric literals
@@ -1336,14 +1344,6 @@ Tokens: `and`,`logical_and`
 Tokens: `or`, `logical_or`
 
 * `any a`, `any b`: push `b or a`
-
-***
-
-# `^` (Logical XOR)
-
-Tokens: `xor`,`logical_xor`
-
-* `any a`, `any b`: push `b ^ a`
 
 ***
 
