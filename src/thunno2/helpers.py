@@ -822,7 +822,7 @@ def uninterleave_dump(l):
 
 
 def num_uninterleave_dump(n):
-    return uninterleave(_digits(n))
+    return uninterleave_dump(_digits(n))
 
 
 def bool2(x):
