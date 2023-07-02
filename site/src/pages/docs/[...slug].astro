@@ -14,15 +14,26 @@ export const getStaticPaths = (async () => {
 export type Props = InferGetStaticPropsType<typeof getStaticPaths>;
 
 const { entry } = Astro.props;
-const { Content } = await entry.render();
+const { Content, headings } = await entry.render();
 ---
 
 <Layout title={entry.data.title}>
-  <main
-    class="py-20 px-10 max-w-xl mx-auto prose lg:prose-xl dark:prose-invert"
-  >
-    <Content />
-  </main>
+  <div class="flex p-20 gap-10 relative">
+    <nav class="text-lg sticky inset-0 overflow-y-scroll h-screen py-5">
+      <ul>
+        {
+          headings.map((heading) => (
+            <li>
+              <a href={"#" + heading.slug}>{heading.text}</a>
+            </li>
+          ))
+        }
+      </ul>
+    </nav>
+    <main class="max-w-xl mx-auto prose dark:prose-invert">
+      <Content />
+    </main>
+  </div>
 </Layout>
 
 <style is:global>

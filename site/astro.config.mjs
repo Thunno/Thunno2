@@ -5,6 +5,7 @@ import { defineConfig } from "astro/config";
 import tailwind from "@astrojs/tailwind";
 import rehypeMathJaxSvg from "rehype-mathjax";
 import remarkMath from "remark-math";
+import remarkGfm from "remark-gfm";
 
 // https://astro.build/config
 export default defineConfig({
@@ -12,7 +13,7 @@ export default defineConfig({
   base: "/thunno2",
   integrations: [tailwind()],
   markdown: {
-    remarkPlugins: [remarkMath],
+    remarkPlugins: [remarkMath, remarkGfm],
     rehypePlugins: [rehypeMathJaxSvg],
   },
   vite: {

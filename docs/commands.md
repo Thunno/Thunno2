@@ -651,102 +651,102 @@ Tokens: `join`
 
 # `k` (Constant digraphs)
 
-| Command | Constant                                                      |
-| ------- | ------------------------------------------------------------- | ---------- |
-| `kA`    | Uppercase alphabet: `[A-Z]`                                   |
-| `kB`    | `'Buzz'`                                                      |
-| `kC`    | Thunno 2 Codepage                                             |
-| `kD`    | Digits: `[0-9]`                                               |
-| `kE`    | Euler's Number: `2.718281828459045`                           |
-| `kF`    | `'Fizz'`                                                      |
-| `kG`    | Golden ratio: `1.618033988749895`                             |
-| `kH`    | `'Hello, World!'`                                             |
-| `kI`    | Current microseconds                                          |
-| `kJ`    | Current seconds                                               |
-| `kK`    | Current minutes                                               |
-| `kL`    | Current hour                                                  |
-| `kM`    | Current day                                                   |
-| `kN`    | Current month                                                 |
-| `kO`    | Current year                                                  |
-| `kP`    | Pi: `3.141592653589793`                                       |
-| `kQ`    | Current time (`YYYY-MM-DD HH:mm:ss`)                          |
-| `kR`    | Brackets: `'()[]{}'`                                          |
-| `kS`    | Open brackets: `'([{'`                                        |
-| `kT`    | Close brackets: `')]}'`                                       |
-| `kU`    | Open brackets with angled brackets:`'([{<'`                   |
-| `kV`    | Close brackets with angled brackets: `')]}>'`                 |
-| `kW`    | Uppercase vowels: `'AEIOU'`                                   |
-| `kX`    | Uppercase consonants: `'BCDFGHJKLMNPQRSTVWXYZ'`               |
-| `kY`    | Uppercase vowels with `Y`: `'AEIOUY'`                         |
-| `kZ`    | Uppercase consonants without `Y`: `'BCDFGHJKLMNPQRSTVWXZ'`    |
-| `ka`    | Lowercase + uppercase alphabet: `[a-zA-Z]`                    |
-| `kb`    | `'buzz'`                                                      |
-| `kc`    | Printable ASCII characters                                    |
-| `kd`    | Binary digits: `'01'`                                         |
-| `ke`    | Octal digits: `[0-7]`                                         |
-| `kf`    | Hexadecimal digits: `[0-9A-F]`                                |
-| `kg`    | `['Fizz', 'Buzz']`                                            |
-| `kh`    | `'Hello World'`                                               |
-| `ki`    | `16`                                                          |
-| `kj`    | `32`                                                          |
-| `kk`    | `64`                                                          |
-| `kl`    | `128`                                                         |
-| `km`    | `256`                                                         |
-| `kn`    | `512`                                                         |
-| `ko`    | `1024`                                                        |
-| `kp`    | `2048`                                                        |
-| `kq`    | `4096`                                                        |
-| `kr`    | `8192`                                                        |
-| `ks`    | `16384`                                                       |
-| `kt`    | `32768`                                                       |
-| `ku`    | `65536`                                                       |
-| `kv`    | `["qwertyuiop", "asdfghjkl", "zxcvbnm"]`                      |
-| `kw`    | Lowercase vowels: `'aeiou'`                                   |
-| `kx`    | Lowercase consonants: `'bcdfghjklmnpqrstvwxyz'`               |
-| `ky`    | Lowercase vowels with `y`: `'aeiouy'`                         |
-| `kz`    | Lowercase consonants without `y`: `'bcdfghjklmnpqrstvwxz'`    |
-| `k1`    | `10**3`                                                       |
-| `k2`    | `10**4`                                                       |
-| `k3`    | `10**5`                                                       |
-| `k4`    | `10**6`                                                       |
-| `k5`    | `10**7`                                                       |
-| `k6`    | `10**8`                                                       |
-| `k7`    | `10**9`                                                       |
-| `k8`    | `10**10`                                                      |
-| `k9`    | `10**11`                                                      |
-| `k0`    | `10**12`                                                      |
-| `k!`    | Thunno Version                                                |
-| `k"`    | `[0, 0]`                                                      |
-| `k#`    | `[0, 1]`                                                      |
-| `k$`    | `[0, -1]`                                                     |
-| `k%`    | `[1, 0]`                                                      |
-| `k&`    | `[1, 1]`                                                      |
-| `k'`    | `[1, -1]`                                                     |
-| `k(`    | `[-1, 0]`                                                     |
-| `k)`    | `[-1, 1]`                                                     |
-| `k*`    | `[-1, -1]`                                                    |
-| `k+`    | `[3, 5]`                                                      |
-| `kȦ`    | Alphanumeric characters: `[a-zA-Z0-9]`                        |
-| `kḂ`    | Base digits: `[0-9A-Za-z]`                                    |
-| `kĊ`    | Alphanumeric characters + underscore: `[a-zA-Z0-9_]`          |
-| `kḊ`    | Reversed uppercase alphabet: `[Z-A]`                          |
-| `kĖ`    | Reversed lowercase + uppercase alphabet: `[z-aZ-A]`           |
-| `kḞ`    | Reversed alphanumeric characters + underscore: `[z-aZ-A9-0_]` |
-| `kĠ`    | Uppercase + lowercase alphabet: `[A-Za-z]`                    |
-| `kḢ`    | Reversed uppercase + lowercase alphabet: `[Z-Az-a]`           |
-| `kİ`    | Reversed alphanumeric characters: `[z-aZ-A9-0]`               |
-| `kĿ`    | Alphanumeric characters: `[A-Za-z0-9]`                        |
-| `kṀ`    | Reversed alphanumeric characters: `[Z-Az-a9-0]`               |
-| `kṄ`    | Reversed digits: `[9-0]`                                      |
-| `kȮ`    | Printable ASCII characters including newline                  |
-| `kṖ`    | Punctuation: <code>'!"#$%&\\'()\*+,-./:;<=>?@[\\\\]^\_`{\     | }~'</code> |
-| `kṘ`    | `'http://'`                                                   |
-| `kṠ`    | `'http://www.'`                                               |
-| `kṪ`    | `'https://www.'`                                              |
-| `kẆ`    | Whitespace: `' \t\n\r\x0b\x0c'`                               |
-| `kẊ`    | Bracket pairs: `['()', '[]', '{}', '<>']`                     |
-| `kẎ`    | Nested brackets: `'([{<>}])'`                                 |
-| `kŻ`    | Brainf\*ck commands: `'[]<>-+.,'`                             |
+| Command | Constant                                                               |
+| ------- | ---------------------------------------------------------------------- |
+| `kA`    | Uppercase alphabet: `[A-Z]`                                            |
+| `kB`    | `'Buzz'`                                                               |
+| `kC`    | Thunno 2 Codepage                                                      |
+| `kD`    | Digits: `[0-9]`                                                        |
+| `kE`    | Euler's Number: `2.718281828459045`                                    |
+| `kF`    | `'Fizz'`                                                               |
+| `kG`    | Golden ratio: `1.618033988749895`                                      |
+| `kH`    | `'Hello, World!'`                                                      |
+| `kI`    | Current microseconds                                                   |
+| `kJ`    | Current seconds                                                        |
+| `kK`    | Current minutes                                                        |
+| `kL`    | Current hour                                                           |
+| `kM`    | Current day                                                            |
+| `kN`    | Current month                                                          |
+| `kO`    | Current year                                                           |
+| `kP`    | Pi: `3.141592653589793`                                                |
+| `kQ`    | Current time (`YYYY-MM-DD HH:mm:ss`)                                   |
+| `kR`    | Brackets: `'()[]{}'`                                                   |
+| `kS`    | Open brackets: `'([{'`                                                 |
+| `kT`    | Close brackets: `')]}'`                                                |
+| `kU`    | Open brackets with angled brackets:`'([{<'`                            |
+| `kV`    | Close brackets with angled brackets: `')]}>'`                          |
+| `kW`    | Uppercase vowels: `'AEIOU'`                                            |
+| `kX`    | Uppercase consonants: `'BCDFGHJKLMNPQRSTVWXYZ'`                        |
+| `kY`    | Uppercase vowels with `Y`: `'AEIOUY'`                                  |
+| `kZ`    | Uppercase consonants without `Y`: `'BCDFGHJKLMNPQRSTVWXZ'`             |
+| `ka`    | Lowercase + uppercase alphabet: `[a-zA-Z]`                             |
+| `kb`    | `'buzz'`                                                               |
+| `kc`    | Printable ASCII characters                                             |
+| `kd`    | Binary digits: `'01'`                                                  |
+| `ke`    | Octal digits: `[0-7]`                                                  |
+| `kf`    | Hexadecimal digits: `[0-9A-F]`                                         |
+| `kg`    | `['Fizz', 'Buzz']`                                                     |
+| `kh`    | `'Hello World'`                                                        |
+| `ki`    | `16`                                                                   |
+| `kj`    | `32`                                                                   |
+| `kk`    | `64`                                                                   |
+| `kl`    | `128`                                                                  |
+| `km`    | `256`                                                                  |
+| `kn`    | `512`                                                                  |
+| `ko`    | `1024`                                                                 |
+| `kp`    | `2048`                                                                 |
+| `kq`    | `4096`                                                                 |
+| `kr`    | `8192`                                                                 |
+| `ks`    | `16384`                                                                |
+| `kt`    | `32768`                                                                |
+| `ku`    | `65536`                                                                |
+| `kv`    | `["qwertyuiop", "asdfghjkl", "zxcvbnm"]`                               |
+| `kw`    | Lowercase vowels: `'aeiou'`                                            |
+| `kx`    | Lowercase consonants: `'bcdfghjklmnpqrstvwxyz'`                        |
+| `ky`    | Lowercase vowels with `y`: `'aeiouy'`                                  |
+| `kz`    | Lowercase consonants without `y`: `'bcdfghjklmnpqrstvwxz'`             |
+| `k1`    | `10**3`                                                                |
+| `k2`    | `10**4`                                                                |
+| `k3`    | `10**5`                                                                |
+| `k4`    | `10**6`                                                                |
+| `k5`    | `10**7`                                                                |
+| `k6`    | `10**8`                                                                |
+| `k7`    | `10**9`                                                                |
+| `k8`    | `10**10`                                                               |
+| `k9`    | `10**11`                                                               |
+| `k0`    | `10**12`                                                               |
+| `k!`    | Thunno Version                                                         |
+| `k"`    | `[0, 0]`                                                               |
+| `k#`    | `[0, 1]`                                                               |
+| `k$`    | `[0, -1]`                                                              |
+| `k%`    | `[1, 0]`                                                               |
+| `k&`    | `[1, 1]`                                                               |
+| `k'`    | `[1, -1]`                                                              |
+| `k(`    | `[-1, 0]`                                                              |
+| `k)`    | `[-1, 1]`                                                              |
+| `k*`    | `[-1, -1]`                                                             |
+| `k+`    | `[3, 5]`                                                               |
+| `kȦ`    | Alphanumeric characters: `[a-zA-Z0-9]`                                 |
+| `kḂ`    | Base digits: `[0-9A-Za-z]`                                             |
+| `kĊ`    | Alphanumeric characters + underscore: `[a-zA-Z0-9_]`                   |
+| `kḊ`    | Reversed uppercase alphabet: `[Z-A]`                                   |
+| `kĖ`    | Reversed lowercase + uppercase alphabet: `[z-aZ-A]`                    |
+| `kḞ`    | Reversed alphanumeric characters + underscore: `[z-aZ-A9-0_]`          |
+| `kĠ`    | Uppercase + lowercase alphabet: `[A-Za-z]`                             |
+| `kḢ`    | Reversed uppercase + lowercase alphabet: `[Z-Az-a]`                    |
+| `kİ`    | Reversed alphanumeric characters: `[z-aZ-A9-0]`                        |
+| `kĿ`    | Alphanumeric characters: `[A-Za-z0-9]`                                 |
+| `kṀ`    | Reversed alphanumeric characters: `[Z-Az-a9-0]`                        |
+| `kṄ`    | Reversed digits: `[9-0]`                                               |
+| `kȮ`    | Printable ASCII characters including newline                           |
+| `kṖ`    | Punctuation: `'!"`<code>#$%&\\'()\*+,-./:;<=>?@[\\\\]^\_`{\|}~'</code> |
+| `kṘ`    | `'http://'`                                                            |
+| `kṠ`    | `'http://www.'`                                                        |
+| `kṪ`    | `'https://www.'`                                                       |
+| `kẆ`    | Whitespace: `' \t\n\r\x0b\x0c'`                                        |
+| `kẊ`    | Bracket pairs: `['()', '[]', '{}', '<>']`                              |
+| `kẎ`    | Nested brackets: `'([{<>}])'`                                          |
+| `kŻ`    | Brainf\*ck commands: `'[]<>-+.,'`                                      |
 
 ---
 
