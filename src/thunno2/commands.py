@@ -1593,6 +1593,10 @@ random_digraphs_1 = {
     "|": Overload(2, {(Any[0], Any[0]): bitwise_or}, 2, ("bitwise_or",)),
     "^": Overload(2, {(Any[0], Any[0]): bitwise_xor}, 2, ("bitwise_xor",)),
     "~": Overload(1, {Any: bitwise_not}, 1, ("bitwise_not",)),
+    "²": Overload(1, {Any: perfect_square}, 1, ("perfect_square",)),
+    "³": Overload(1, {Any: perfect_cube}, 1, ("perfect_cube",)),
+    "⁴": Overload(1, {Any: perfect_fourth}, 1, ("perfect_fourth",)),
+    "⁵": Overload(1, {Any: perfect_fifth}, 1, ("perfect_fifth",)),
 }
 
 random_digraphs_2 = {

@@ -2547,6 +2547,38 @@ Tokens: `bitwise_not`
 
 ***
 
+# `Æ²` (Perfect square)
+
+Tokens: `perfect_square`
+
+* `any a`: is `a` a perfect square number?
+
+***
+
+# `Æ³` (Perfect cube)
+
+Tokens: `perfect_cube`
+
+* `any a`: is `a` a perfect cube number?
+
+***
+
+# `Æ⁴` (Perfect fourth power)
+
+Tokens: `perfect_fourth`
+
+* `any a`: is `a` a perfect fourth power number?
+
+***
+
+# `Æ⁵` (Perfect fifth power)
+
+Tokens: `perfect_fifth`
+
+* `any a`: is `a` a perfect fifth power number?
+
+***
+
 # `µR` (To Roman numerals / From Roman numerals)
 
 Tokens: `roman_numerals`

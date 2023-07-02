@@ -163,6 +163,29 @@ def try_float_conversion(func):
     return wrapper
 
 
+def try_number_conversion(func):
+    def wrapper(*args, fn=func):
+        new_args = []
+        try:
+            for a in args:
+                if isinstance(a, int):
+                    new_args.append(a)
+                elif isinstance(a, str):
+                    try:
+                        new_args.append(int(a))
+                    except:
+                        new_args.append(float(a))
+                elif isinstance(a, float):
+                    new_args.append(a)
+                else:
+                    raise
+        except:
+            return args
+        return fn(*new_args)
+
+    return wrapper
+
+
 def safe_max_len(*lsts):
     m = 0
     for lst in lsts:
@@ -3119,3 +3142,37 @@ def num_split_on(x, y):
 
 def swapped_split_on(l, x):
     return split_on(x, l)
+
+
+def perfect_nth(n, a):
+    if isinstance(a, float):
+        if not str(a).endswith(".0"):
+            return 0
+        a = int(a)
+    n = int(n)
+    if n <= 0:
+        return 0
+    if n == 1:
+        return 1
+    l = [i**n for i in inclusive_zero_range(abs(a))]
+    return int(a in l)
+
+
+@try_number_conversion
+def perfect_square(a):
+    return perfect_nth(2, a)
+
+
+@try_number_conversion
+def perfect_cube(a):
+    return perfect_nth(3, a)
+
+
+@try_number_conversion
+def perfect_fourth(a):
+    return perfect_nth(4, a)
+
+
+@try_number_conversion
+def perfect_fifth(a):
+    return perfect_nth(5, a)

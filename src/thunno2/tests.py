@@ -3129,6 +3129,50 @@ assert_eq(
 
 assert_eq(call("Æ~", "abc"), ["abc"])
 
+# Æ²
+
+assert_eq(call("Æ²", 100), 1)
+assert_eq(call("Æ²", 10), 0)
+assert_eq(call("Æ²", 6.25), 0)
+
+assert_eq(call("Æ²", [-3, -2, -1, 0, 1, 2, 3]), [0, 0, 0, 1, 1, 0, 0])
+assert_eq(call("Æ²", [9998, 9999, 10000, 10001, 10002]), [0, 0, 1, 0, 0])
+
+assert_eq(call("Æ²", "abc"), "abc")
+
+# Æ³
+
+assert_eq(call("Æ³", 1000), 1)
+assert_eq(call("Æ³", 100), 0)
+assert_eq(call("Æ³", 15.625), 0)
+
+assert_eq(call("Æ³", [-3, -2, -1, 0, 1, 2, 3]), [0, 0, 0, 1, 1, 0, 0])
+assert_eq(call("Æ³", [998, 999, 1000, 1001, 1002]), [0, 0, 1, 0, 0])
+
+assert_eq(call("Æ³", "abc"), "abc")
+
+# Æ⁴
+
+assert_eq(call("Æ⁴", 256), 1)
+assert_eq(call("Æ⁴", 1000), 0)
+assert_eq(call("Æ⁴", 39.0625), 0)
+
+assert_eq(call("Æ⁴", [-3, -2, -1, 0, 1, 2, 3]), [0, 0, 0, 1, 1, 0, 0])
+assert_eq(call("Æ⁴", [623, 624, 625, 626, 627]), [0, 0, 1, 0, 0])
+
+assert_eq(call("Æ⁴", "abc"), "abc")
+
+# Æ⁵
+
+assert_eq(call("Æ⁵", 1024), 1)
+assert_eq(call("Æ⁵", 512), 0)
+assert_eq(call("Æ⁵", 97.65625), 0)
+
+assert_eq(call("Æ⁵", [-3, -2, -1, 0, 1, 2, 3]), [0, 0, 0, 1, 1, 0, 0])
+assert_eq(call("Æ⁵", [241, 242, 243, 244, 245]), [0, 0, 1, 0, 0])
+
+assert_eq(call("Æ⁵", "abc"), "abc")
+
 # µR
 
 assert_eq(call("µR", 12), "XII")
