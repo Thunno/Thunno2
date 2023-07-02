@@ -730,7 +730,7 @@ Tokens: `join`
 | `kṀ`    | Reversed alphanumeric characters: `[Z-Az-a9-0]`               |
 | `kṄ`    | Reversed digits: `[9-0]`                                      |
 | `kȮ`    | Printable ASCII characters including newline                  |
-| `kṖ`    | Punctuation: <code>'!"#$%&\\'()*+,-./:;<=>?@[\|\]^_`{\}~'</code>|
+| `kṖ`    | Punctuation: ``'!"#$%&\'()*+,-./:;<=>?@[\|]^_`{}~'``          |
 | `kṘ`    | `'http://'`                                                   |
 | `kṠ`    | `'http://www.'`                                               |
 | `kṪ`    | `'https://www.'`                                              |
