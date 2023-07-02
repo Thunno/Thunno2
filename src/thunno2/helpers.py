@@ -3123,7 +3123,7 @@ def swapped_split_on(l, x):
 
 def perfect_nth(n, a):
     if isinstance(a, float):
-        if not str(a).endswith('.0'):
+        if not str(a).endswith(".0"):
             return 0
         a = int(a)
     n = int(n)
@@ -3131,7 +3131,7 @@ def perfect_nth(n, a):
         return 0
     if n == 1:
         return 1
-    l = [i ** n for i in inclusive_zero_range(abs(a))]
+    l = [i**n for i in inclusive_zero_range(abs(a))]
     return a in l
 
 
