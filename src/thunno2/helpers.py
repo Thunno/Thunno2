@@ -3119,3 +3119,33 @@ def num_split_on(x, y):
 
 def swapped_split_on(l, x):
     return split_on(x, l)
+
+
+def perfect_nth(n, a):
+    if isinstance(a, float):
+        if not str(a).endswith('.0'):
+            return 0
+        a = int(a)
+    n = int(n)
+    if n <= 0:
+        return 0
+    if n == 1:
+        return 1
+    l = [i ** n for i in one_range(abs(a))]
+    return a in l
+
+
+def perfect_square(a):
+    return perfect_nth(2, a)
+
+
+def perfect_cube(a):
+    return perfect_nth(3, a)
+
+
+def perfect_fourth(a):
+    return perfect_nth(4, a)
+
+
+def perfect_fifth(a):
+    return perfect_nth(5, a)
