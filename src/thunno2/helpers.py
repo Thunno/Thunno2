@@ -3131,7 +3131,7 @@ def perfect_nth(n, a):
         return 0
     if n == 1:
         return 1
-    l = [i ** n for i in one_range(abs(a))]
+    l = [i ** n for i in inclusive_zero_range(abs(a))]
     return a in l
 
 
