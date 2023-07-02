@@ -776,7 +776,10 @@ def list_replace(x, y, z):
 def digit_reverse(num):
     r = str(num)[::-1]
     try:
-        return eval(r)
+        try:
+            return int(r)
+        except:
+            return eval(r)
     except:
         return r
 

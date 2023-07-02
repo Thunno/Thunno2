@@ -631,6 +631,7 @@ assert_eq(call("p", [1, 2, "abc", 3]), 6)
 
 assert_eq(call("r", 1.23), 32.1)
 assert_eq(call("r", -456), "654-")
+assert_eq(call("r", 3210), 123)
 
 assert_eq(call("r", "abcd"), "dcba")
 assert_eq(call("r", ""), "")
