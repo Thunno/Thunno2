@@ -687,10 +687,10 @@ def run(code, *, context=None, iteration_index=None):
             if k:
                 r.append(k[-1])
             ctx.stack = Stack(copy.deepcopy(old_stack))
-            ctx.stack.push(a)
             k = f2()
             if k:
                 r.append(k[-1])
+            ctx.stack = Stack(copy.deepcopy(old_stack))
             ctx.stack.push(r)
         elif desc == "recursive environment":
             a = next(ctx.stack.rmv(1))

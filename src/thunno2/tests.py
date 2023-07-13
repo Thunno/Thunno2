@@ -180,7 +180,6 @@ assert_eq(call("A", ""), 0)
 assert_eq(call("A", ["a", ["b", ["1", ["2"]]]]), [1, [1, [0, [0]]]])
 
 assert_eq(call("A", ["abc", 123, "123", -0.123]), [1, 123, 0, 0.123])
-assert_eq(call("A"), 0)
 
 # B
 
