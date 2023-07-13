@@ -1320,6 +1320,7 @@ def vectorised_index_of(x, y):
             r.append(index_of(i, y))
         else:
             r.append(num_index_of(i, y))
+    return r
 
 
 def cartesian_product(x, y):
