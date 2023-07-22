@@ -312,12 +312,12 @@ def tokenise(code, expected_end=""):
         #     ret.append(("]", "list", []))
         elif char == "[":
             r = []
-            i, x = tokenise(code[index + 1:], expected_end=";]")
+            i, x = tokenise(code[index + 1 :], expected_end=";]")
             index += i + 1
             r.append(x)
             try:
                 while code[index] == ";":
-                    i, x = tokenise(code[index + 1:], expected_end=";]")
+                    i, x = tokenise(code[index + 1 :], expected_end=";]")
                     index += i + 1
                     r.append(x)
             except:
