@@ -158,7 +158,6 @@ def run(code, *, context=None, iteration_index=None):
             "one character",
             "two characters",
             "three characters",
-            "list",
         ):
             ctx.stack.push(info)
         elif desc == "lowercase alphabetic compression":
@@ -470,6 +469,15 @@ def run(code, *, context=None, iteration_index=None):
             for i in listify(next(ctx.stack.rmv(1))):
                 print(i)
             ctx.implicit_print = False
+        elif desc == "list":
+            old_stack = Stack(copy.deepcopy(list(ctx.stack).copy()))
+            r = []
+            for j in info:
+                ctx.stack = Stack(copy.deepcopy(list(old_stack).copy()))
+                run(j, context=context, iteration_index=iteration_index)
+                r.append(next(ctx.stack.rmv(1)))
+            ctx.stack = Stack(copy.deepcopy(list(old_stack).copy()))
+            ctx.stack.push(r)
         elif desc == "map":
             a = next(ctx.stack.rmv(1))
             x = listify(a)
@@ -479,6 +487,7 @@ def run(code, *, context=None, iteration_index=None):
                 ctx.stack = Stack([j] + copy.deepcopy(old_stack))
                 run(info, context=j, iteration_index=i)
                 r.append(next(ctx.stack.rmv(1)))
+            ctx.stack = Stack(copy.deepcopy(list(old_stack).copy()))
             ctx.stack.push(r)
         elif desc == "filter":
             a = next(ctx.stack.rmv(1))
@@ -491,6 +500,7 @@ def run(code, *, context=None, iteration_index=None):
                 z = next(ctx.stack.rmv(1))
                 if z:
                     r.append(j)
+            ctx.stack = Stack(copy.deepcopy(list(old_stack).copy()))
             ctx.stack.push(r)
         elif desc == "sort by":
             a = next(ctx.stack.rmv(1))
@@ -502,6 +512,7 @@ def run(code, *, context=None, iteration_index=None):
                 run(info, context=j, iteration_index=i)
                 z = next(ctx.stack.rmv(1))
                 r.append((j, z))
+            ctx.stack = Stack(copy.deepcopy(list(old_stack).copy()))
             try:
                 sorted_list = sorted(r, key=lambda t: t[-1])
                 ctx.stack.push([p for p, q in sorted_list])
@@ -517,6 +528,7 @@ def run(code, *, context=None, iteration_index=None):
                 run(info, context=j, iteration_index=i)
                 z = next(ctx.stack.rmv(1))
                 r.append((j, z))
+            ctx.stack = Stack(copy.deepcopy(list(old_stack).copy()))
             try:
                 d = []
                 for val, key in r:
@@ -541,6 +553,7 @@ def run(code, *, context=None, iteration_index=None):
                 if r[-1] == r[-2]:
                     break
                 i += 1
+            ctx.stack = Stack(copy.deepcopy(list(old_stack).copy()))
             ctx.stack.push(r[1:])
         elif desc == "first n integers":
             a = next(ctx.stack.rmv(1))
@@ -559,6 +572,7 @@ def run(code, *, context=None, iteration_index=None):
                 if k:
                     r.append(i)
                 i += 1
+            ctx.stack = Stack(copy.deepcopy(list(old_stack).copy()))
             ctx.stack.push(r)
         elif desc == "cumulative reduce by":
             a = next(ctx.stack.rmv(1))
@@ -572,6 +586,7 @@ def run(code, *, context=None, iteration_index=None):
                     ctx.stack.push(j)
                     run(info, context=j, iteration_index=i)
                     r.append(next(ctx.stack.rmv(1)))
+                ctx.stack = Stack(copy.deepcopy(list(old_stack).copy()))
                 ctx.stack.push(r)
             else:
                 ctx.stack.push([])
@@ -638,6 +653,7 @@ def run(code, *, context=None, iteration_index=None):
                     ctx.stack.push(j)
                     run(info, context=j, iteration_index=i)
                     r.append(next(ctx.stack.rmv(1)))
+                ctx.stack = Stack(copy.deepcopy(list(old_stack).copy()))
                 ctx.stack.push(r[-1])
             else:
                 ctx.stack.push([])

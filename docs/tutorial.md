@@ -45,12 +45,13 @@ Strings can be concatenated using `+`. A string can be concatenated to another s
 
 ## 5. Lists
 
-List work just like in Python. Anything between a `[` and `]` is pushed as a list.
+Anything between a `[` and `]` is pushed as a list. Elements are separated by `;` and are evaluated as Thunno 2 code.
 
 For example:
 
-* `[1,2,3,4]` pushes [1, 2, 3, 4]
-* `['abc', 123, "def"]` pushes ['abc', 123, 'def']
+* `[1;2;3;4]` pushes [1, 2, 3, 4]
+* `["abc"; 123.456; 'x]` pushes ["abc", 123, "x"]
+* `[1; [2; [3; [4]]]]` pushes [1, [2, [3, [4]]]]
 
 ## 6. Vectorisation
 

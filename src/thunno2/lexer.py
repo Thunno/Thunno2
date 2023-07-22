@@ -282,34 +282,47 @@ def tokenise(code, expected_end=""):
             else:
                 index += 1
                 ret.append(("ʋ" + x + nxt, "two words dictionary compression", x + nxt))
+        # elif char == "[":
+        #     s = char
+        #     index += 1
+        #     try:
+        #         in_string = ""
+        #         nests = 1
+        #         while nests:
+        #             c = code[index]
+        #             s += c
+        #             if in_string == "" and c in ('"', "'"):
+        #                 in_string = c
+        #             elif in_string != "" and c == in_string:
+        #                 if code[index - 1] != "\\":
+        #                     in_string = ""
+        #             if in_string == "":
+        #                 if c == "[":
+        #                     nests += 1
+        #                 elif c == "]":
+        #                     nests -= 1
+        #             index += 1
+        #     except:
+        #         s += "]"
+        #     try:
+        #         ret.append((s, "list", eval(s)))
+        #     except:
+        #         ret.append((s, "list", s))
+        # elif char == "]":
+        #     ret.append(("]", "list", []))
         elif char == "[":
-            s = char
-            index += 1
+            r = []
+            i, x = tokenise(code[index + 1 :], expected_end=";]")
+            index += i + 1
+            r.append(x)
             try:
-                in_string = ""
-                nests = 1
-                while nests:
-                    c = code[index]
-                    s += c
-                    if in_string == "" and c in ('"', "'"):
-                        in_string = c
-                    elif in_string != "" and c == in_string:
-                        if code[index - 1] != "\\":
-                            in_string = ""
-                    if in_string == "":
-                        if c == "[":
-                            nests += 1
-                        elif c == "]":
-                            nests -= 1
-                    index += 1
+                while code[index] == ";":
+                    i, x = tokenise(code[index + 1 :], expected_end=";]")
+                    index += i + 1
+                    r.append(x)
             except:
-                s += "]"
-            try:
-                ret.append((s, "list", eval(s)))
-            except:
-                ret.append((s, "list", s))
-        elif char == "]":
-            ret.append(("]", "list", []))
+                pass
+            ret.append((char, "list", r))
         elif char == "#":
             index += 1
             try:
