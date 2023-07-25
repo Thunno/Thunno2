@@ -189,7 +189,7 @@ def try_number_conversion(func):
 def safe_max_len(*lsts):
     m = 0
     for lst in lsts:
-        if isinstance(lst, list):
+        if isinstance(lst, (list, str)):
             if len(lst) > m:
                 m = len(lst)
     return m
@@ -2693,7 +2693,7 @@ def centre_list(x):
     l = [*map(str, x)]
     if not l:
         return ""
-    max_len = safe_max_len(l)
+    max_len = max(map(len, l))
     return newline_join([*map(lambda s, m=max_len: s.center(m), l)])
 
 
