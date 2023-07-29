@@ -179,7 +179,7 @@ def run(flags, code, inputs):
             commands.ctx.og_input_list = new_inputs.copy()
             commands.ctx.other_il = new_inputs.copy()
             print(line, "--> ", end="")
-            interpreter.run(code, context=0, iteration_index=0)
+            interpreter.run(code, context=None, iteration_index=0)
             process_output_flags(new_flags)
         return None
 
@@ -210,7 +210,7 @@ def run(flags, code, inputs):
             commands.ctx.other_il = new_inputs.copy()
             commands.ctx.stack = commands.Stack()
             print(line, "--> ", end="")
-            interpreter.run(code, context=0, iteration_index=0)
+            interpreter.run(code, context=None, iteration_index=0)
             process_output_flags(new_flags, False)
             actual_output = next(commands.ctx.stack.rmv(1))
             print(actual_output, end="\t")
@@ -223,5 +223,5 @@ def run(flags, code, inputs):
     inputs = process_input_flags(flags, inputs)
     commands.ctx.og_input_list = inputs.copy()
     commands.ctx.other_il = inputs.copy()
-    interpreter.run(code, context=0, iteration_index=0)
+    interpreter.run(code, context=None, iteration_index=0)
     process_output_flags(flags)
