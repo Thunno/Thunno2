@@ -669,25 +669,25 @@ def run(code, *, context=None, iteration_index=None):
             i = 0
             while True:
                 old_stack = Stack(copy.deepcopy(list(ctx.stack).copy()))
-                run(cond, context=0, iteration_index=i)
+                run(cond, context=context, iteration_index=i)
                 z = next(ctx.stack.rmv(1))
                 ctx.stack = Stack(copy.deepcopy(old_stack))
                 if not z:
                     break
-                run(body, context=0, iteration_index=i)
+                run(body, context=context, iteration_index=i)
                 i += 1
         elif desc == "forever loop":
             i = 0
             while True:
-                run(info, context=0, iteration_index=i)
+                run(info, context=context, iteration_index=i)
                 i += 1
         elif desc == "if statement":
             if_true, if_false = info
             a = next(ctx.stack.rmv(1))
             if a:
-                run(if_true, context=0, iteration_index=1)
+                run(if_true, context=context, iteration_index=1)
             else:
-                run(if_false, context=0, iteration_index=0)
+                run(if_false, context=context, iteration_index=0)
         elif desc == "execute without popping":
             if info != Void:
                 values = info(pop=False)
@@ -816,7 +816,7 @@ def test(cod, inp=(), stk=(), warn=True):
     ctx.other_il = list(inp)
     ctx.warnings = warn
     tokenised = tokenise(cod)[1]
-    run(tokenised, context=0, iteration_index=0)
+    run(tokenised, context=None, iteration_index=0)
     print(ctx.stack)
     if ctx.implicit_print:
         print(ctx.stack[0])
