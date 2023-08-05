@@ -143,7 +143,7 @@ def tokenise(code, expected_end=""):
                 y = char + x
                 if y == "µµ":
                     i, r = tokenise(code[index + 1 :], expected_end=";")
-                    index += i
+                    index += i + 1
                     ret.append((y, "recursive environment", r))
                 elif y == "µ£":
                     ret.append((y, "print each", 0))
@@ -175,7 +175,7 @@ def tokenise(code, expected_end=""):
                     )
                 elif y == "µʋ":
                     i, r = tokenise(code[index + 1 :], expected_end=";")
-                    index += i
+                    index += i + 1
                     ret.append((y, "right reduce by", r))
                 elif y == "µ€":
                     index += 1
@@ -193,7 +193,7 @@ def tokenise(code, expected_end=""):
                     ret.append((y, "reverse stack", 0))
                 elif y == "µÑ":
                     i, r = tokenise(code[index + 1 :], expected_end=";")
-                    index += i
+                    index += i + 1
                     ret.append((y, "adjacent group by", r))
                 elif y == "µñ":
                     index += 1
@@ -571,23 +571,23 @@ def tokenise(code, expected_end=""):
             ret.append((char, "print without popping", 0))
         elif char == "ı":
             i, r = tokenise(code[index + 1 :], expected_end=";")
-            index += i
+            index += i + 1
             ret.append((char, "map", r))
         elif char == "æ":
             i, r = tokenise(code[index + 1 :], expected_end=";")
-            index += i
+            index += i + 1
             ret.append((char, "filter", r))
         elif char == "Þ":
             i, r = tokenise(code[index + 1 :], expected_end=";")
-            index += i
+            index += i + 1
             ret.append((char, "sort by", r))
         elif char == "Ñ":
             i, r = tokenise(code[index + 1 :], expected_end=";")
-            index += i
+            index += i + 1
             ret.append((char, "group by", r))
         elif char == "¥":
             i, r = tokenise(code[index + 1 :], expected_end=";")
-            index += i
+            index += i + 1
             ret.append((char, "fixed point", r))
         elif char == "Ƙ":
             i, r = tokenise(code[index + 1 :], expected_end=";")
@@ -595,11 +595,11 @@ def tokenise(code, expected_end=""):
             ret.append((char, "first n integers", r))
         elif char == "Ʋ":
             i, r = tokenise(code[index + 1 :], expected_end=";")
-            index += i
+            index += i + 1
             ret.append((char, "cumulative reduce by", r))
         elif char == "{":
             i, r = tokenise(code[index + 1 :], expected_end="}")
-            index += i
+            index += i + 1
             ret.append((char, "for loop", r))
         elif char == "(":
             i, r1 = tokenise(code[index + 1 :], expected_end=";)")
@@ -614,7 +614,7 @@ def tokenise(code, expected_end=""):
             ret.append((char, "while loop", (r1, r2)))
         elif char == "⁽":
             i, r = tokenise(code[index + 1 :], expected_end="⁾")
-            index += i
+            index += i + 1
             ret.append((char, "forever loop", r))
         elif char == "?":
             i, r1 = tokenise(code[index + 1 :], expected_end=":;")
