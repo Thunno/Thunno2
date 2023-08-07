@@ -2,7 +2,7 @@ from thunno2.tokens import *
 from thunno2.lexer import *
 
 
-def auto_explain(code, indent=0, comment_indent=0, tkn=True, post_indent=0):
+def recurse(code, indent=0, comment_indent=0, tkn=True, post_indent=0):
     if tkn:
         _, lexed = tokenise(code)
     else:
@@ -33,7 +33,7 @@ def auto_explain(code, indent=0, comment_indent=0, tkn=True, post_indent=0):
                 + post_indent * " "
                 + "  # "
                 + " " * comment_indent
-                + info
+                + info.title()
                 + ":\n"
                 + " " * (index + indent + len(chars) - i)
                 + chars[-i:]
@@ -42,7 +42,7 @@ def auto_explain(code, indent=0, comment_indent=0, tkn=True, post_indent=0):
                 + "  #  "
                 + " " * comment_indent
             )
-            ret += other.keywords[0] + "\n"
+            ret += other.keywords[0].title() + "\n"
         else:
             ret += (
                 " " * (index + indent)
@@ -54,13 +54,13 @@ def auto_explain(code, indent=0, comment_indent=0, tkn=True, post_indent=0):
             )
             if isinstance(other, list):
                 ret += info + ":\n"
-                ret += auto_explain(
+                ret += recurse(
                     code[index + 1 :], index + indent + 1, comment_indent + 1
                 )
             elif info == "if statement":
                 t, f = other
                 ret += info + ":\n"
-                ret += auto_explain(
+                ret += recurse(
                     t,
                     index + indent + 1,
                     comment_indent + 1,
@@ -78,7 +78,7 @@ def auto_explain(code, indent=0, comment_indent=0, tkn=True, post_indent=0):
                         + " " * comment_indent
                         + "else:\n"
                     )
-                    ret += auto_explain(
+                    ret += recurse(
                         f,
                         index + indent + 1,
                         comment_indent + 1,
@@ -87,10 +87,10 @@ def auto_explain(code, indent=0, comment_indent=0, tkn=True, post_indent=0):
                     )
                     index += len("".join(x[0] for x in f)) + 1
             elif info not in ("command", "digraph"):
-                ret += info + "\n"
+                ret += info.title() + "\n"
             else:
                 ret += (
-                    dict([(j, i) for i, j in full_list[::-1]])[chars].replace("_", " ")
+                    dict([(j, i) for i, j in full_list[::-1]])[chars].replace("_", " ").title()
                     + "\n"
                 )
         index += len(chars)
