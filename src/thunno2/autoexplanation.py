@@ -2,7 +2,7 @@ from thunno2.tokens import *
 from thunno2.lexer import *
 
 
-def recurse(code, indent=0, comment_indent=0, tkn=True, post_indent=0):
+def auto_explain(code, indent=0, comment_indent=0, tkn=True, post_indent=0):
     if tkn:
         _, lexed = tokenise(code)
     else:
@@ -54,13 +54,13 @@ def recurse(code, indent=0, comment_indent=0, tkn=True, post_indent=0):
             )
             if isinstance(other, list):
                 ret += info + ":\n"
-                ret += recurse(
+                ret += auto_explain(
                     code[index + 1 :], index + indent + 1, comment_indent + 1
                 )
             elif info == "if statement":
                 t, f = other
                 ret += info + ":\n"
-                ret += recurse(
+                ret += auto_explain(
                     t,
                     index + indent + 1,
                     comment_indent + 1,
@@ -78,7 +78,7 @@ def recurse(code, indent=0, comment_indent=0, tkn=True, post_indent=0):
                         + " " * comment_indent
                         + "else:\n"
                     )
-                    ret += recurse(
+                    ret += auto_explain(
                         f,
                         index + indent + 1,
                         comment_indent + 1,
