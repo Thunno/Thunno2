@@ -90,7 +90,9 @@ def recurse(code, indent=0, comment_indent=0, tkn=True, post_indent=0):
                 ret += info.title() + "\n"
             else:
                 ret += (
-                    dict([(j, i) for i, j in full_list[::-1]])[chars].replace("_", " ").title()
+                    dict([(j, i) for i, j in full_list[::-1]])[chars]
+                    .replace("_", " ")
+                    .title()
                     + "\n"
                 )
         index += len(chars)
