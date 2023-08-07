@@ -546,7 +546,6 @@ def run(code, *, context=None, iteration_index=None):
             old_stack = Stack(copy.deepcopy(list(ctx.stack).copy()))
             i = 0
             while True:
-                ctx.stack = Stack(copy.deepcopy(old_stack))
                 run(info, context=r[-1], iteration_index=i)
                 k = (ctx.stack + ctx.other_il + [0])[0]
                 r.append(k)
