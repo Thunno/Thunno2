@@ -1,5 +1,6 @@
 from thunno2.tokens import *
 from thunno2.lexer import *
+from thunno2.helpers import sentence_case
 
 
 def auto_explain(code, indent=0, comment_indent=0, tkn=True, post_indent=0):
@@ -33,7 +34,7 @@ def auto_explain(code, indent=0, comment_indent=0, tkn=True, post_indent=0):
                 + post_indent * " "
                 + "  # "
                 + " " * comment_indent
-                + info.title()
+                + sentence_case(info)
                 + ":\n"
                 + " " * (index + indent + len(chars) - i)
                 + chars[-i:]
@@ -42,7 +43,7 @@ def auto_explain(code, indent=0, comment_indent=0, tkn=True, post_indent=0):
                 + "  #  "
                 + " " * comment_indent
             )
-            ret += other.keywords[0].title() + "\n"
+            ret += sentence_case(other.keywords[0]) + "\n"
         else:
             ret += (
                 " " * (index + indent)
@@ -53,13 +54,13 @@ def auto_explain(code, indent=0, comment_indent=0, tkn=True, post_indent=0):
                 + " " * comment_indent
             )
             if isinstance(other, list):
-                ret += info + ":\n"
+                ret += sentence_case(info) + ":\n"
                 ret += auto_explain(
                     code[index + 1 :], index + indent + 1, comment_indent + 1
                 )
             elif info == "if statement":
                 t, f = other
-                ret += info + ":\n"
+                ret += sentence_case(info) + ":\n"
                 ret += auto_explain(
                     t,
                     index + indent + 1,
@@ -76,7 +77,7 @@ def auto_explain(code, indent=0, comment_indent=0, tkn=True, post_indent=0):
                         + post_indent * " "
                         + "  # "
                         + " " * comment_indent
-                        + "else:\n"
+                        + "Else:\n"
                     )
                     ret += auto_explain(
                         f,
@@ -87,13 +88,12 @@ def auto_explain(code, indent=0, comment_indent=0, tkn=True, post_indent=0):
                     )
                     index += len("".join(x[0] for x in f)) + 1
             elif info not in ("command", "digraph"):
-                ret += info.title() + "\n"
+                ret += sentence_case(info) + "\n"
             else:
                 ret += (
-                    dict([(j, i) for i, j in full_list[::-1]])[chars]
-                    .replace("_", " ")
-                    .title()
-                    + "\n"
+                        sentence_case(dict([(j, i) for i, j in full_list[::-1]])[chars]
+                                      .replace("_", " "))
+                        + "\n"
                 )
         index += len(chars)
     return ret
