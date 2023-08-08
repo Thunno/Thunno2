@@ -91,9 +91,12 @@ def auto_explain(code, indent=0, comment_indent=0, tkn=True, post_indent=0):
                 ret += sentence_case(info) + "\n"
             else:
                 ret += (
-                        sentence_case(dict([(j, i) for i, j in full_list[::-1]])[chars]
-                                      .replace("_", " "))
-                        + "\n"
+                    sentence_case(
+                        dict([(j, i) for i, j in full_list[::-1]])[chars].replace(
+                            "_", " "
+                        )
+                    )
+                    + "\n"
                 )
         index += len(chars)
     return ret
