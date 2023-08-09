@@ -694,10 +694,10 @@ def run(code, *, context=None, iteration_index=None):
                     ctx.stack.push(value)
         elif desc == "pair apply":
             a = next(ctx.stack.rmv(1))
+            ctx.stack.push(a)
             old_stack = Stack(copy.deepcopy(list(ctx.stack).copy()))
             r = []
             f1, f2 = info
-            ctx.stack.push(a)
             k = f1()
             if k:
                 r.append(k[-1])
