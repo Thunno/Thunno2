@@ -10,7 +10,7 @@ A concise golfing language
 
 ## Links
 
-Thunno 2 is on [Attempt This Online!](https://ato.pxeger.com/run?1=m728JKM0Ly_faMGCpaUlaboWC5YUJyUXwzhQGgA), an online sandbox environment for running code in hundreds of different programming languages.
+Thunno 2 has its own [online interpreter](https://Not-Thonnu.github.io/run), where you can try Thunno 2 online. Thunno 2 is also on [Attempt This Online!](https://ato.pxeger.com/run?1=m728JKM0Ly_faMGCpaUlaboWC5YUJyUXwzhQGgA), an online sandbox environment for running code in hundreds of different programming languages.
 
 If you have any questions about Thunno 2, feel free to ping me (`@TheThonnu`) in the [Thunno 2 chatroom](https://chat.stackexchange.com/rooms/145278/thunno-2).
 
