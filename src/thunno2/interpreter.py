@@ -223,9 +223,12 @@ def run(code, *, context=None, iteration_index=None):
                 dictionary.dictionary_decompress_string(info[:2]).title()
                 + dictionary.dictionary_decompress_string(info[2:]).title()
             )
-        elif desc == "compressed number" or desc == "small compressed number":
+        elif desc == "compressed number":
             base255_number = decompress(info, "»")
             ctx.stack.push(base255_number)
+        elif desc == "small compressed number":
+            base256_number = decompress(info)
+            ctx.stack.push(base256_number)
         elif desc == "compressed list":
             base255_number = decompress(info, "¿")
             decompressed_string = to_custom_base_string("0123456789-.,", base255_number)

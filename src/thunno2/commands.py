@@ -957,6 +957,7 @@ commands = {
         {
             (Any[0], Number[0], Iterable[0]): assign,
             (Any[0], Iterable[0], Number[0]): swapped_assign,
+            (list, list, Iterable[0]): zipped_assign,
             (Any[0], list, Iterable[0]): vectorised_assign,
             (Any[0], str, Iterable[0]): length_assign,
             (Any[0], Number[0], Number[0]): num_assign,
