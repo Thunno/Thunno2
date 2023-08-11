@@ -203,6 +203,18 @@ def tokenise(code, expected_end=""):
                         cmd += code[index]
                     func = get_a_function(cmd)
                     ret.append((y + cmd, "single function adjacent group by", func))
+                elif y == "µı":
+                    i, r = tokenise(code[index + 1:], expected_end=";")
+                    index += i + 1
+                    ret.append((char, "nmap", r))
+                elif y == "µ²":
+                    i, r = tokenise(code[index + 1:], expected_end=";")
+                    index += i + 1
+                    ret.append((char, "2map", r))
+                elif y == "µ³":
+                    i, r = tokenise(code[index + 1:], expected_end=";")
+                    index += i + 1
+                    ret.append((char, "3map", r))
                 else:
                     ret.append((y, "digraph", get_a_function(y)))
             except:

@@ -2704,7 +2704,7 @@ Right cumulative reduce (scanr) the elements of `a` by the next command.
 
 Tokens: `right_reduce_by`
 
-Usage: `Ʋ CODE ;`. Right reduce (foldr) `a` by `CODE`
+Usage: `µƲ CODE ;`. Right reduce (foldr) `a` by `CODE`
 
 ***
 
@@ -2744,10 +2744,38 @@ Reverse the stack.
 
 Tokens: `adjacent_group_by`
 
+Usage: `µÑ CODE ;`. Group adjacent items of `a` by the results of `CODE`.
+
 ***
 
 # `µñ` (Single function adjacent group by)
 
 Tokens: `single_function_adjacent_group_by`
+
+Group adjacent items of `a` by the next command.
+
+***
+
+# `µı` (N-map)
+
+Tokens: `nmap`
+
+Usage: `µı CODE ;`. Map `CODE` over the next `a` items on the stack.
+
+***
+
+# `µ²` (2-map)
+
+Tokens: `2map`
+
+Usage: `µ² CODE ;`. Map `CODE` over `a` and `b`.
+
+***
+
+# `µ³` (3-map)
+
+Tokens: `3map`
+
+Usage: `µ³ CODE ;`. Map `CODE` over `a`, `b`, and `c`.
 
 ***
