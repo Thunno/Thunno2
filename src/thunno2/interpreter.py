@@ -805,6 +805,44 @@ def run(code, *, context=None, iteration_index=None):
                     ctx.stack.push(d)
                 except:
                     ctx.stack.push(x)
+        elif desc == "nmap":
+            a = next(ctx.stack.rmv(1))
+            try:
+                a = abs(int(a)) or 1
+            except:
+                a = len(a)
+            x = [listify(next(ctx.stack.rmv(1))) for _ in range(a)]
+            r = []
+            old_stack = Stack(copy.deepcopy(list(ctx.stack).copy()))
+            for i, l in enumerate(zip(*x)):
+                ctx.stack = Stack([*l] + copy.deepcopy(old_stack))
+                run(info, context=[*l], iteration_index=i)
+                r.append(next(ctx.stack.rmv(1)))
+            ctx.stack = Stack(copy.deepcopy(list(old_stack).copy()))
+            ctx.stack.push(r)
+        elif desc == "2map":
+            a = listify(next(ctx.stack.rmv(1)))
+            b = listify(next(ctx.stack.rmv(1)))
+            r = []
+            old_stack = Stack(copy.deepcopy(list(ctx.stack).copy()))
+            for i, (x, y) in enumerate(zip(a, b)):
+                ctx.stack = Stack([x, y] + copy.deepcopy(old_stack))
+                run(info, context=[x, y], iteration_index=i)
+                r.append(next(ctx.stack.rmv(1)))
+            ctx.stack = Stack(copy.deepcopy(list(old_stack).copy()))
+            ctx.stack.push(r)
+        elif desc == "3map":
+            a = listify(next(ctx.stack.rmv(1)))
+            b = listify(next(ctx.stack.rmv(1)))
+            c = listify(next(ctx.stack.rmv(1)))
+            r = []
+            old_stack = Stack(copy.deepcopy(list(ctx.stack).copy()))
+            for i, (x, y, z) in enumerate(zip(a, b, c)):
+                ctx.stack = Stack([x, y, z] + copy.deepcopy(old_stack))
+                run(info, context=[x, y, z], iteration_index=i)
+                r.append(next(ctx.stack.rmv(1)))
+            ctx.stack = Stack(copy.deepcopy(list(old_stack).copy()))
+            ctx.stack.push(r)
         else:
             if ctx.warnings:
                 print("TRACEBACK: [UNRECOGNISED TOKEN]", file=sys.stderr)

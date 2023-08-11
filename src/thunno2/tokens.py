@@ -126,6 +126,9 @@ other_tokens = {
     "µ!": ("reverse_stack",),
     "µÑ": ("adjacent_group_by",),
     "µñ": ("single_function_adjacent_group_by",),
+    "µı": ("nmap",),
+    "µ²": ("2map",),
+    "µ³": ("3map",),
 }
 
 
