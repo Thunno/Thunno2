@@ -279,10 +279,14 @@ def from_list_of_digits_2(num, base):
     return r
 
 
-def decompress(s, char):
-    ci = codepage.CODEPAGE.index(char)
-    indices = [i - (i > ci) for i in codepage.codepage_index(*s)]
-    return from_list_of_digits_2(indices, 255)
+def decompress(s, char=None):
+    if char is not None:
+        ci = codepage.CODEPAGE.index(char)
+        indices = [i - (i > ci) for i in codepage.codepage_index(*s)]
+        return from_list_of_digits_2(indices, 255)
+    else:
+        indices = [*codepage.codepage_index(*s)]
+        return from_list_of_digits_2(indices, 256)
 
 
 def chr2(num):
@@ -1444,6 +1448,15 @@ def vectorised_assign(c, b, a):
             a = length_assign(c, i, a)
         else:
             a = assign(c, i, a)
+    return a
+
+
+def zipped_assign(c, b, a):
+    for i, j in zip(c, b):
+        if isinstance(j, (int, float)):
+            a = assign(i, j, a)
+        elif isinstance(i, (int, float)):
+            a = assign(j, i, a)
     return a
 
 
