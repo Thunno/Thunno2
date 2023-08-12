@@ -710,6 +710,22 @@ def run(code, *, context=None, iteration_index=None):
                 r.append(k[-1])
             ctx.stack = Stack(copy.deepcopy(old_stack))
             ctx.stack.push(r)
+        elif desc == "pair apply dump":
+            a = next(ctx.stack.rmv(1))
+            ctx.stack.push(a)
+            old_stack = Stack(copy.deepcopy(list(ctx.stack).copy()))
+            r = []
+            f1, f2 = info
+            k = f1()
+            if k:
+                r.append(k[-1])
+            ctx.stack = Stack(copy.deepcopy(old_stack))
+            k = f2()
+            if k:
+                r.append(k[-1])
+            ctx.stack = Stack(copy.deepcopy(old_stack))
+            for a in r:
+                ctx.stack.push(a)
         elif desc == "recursive environment":
             a = next(ctx.stack.rmv(1))
             if isinstance(a, list):

@@ -2187,10 +2187,6 @@ assert_eq(call("ƭ", ""), "")
 
 assert_eq(call("¶"), "\n")
 
-# Ç
-
-assert_eq(call("Ç"), "|")
-
 # ¬
 
 assert_eq(call("¬", 123), 0)

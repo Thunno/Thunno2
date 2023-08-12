@@ -306,6 +306,14 @@ Apply the next two commands to `a` and push both results in a list.
 
 ***
 
+# `Ç` (Pair apply and dump)
+
+Tokens: `pair_apply_dump`
+
+Apply the next two commands to `a` and push both results separately.
+
+***
+
 # `Ð` (Triplicate)
 
 Tokens: `triplicate`
@@ -1400,14 +1408,6 @@ Tokens: `print_without_popping`
 Tokens: `newline`
 
 Push `\n` to the stack.
-
-***
-
-# `Ç` (Pipe character)
-
-Tokens: `pipe`
-
-Push `|` to the stack.
 
 ***
 
