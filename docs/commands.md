@@ -2447,7 +2447,7 @@ Tokens: `natural_log`,`natural_logarithm`
 
 Tokens: `nth_prime`
 
-* `any a`: `n`th prime number
+* `any a`: `a`th prime number
 
 ***
 
@@ -2488,6 +2488,14 @@ Tokens: `arc_cosine`,`arccos`
 Tokens: `log10`,`common_log`,`common_logarithm`
 
 * `any a`: logarithm of `a` with base 10
+
+***
+
+# `Æp` (First n prime numbers)
+
+Tokens: `first_n_primes`
+
+* `any a`: list of the first `a` prime numbers
 
 ***
 
