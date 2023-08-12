@@ -86,6 +86,7 @@ other_tokens = {
     ":": ("else_statement", "else"),
     ";": ("close_statement",),
     "ç": ("pair_apply",),
+    "Ç": ("pair_apply_dump",),
     "n": ("context_variable",),
     "ṅ": ("iteration_index",),
     "x": ("get_x",),
