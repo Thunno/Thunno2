@@ -2796,6 +2796,14 @@ def nth_prime(n):
     return i
 
 
+@try_int_conversion
+def first_n_primes(n):
+    r = []
+    for i in range(n):
+        r.append(nth_prime(i))
+    return r
+
+
 def main_diagonal(lst):
     l = [*map(_digits, lst)]
     if not l:

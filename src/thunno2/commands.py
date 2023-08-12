@@ -1587,6 +1587,7 @@ random_digraphs_1 = {
     "T": Overload(1, {Any: tangent}, 1, ("tangent", "tan")),
     "c": Overload(1, {Any: arc_cosine}, 1, ("arc_cosine", "arccos")),
     "l": Overload(1, {Any: log10}, 1, ("log10", "common_log", "common_logarithm")),
+    "p": Overload(1, {Any: first_n_primes}, 1, ("first_n_primes",)),
     "s": Overload(1, {Any: arc_sine}, 1, ("arc_sine", "arcsin")),
     "t": Overload(1, {Any: arc_tangent}, 1, ("arc_tangent", "arctan")),
     "ḷ": Overload(1, {Any: log2}, 1, ("log2", "log_base_2")),
