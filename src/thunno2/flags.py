@@ -99,6 +99,12 @@ def process_output_flags(flags, do_print=True):
         if "s" == flag:
             commands.ctx.stack.push(helpers.it_sum(commands.ctx.stack))
 
+        if "P" == flag:
+            commands.ctx.stack.push(commands.commands["p"]()[0])
+
+        if "p" == flag:
+            commands.ctx.stack.push(helpers.product(commands.ctx.stack))
+
         if "L" == flag:
             commands.ctx.stack.push(commands.commands["l"]()[0])
 

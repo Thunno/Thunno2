@@ -25,6 +25,8 @@
 | `ṡ`  | Join stack by spaces at the end                |
 | `S`  | Sum top of stack at the end                    |
 | `s`  | Sum stack at the end                           |
+| `P`  | Push product of top of stack at the end        |
+| `p`  | Push product of stack at the end               |
 | `L`  | Push length of top of stack at the end         |
 | `l`  | Push length of stack at the end                |
 | `h`  | Push first item of top of stack at the end     |
