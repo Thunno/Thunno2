@@ -2,6 +2,6 @@
 
 from thunno2.interpreter import test
 
-from thunno2.run import from_terminal
-
-from_terminal()
+# from thunno2.run import from_terminal
+#
+# from_terminal()
