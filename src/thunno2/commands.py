@@ -1576,6 +1576,10 @@ list_digraphs = {
         ("multidimensional_index",),
     ),
     "M": Overload(1, {((int, float, str),): pass_, list: shortest}, 0, ("shortest",)),
+    "v": Overload(
+        1, {Number: num_descending, Iterable: descending}, 0, ("descending",)
+    ),
+    "^": Overload(1, {Number: num_ascending, Iterable: ascending}, 0, ("ascending",)),
     ".": Overload(
         2, {(list, list): dot_product, (Any[0], Any[0]): pass_}, 0, ("dot_product",)
     ),
