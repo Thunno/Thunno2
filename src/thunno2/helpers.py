@@ -3198,3 +3198,25 @@ def perfect_fourth(a):
 @try_number_conversion
 def perfect_fifth(a):
     return perfect_nth(5, a)
+
+
+def ascending(l):
+    try:
+        return int(all(i < j for i, j in zip(l, l[1:])))
+    except:
+        return int(all(i < j for i, j in zip(map(str, l), map(str, l[1:]))))
+
+
+def num_ascending(n):
+    return ascending(_digits(n))
+
+
+def descending(l):
+    try:
+        return int(all(i > j for i, j in zip(l, l[1:])))
+    except:
+        return int(all(i > j for i, j in zip(map(str, l), map(str, l[1:]))))
+
+
+def num_descending(n):
+    return descending(_digits(n))

@@ -2341,6 +2341,22 @@ Tokens: `shortest`
 
 ***
 
+# `Øv` (Strictly descending)
+
+Tokens: `descending`
+
+* `any a`: is `a` strictly descending?
+
+***
+
+# `Ø^` (Strictly ascending)
+
+Tokens: `ascending`
+
+* `any a`: is `a` strictly ascending?
+
+***
+
 # `Ø.` (Dot product)
 
 Tokens: `dot_product`
