@@ -8,6 +8,8 @@
 | `C`  | Confirm all test cases                         |
 | `e`  | Auto-explain the code (experimental)           |
 | `c`  | Auto-fill stack with context rather than input |
+| `r`  | Use reversed arguments                         |
+| `d`  | Don't pop anything from the stack              |
 | `W`  | Take input as one multi-line string            |
 | `E`  | Don't evaluate the inputs                      |
 | `U`  | Read in code as UTF-8, not Thunno 2 encoding   |

@@ -137,19 +137,42 @@ class Stack(list):
 
     # Remove n items from the front
     def rmv(self, num, default=0):
-        for _ in range(num):
-            if list(self):
-                yield self.pop(0)
-            else:
-                if (not ctx.vyxal_mode) or ctx.context is None:
-                    if ctx.other_il:
-                        x = ctx.other_il.pop(0)
-                        ctx.other_il.append(x)
-                        yield x
-                    else:
-                        yield default
+        if not ctx.reverse:
+            for _ in range(num):
+                if list(self) and ctx.pop:
+                    if ctx.pop:
+                        yield self.pop(0)
+                elif len(self) > _ and (not ctx.pop):
+                    yield self[_]
                 else:
-                    yield ctx.context
+                    if (not ctx.vyxal_mode) or ctx.context is None:
+                        if ctx.other_il:
+                            x = ctx.other_il.pop(0)
+                            ctx.other_il.append(x)
+                            yield x
+                        else:
+                            yield default
+                    else:
+                        yield ctx.context
+        else:
+            r = []
+            for _ in range(num):
+                if list(self) and ctx.pop:
+                    if ctx.pop:
+                        r.append(self.pop(0))
+                elif len(self) > _ and (not ctx.pop):
+                    r.append(self[_])
+                else:
+                    if (not ctx.vyxal_mode) or ctx.context is None:
+                        if ctx.other_il:
+                            x = ctx.other_il.pop(0)
+                            ctx.other_il.append(x)
+                            r.append(x)
+                        else:
+                            r.append(default)
+                    else:
+                        r.append(ctx.context)
+            yield from r[::-1]
 
 
 class Context:
@@ -161,6 +184,8 @@ class Context:
         self.warnings = False
         self.context = None
         self.vyxal_mode = False
+        self.reverse = False
+        self.pop = True
 
 
 ctx = Context()

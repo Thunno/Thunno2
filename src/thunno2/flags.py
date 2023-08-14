@@ -68,6 +68,12 @@ def process_input_flags(flags, inputs):
     if "c" in flags:
         commands.ctx.vyxal_mode = True
 
+    if "r" in flags:
+        commands.ctx.reverse = True
+
+    if "d" in flags:
+        commands.ctx.pop = False
+
     return inputs
 
 
