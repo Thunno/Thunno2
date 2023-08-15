@@ -11,3 +11,4 @@ src/thunno2.egg-info/
 # Others
 .DS_Store
 *.pyc
+src/build/
