@@ -10,4 +10,4 @@ src/thunno2.egg-info/
 
 # Others
 .DS_Store
-*/__pycache__/
+*.pyc
