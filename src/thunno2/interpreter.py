@@ -576,6 +576,27 @@ def run(code, *, context=None, iteration_index=None):
                 i += 1
             ctx.stack = Stack(copy.deepcopy(list(old_stack).copy()))
             ctx.stack.push(r)
+        elif desc == "first integer":
+            a = next(ctx.stack.rmv(1))
+            try:
+                x = int(a)
+            except:
+                x = 1
+            old_stack = Stack(copy.deepcopy(list(ctx.stack).copy()))
+            i = x
+            j = 0
+            while True:
+                ctx.stack = Stack(copy.deepcopy(old_stack))
+                ctx.stack.push(i)
+                run(info, context=i, iteration_index=j)
+                k = next(ctx.stack.rmv(1))
+                if k:
+                    r = i
+                    break
+                i += sign(x) or 1
+                j += 1
+            ctx.stack = Stack(copy.deepcopy(list(old_stack).copy()))
+            ctx.stack.push(r)
         elif desc == "cumulative reduce by":
             a = next(ctx.stack.rmv(1))
             x = listify(a)
