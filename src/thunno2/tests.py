@@ -626,6 +626,24 @@ assert_eq(call("p", "abc"), 941094)
 
 assert_eq(call("p", [1, 2, "abc", 3]), 6)
 
+# q
+
+assert_eq(call("q", 3), [[1, 2, 3], [1, 3, 2], [2, 1, 3], [2, 3, 1], [3, 1, 2], [3, 2, 1]])
+assert_eq(call("q", -2.1), [[-1, -2], [-2, -1]])
+
+assert_eq(call("q", ""), [])
+assert_eq(
+    call("q", "abcd"),
+    ["abcd", "abdc", "acbd", "acdb", "adbc", "adcb", "bacd", "badc", "bcad", "bcda", "bdac", "bdca", "cabd", "cadb",
+     "cbad", "cbda", "cdab", "cdba", "dabc", "dacb", "dbac", "dbca", "dcab", "dcba"]
+)
+
+assert_eq(call("q", 0), [])
+assert_eq(
+    call("q", [123, 456, 789]),
+    [[123, 456, 789], [123, 789, 456], [456, 123, 789], [456, 789, 123], [789, 123, 456], [789, 456, 123]]
+)
+
 # r
 
 assert_eq(call("r", 1.23), 32.1)
@@ -1399,7 +1417,7 @@ assert_eq(
 )
 assert_eq(
     call("ṗ", "xyz", 2),
-    [["x", "y"], ["x", "z"], ["y", "x"], ["y", "z"], ["z", "x"], ["z", "y"]],
+    ["xy", "xz", "yx", "yz", "zx", "zy"],
 )
 assert_eq(
     call("ṗ", 10, [1, 2, 3]),

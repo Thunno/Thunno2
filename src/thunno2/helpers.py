@@ -1623,6 +1623,8 @@ def permutations1(n, x):
         n = len(x)
     if n < 1:
         n = 1
+    if isinstance(x, str):
+        return list(map("".join, itertools.permutations(x, n)))
     return list(map(list, itertools.permutations(x, n)))
 
 
@@ -1632,6 +1634,14 @@ def permutations2(x, n):
 
 def permutations3(x, y):
     return permutations1(x, one_range(y))
+
+
+def all_permutations(l):
+    return permutations1(len(l), l)
+
+
+def range_permutations(n):
+    return permutations3(abs(n), n)
 
 
 def set_difference(x, y):

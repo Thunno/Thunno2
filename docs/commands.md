@@ -793,11 +793,11 @@ Tokens: `product`,`prod`
 
 ***
 
-# `q` (Quit)
+# `q` (All permutations)
 
-Tokens: `quit`
+Tokens: `all_permutations`
 
-Terminate the program.
+* `any a`: all permutations of `a`
 
 ***
 
@@ -2627,6 +2627,14 @@ Tokens: `type`
 Tokens: `connected_uniquify`
 
 * `any a`: connected uniquify `a`
+
+***
+
+# `µq` (Quit)
+
+Tokens: `quit`
+
+Terminate the program.
 
 ***
 

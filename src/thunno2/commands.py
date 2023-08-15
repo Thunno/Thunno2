@@ -632,7 +632,12 @@ commands = {
         0,
         ("product", "prod"),
     ),
-    # q is defined in the run function
+    "q": Overload(
+        1,
+        {Number: range_permutations, Iterable: all_permutations},
+        0,
+        ("all_permutations",),
+    ),
     "r": Overload(1, {Number: digit_reverse, Iterable: reverse}, 0, ("reverse",)),
     "s": Overload(2, {(Any[0], Any[0]): swap}, 0, ("swap",)),
     "t": Overload(1, {Number: num_tail, Iterable: tail}, 0, ("tail", "last")),

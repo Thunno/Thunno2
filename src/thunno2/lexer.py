@@ -206,15 +206,17 @@ def tokenise(code, expected_end=""):
                 elif y == "µı":
                     i, r = tokenise(code[index + 1 :], expected_end=";")
                     index += i + 1
-                    ret.append((char, "nmap", r))
+                    ret.append((y, "nmap", r))
                 elif y == "µ²":
                     i, r = tokenise(code[index + 1 :], expected_end=";")
                     index += i + 1
-                    ret.append((char, "2map", r))
+                    ret.append((y, "2map", r))
                 elif y == "µ³":
                     i, r = tokenise(code[index + 1 :], expected_end=";")
                     index += i + 1
-                    ret.append((char, "3map", r))
+                    ret.append((y, "3map", r))
+                elif y == "µq":
+                    ret.append((y, "quit", 0))
                 else:
                     ret.append((y, "digraph", get_a_function(y)))
             except:
@@ -557,8 +559,6 @@ def tokenise(code, expected_end=""):
                 )
             except:
                 pass
-        elif char == "q":
-            ret.append((char, "quit", 0))
         elif char == "$":
             ret.append((char, "next input", 0))
         elif char == "¤":

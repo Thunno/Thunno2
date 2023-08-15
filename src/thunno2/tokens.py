@@ -101,7 +101,6 @@ other_tokens = {
     "ȥ": ("add_to_global_array",),
     "K": ("stack",),
     "ṇ": ("codepage_compression",),
-    "q": ("quit",),
     "$": ("next_input",),
     "¤": ("input_list",),
     "°": ("first_input",),
@@ -130,6 +129,7 @@ other_tokens = {
     "µı": ("nmap",),
     "µ²": ("2map",),
     "µ³": ("3map",),
+    "µq": ("quit",),
 }
 
 
