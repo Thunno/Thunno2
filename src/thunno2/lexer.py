@@ -218,7 +218,7 @@ def tokenise(code, expected_end=""):
                 elif y == "µq":
                     ret.append((y, "quit", 0))
                 elif y == "µƘ":
-                    i, r = tokenise(code[index + 1:], expected_end=";")
+                    i, r = tokenise(code[index + 1 :], expected_end=";")
                     index += i
                     ret.append((y, "first integer", r))
                 else:
