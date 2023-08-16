@@ -622,7 +622,7 @@ def tokenise(code, expected_end=""):
             index += i + 1
             r2 = []
             try:
-                if code[index] == ";":
+                if code[index] in (";", "}", ":"):
                     i, r2 = tokenise(code[index + 1 :], expected_end=")")
                     index += i
             except:
