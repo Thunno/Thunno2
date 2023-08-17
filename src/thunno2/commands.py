@@ -576,8 +576,10 @@ commands = {
         2,
         {
             (Number[0], Number[0]): nCr,
-            (Any, str): string_count,
-            (Any, list): list_count,
+            (Any[0], str): string_count,
+            (list, Any[0]): swapped_list_count,
+            (Any[0], list): list_count,
+            (str, Any[0]): swapped_string_count
         },
         0,
         ("ncr", "count"),
@@ -1273,8 +1275,10 @@ commands = {
         2,
         {
             (Number[0], Number[0]): nPr,
-            (Any, list): list_contains,
-            (Any, str): string_contains,
+            (Any[0], list): list_contains,
+            (list, Any[0]): swapped_list_contains,
+            (Any[0], str): string_contains,
+            (str, Any[0]): swapped_string_contains
         },
         0,
         ("npr", "contains"),
