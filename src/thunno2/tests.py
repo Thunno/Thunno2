@@ -503,7 +503,6 @@ assert_eq(call("c", 5, 10), 252)
 assert_eq(call("c", 10, 20), 184756)
 
 assert_eq(call("c", "abc", "abcbabcbabcba"), 3)
-assert_eq(call("c", [123, 321], "1232123212321"), [3, 3])
 
 assert_eq(call("c", 1, [1, 2, 3, 2, 1, 2, 3]), 2)
 assert_eq(call("c", [1, "a"], [1, "a", 1, "b", 1, "c"]), [3, 1])
@@ -1764,7 +1763,6 @@ assert_eq(call("Ƈ", 5, 10), 30240)
 assert_eq(call("Ƈ", 10, 20), 670442572800)
 
 assert_eq(call("Ƈ", "abc", "abcbabcbabcba"), 1)
-assert_eq(call("Ƈ", [123, 321, 132], "1232123212321"), [1, 1, 0])
 
 assert_eq(call("Ƈ", 1, [1, 2, 3, 2, 1, 2, 3]), 1)
 assert_eq(call("Ƈ", [1, 2, "a"], [1, "a", 1, "b", 1, "c"]), [1, 0, 1])

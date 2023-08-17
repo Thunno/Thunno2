@@ -595,6 +595,14 @@ def list_count(x, y):
     return y.count(x)
 
 
+def swapped_list_count(y, x):
+    return list_count(x, y)
+
+
+def swapped_string_count(y, x):
+    return string_count(x, y)
+
+
 def duplicate(x):
     return x, x
 
@@ -2114,6 +2122,14 @@ def list_contains(x, y):
     if isinstance(x, list):
         return [list_contains(i, y) for i in x]
     return int(x in y)
+
+
+def swapped_list_contains(y, x):
+    return list_contains(x, y)
+
+
+def swapped_string_contains(y, x):
+    return string_contains(x, y)
 
 
 def list_remove_at_index(n, l):
