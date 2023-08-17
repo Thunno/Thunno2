@@ -1691,7 +1691,7 @@ assert_eq(call("Ṭ", [123, 456, 789]), [[1, 4, 7], [2, 5, 8], [3, 6, 9]])
 
 assert_eq(
     call("Ṭ", ["abc", "defg", "hijkl"]),
-    [["a", "d", "h"], ["b", "e", "i"], ["c", "f", "j"]],
+    ["adh", "bei", "cfj"],
 )
 assert_eq(call("Ṭ", ["abc", "", "defg", "hijkl"]), [])
 

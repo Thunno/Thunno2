@@ -1979,8 +1979,14 @@ def list_wrap(s):
     return [[*s]]
 
 
+def str_transpose(l):
+    return list(map("".join, zip(*l)))
+
+
 def transpose(lst):
     l = []
+    if all(isinstance(j, str) for j in lst):
+        return str_transpose(lst)
     for i in lst:
         if isinstance(i, (list, str)):
             l.append(list(i))
