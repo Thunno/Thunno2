@@ -576,9 +576,9 @@ commands = {
         2,
         {
             (Number[0], Number[0]): nCr,
-            (Any[0], str): string_count,
-            (list, Any[0]): swapped_list_count,
             (Any[0], list): list_count,
+            (list, Any[0]): swapped_list_count,
+            (Any[0], str): string_count,
             (str, Any[0]): swapped_string_count
         },
         0,
