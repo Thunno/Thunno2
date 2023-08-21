@@ -219,8 +219,12 @@ def tokenise(code, expected_end=""):
                     ret.append((y, "quit", 0))
                 elif y == "µƘ":
                     i, r = tokenise(code[index + 1 :], expected_end=";")
-                    index += i
+                    index += i + 1
                     ret.append((y, "first integer", r))
+                elif y == "µ¥":
+                    i, r = tokenise(code[index + 1 :], expected_end=";")
+                    index += i + 1
+                    ret.append((y, "while unique", r))
                 else:
                     ret.append((y, "digraph", get_a_function(y)))
             except:

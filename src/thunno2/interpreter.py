@@ -557,6 +557,19 @@ def run(code, *, context=None, iteration_index=None):
                 i += 1
             ctx.stack = Stack(copy.deepcopy(list(old_stack).copy()))
             ctx.stack.push(r[1:])
+        elif desc == "while unique":
+            r = []
+            old_stack = Stack(copy.deepcopy(list(ctx.stack).copy()))
+            i = 0
+            while True:
+                run(info, context=([0] + r)[-1], iteration_index=i)
+                k = (ctx.stack + ctx.other_il + [0])[0]
+                if k in r:
+                    break
+                r.append(k)
+                i += 1
+            ctx.stack = Stack(copy.deepcopy(list(old_stack).copy()))
+            ctx.stack.push(r)
         elif desc == "first n integers":
             a = next(ctx.stack.rmv(1))
             try:
