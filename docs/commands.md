@@ -2678,6 +2678,12 @@ Usage: `µµ CODE ;`. Start recursive list generation, executing `CODE` to get e
 
 ***
 
+# `µ¥` (Collect while unique)
+
+Usage: `µ¥ CODE ;`. Collect the results of `CODE` while unique.
+
+***
+
 # `µ£` (Print each)
 
 * `any a`: print each item of `a`
