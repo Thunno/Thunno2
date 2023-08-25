@@ -3252,3 +3252,11 @@ def descending(l):
 
 def num_descending(n):
     return descending(_digits(n))
+
+
+def vectorised_to_binary(n):
+    if isinstance(n, (int, float)):
+        return to_binary(n)
+    elif isinstance(n, str):
+        return n
+    return [vectorised_to_binary(i) for i in n]
