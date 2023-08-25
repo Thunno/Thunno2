@@ -610,6 +610,20 @@ def run(code, *, context=None, iteration_index=None):
                 j += 1
             ctx.stack = Stack(copy.deepcopy(list(old_stack).copy()))
             ctx.stack.push(r)
+        elif desc == "first positive integer":
+            old_stack = Stack(copy.deepcopy(list(ctx.stack).copy()))
+            i = 1
+            while True:
+                ctx.stack = Stack(copy.deepcopy(old_stack))
+                ctx.stack.push(i)
+                run(info, context=i, iteration_index=i - 1)
+                k = next(ctx.stack.rmv(1))
+                if k:
+                    r = i
+                    break
+                i += 1
+            ctx.stack = Stack(copy.deepcopy(list(old_stack).copy()))
+            ctx.stack.push(r)
         elif desc == "cumulative reduce by":
             a = next(ctx.stack.rmv(1))
             x = listify(a)
