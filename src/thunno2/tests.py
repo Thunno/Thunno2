@@ -3502,8 +3502,10 @@ untested_commands = sorted(
 if untested_commands:
     print(f'\u001b[33mUntested commands: {", ".join(untested_commands)}')
 
-print(f"\u001b[32mPassed {tests_counter} tests on {len({*tested_commands})} commands "
-      f"in {int((time.time() - start) * 1000)}ms.")
+print(
+    f"\u001b[32mPassed {tests_counter} tests on {len({*tested_commands})} commands "
+    f"in {int((time.time() - start) * 1000)}ms."
+)
 
 avg_tests = tests_counter / len({*tested_commands})
 if avg_tests < 4:
