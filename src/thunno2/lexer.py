@@ -221,6 +221,10 @@ def tokenise(code, expected_end=""):
                     i, r = tokenise(code[index + 1 :], expected_end=";")
                     index += i + 1
                     ret.append((y, "first integer", r))
+                elif y == "µK":
+                    i, r = tokenise(code[index + 1 :], expected_end=";")
+                    index += i + 1
+                    ret.append((y, "first n integers", r))
                 elif y == "µ¥":
                     i, r = tokenise(code[index + 1 :], expected_end=";")
                     index += i + 1
@@ -612,7 +616,7 @@ def tokenise(code, expected_end=""):
         elif char == "Ƙ":
             i, r = tokenise(code[index + 1 :], expected_end=";")
             index += i
-            ret.append((char, "first n integers", r))
+            ret.append((char, "first positive integer", r))
         elif char == "Ʋ":
             i, r = tokenise(code[index + 1 :], expected_end=";")
             index += i + 1
