@@ -17,6 +17,7 @@
 | `T`  | Preset top of stack to `10`                    |
 | `H`  | Preset top of stack to `100`                   |
 | `B`  | Convert strings to byte arrays                 |
+| `ḃ`  | Convert integers to binary                     |
 | `+`  | Increment all input numbers by one             |
 | `-`  | Decrement all input numbers by one             |
 | `J`  | Join top of stack by nothing at the end        |

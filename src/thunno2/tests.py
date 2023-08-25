@@ -125,6 +125,10 @@ express Statement of Purpose.
     this CC0 or use of the Work.
 """
 
+import time
+
+start = time.time()
+
 tests_counter = 0
 tested_commands = []
 
@@ -3498,7 +3502,10 @@ untested_commands = sorted(
 if untested_commands:
     print(f'\u001b[33mUntested commands: {", ".join(untested_commands)}')
 
-print(f"\u001b[32mPassed {tests_counter} tests on {len({*tested_commands})} commands.")
+print(
+    f"\u001b[32mPassed {tests_counter} tests on {len({*tested_commands})} commands "
+    f"in {int((time.time() - start) * 1000)}ms."
+)
 
 avg_tests = tests_counter / len({*tested_commands})
 if avg_tests < 4:

@@ -47,6 +47,9 @@ def process_input_flags(flags, inputs):
                 new_input.append(inp)
         inputs = new_input[:]
 
+    if "ḃ" in flags:
+        inputs = [helpers.vectorised_to_binary(inp) for inp in inputs]
+
     if "+" in flags:
         new_input = []
         for inp in inputs:
@@ -133,6 +136,9 @@ def process_output_flags(flags, do_print=True):
                     except:
                         pass
                 commands.ctx.stack.push(r)
+
+        if "ḃ" in flags:
+            commands.ctx.stack.push(commands.commands["Ḃ"]()[0])
 
         if "G" == flag:
             commands.ctx.stack.push(commands.commands["G"]()[0])
