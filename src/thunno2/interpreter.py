@@ -216,6 +216,62 @@ def run(code, *, context=None, iteration_index=None):
                     lst.append(c)
                 i += 1
             ctx.stack.push("".join(lst))
+        elif desc == "space autofill lowercase dictionary compression":
+            lst = []
+            i = 0
+            while i < len(info):
+                c = info[i]
+                if c in dictionary.dictionary_codepage:
+                    try:
+                        i += 1
+                        lst.append(dictionary.dictionary_decompress_string(c + info[i]))
+                    except:
+                        pass
+                elif c == "\\":
+                    try:
+                        i += 1
+                        if lst:
+                            lst[-1] += info[i]
+                        else:
+                            lst.append(info[i])
+                    except:
+                        lst.append("\\")
+                else:
+                    if lst:
+                        lst[-1] += c
+                    else:
+                        lst.append(c)
+                i += 1
+            ctx.stack.push(" ".join(lst))
+        elif desc == "space autofill title case dictionary compression":
+            lst = []
+            i = 0
+            while i < len(info):
+                c = info[i]
+                if c in dictionary.dictionary_codepage:
+                    try:
+                        i += 1
+                        lst.append(
+                            dictionary.dictionary_decompress_string(c + info[i]).title()
+                        )
+                    except:
+                        pass
+                elif c == "\\":
+                    try:
+                        i += 1
+                        if lst:
+                            lst[-1] += info[i]
+                        else:
+                            lst.append(info[i])
+                    except:
+                        lst.append("\\")
+                else:
+                    if lst:
+                        lst[-1] += c
+                    else:
+                        lst.append(c)
+                i += 1
+            ctx.stack.push(" ".join(lst))
         elif desc == "one word dictionary compression":
             ctx.stack.push(dictionary.dictionary_decompress_string(info).title())
         elif desc == "two words dictionary compression":

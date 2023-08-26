@@ -229,6 +229,38 @@ def tokenise(code, expected_end=""):
                     i, r = tokenise(code[index + 1 :], expected_end=";")
                     index += i + 1
                     ret.append((y, "while unique", r))
+                elif y == "µ‘":
+                    compressed_string = ""
+                    index += 1
+                    try:
+                        while code[index] != "‘":
+                            compressed_string += code[index]
+                            index += 1
+                    except:
+                        pass
+                    ret.append(
+                        (
+                            y + compressed_string + "‘",
+                            "space autofill lowercase dictionary compression",
+                            compressed_string,
+                        )
+                    )
+                elif y == "µ’":
+                    compressed_string = ""
+                    index += 1
+                    try:
+                        while code[index] != "’":
+                            compressed_string += code[index]
+                            index += 1
+                    except:
+                        pass
+                    ret.append(
+                        (
+                            y + compressed_string + "’",
+                            "space autofill title case dictionary compression",
+                            compressed_string,
+                        )
+                    )
                 else:
                     ret.append((y, "digraph", get_a_function(y)))
             except:
