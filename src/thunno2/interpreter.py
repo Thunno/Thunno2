@@ -251,7 +251,9 @@ def run(code, *, context=None, iteration_index=None):
                 if c in dictionary.dictionary_codepage:
                     try:
                         i += 1
-                        lst.append(dictionary.dictionary_decompress_string(c + info[i]).title())
+                        lst.append(
+                            dictionary.dictionary_decompress_string(c + info[i]).title()
+                        )
                     except:
                         pass
                 elif c == "\\":
