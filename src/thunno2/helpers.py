@@ -1,6 +1,5 @@
 """An unordered, chaotic mess of helper functions"""
 
-
 import copy
 import itertools
 import math

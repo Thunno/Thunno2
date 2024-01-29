@@ -32140,9 +32140,11 @@ def optimal_dictionary_compression(s):
         for x in helpers.all_slices(word):
             compressions.append(
                 "".join(
-                    dictionary_compress_word(w)
-                    if dictionary_compress_word(w) != -1
-                    else w
+                    (
+                        dictionary_compress_word(w)
+                        if dictionary_compress_word(w) != -1
+                        else w
+                    )
                     for w in x
                 )
                 + backslashify(other_stuff)
