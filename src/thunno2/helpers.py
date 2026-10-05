@@ -10,7 +10,6 @@ import string
 from thunno2 import codepage
 from thunno2 import canvas
 
-
 """Creative Commons Legal Code
 
 CC0 1.0 Universal
